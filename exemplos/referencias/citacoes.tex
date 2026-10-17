@@ -1,0 +1,31 @@
+% Exemplo: comandos de citação no estilo autor-data (NBR 10520) com o biblatex-abnt.
+% Compilar: latexmk -pdf citacoes.tex           Testado com: abntex2, biblatex-abnt, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields, justify, noslsn]{biblatex}
+\usepackage{xurl}
+\addbibresource{catalogo.bib}
+\input{ajustes-abnt}
+
+\begin{document}
+
+%%BEGIN:citacoes
+\noindent Um autor \cite{ex-livro}; com página \cite[p.~35]{ex-livro}; várias obras
+\cite{ex-livro,ex-artigo}; três autores \cite{ex-livro-3}; quatro ou mais autores
+\cite{ex-livro-4}.
+
+\noindent No fluxo da frase: \textcite{ex-livro} afirma; \textcite[p.~35]{ex-livro-3} defende.
+
+\noindent Autor institucional \cite{ex-entidade}; norma \cite{ex-norma}; obra sem autoria
+\cite{ex-sem-autor}, com título curto \cite{ex-sem-autor-artigo}.
+
+\noindent Mesmo autor e ano (letras a, b) \cite{ex-reeside-a,ex-reeside-b}.
+
+\noindent Citação de citação: \textapud{ex-livro}{ex-livro-3}.
+%%END:citacoes
+
+\printbibliography
+
+\end{document}

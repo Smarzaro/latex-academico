@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Conferir os links entre os arquivos Markdown
+        run: sh scripts/check-links.sh
+
       - name: Compilar exemplos e testes
         uses: xu-cheng/texlive-action@v2
         with:

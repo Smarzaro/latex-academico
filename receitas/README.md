@@ -3,12 +3,12 @@
 | Tema | Estado | Conteúdo |
 |---|---|---|
 | [Tabelas e quadros](tabelas/) | disponível | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro |
+| [Figuras e gráficos](figuras/) | disponível | `includegraphics`, subfiguras, diagramas com TikZ, gráficos com PGFPlots |
 | [Código-fonte](codigo/) | disponível | `listings`, estilos, linguagens e acentos, preto e branco, `minted` |
-| Figuras e diagramas | em preparação | `includegraphics`, subfiguras, legendas e fonte, TikZ, PGFPlots |
-| Referências e citações | em preparação | catálogo de entradas do `biblatex-abnt` (livro, artigo, tese, norma, legislação, site), citações diretas e indiretas |
-| Siglas e glossário | em preparação | `acro`, lista de siglas e de abreviaturas, glossário |
-| Cronograma | em preparação | quadro com marcas, células sombreadas, diagrama de Gantt, PERT/CPM |
-| Escrita acadêmica | em preparação | dicas de metodologia científica por seção do trabalho |
+| [Referências e citações](referencias/) | disponível | catálogo de entradas do `biblatex-abnt` (livro, trabalho acadêmico, artigo, norma, legislação, site, software), citações no texto |
+| [Siglas, abreviaturas e glossário](siglas-glossario/) | disponível | `acro`, lista de siglas, lista de abreviaturas, glossário |
+| [Cronograma](cronograma/) | disponível | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
+| [Escrita acadêmica](escrita/) | disponível | o que escrever em cada seção: introdução, objetivos, referencial, metodologia, resultados, conclusão |
 
 ## Formato de uma receita
 

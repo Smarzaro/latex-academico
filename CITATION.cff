@@ -13,7 +13,7 @@ authors:
     email: smarzaro@ufv.br
     affiliation: "Universidade Federal de Viçosa, Campus Rio Paranaíba"
     orcid: "https://orcid.org/0000-0002-4783-8383"
-version: "0.1.0"
+version: "0.2.0"
 date-released: "2026-10-17"
 license: CC-BY-4.0
 repository-code: "https://github.com/Smarzaro/latex-academico"

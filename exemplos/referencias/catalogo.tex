@@ -1,0 +1,18 @@
+% Exemplo: catálogo de entradas do biblatex-abnt. Imprime todas as entradas de catalogo.bib em uma
+% lista de referências, para conferir o resultado de cada tipo de documento.
+% Compilar: latexmk -pdf catalogo.tex           Testado com: abntex2, biblatex-abnt, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields, justify, noslsn]{biblatex}
+\usepackage{xurl}
+\addbibresource{catalogo.bib}
+\input{ajustes-abnt}                  % ajustes finos (receita 02)
+
+\begin{document}
+
+\nocite{*}                            % todas as entradas, citadas ou não (só para este catálogo)
+\printbibliography
+
+\end{document}

@@ -1,0 +1,35 @@
+% Exemplo: glossário pós-textual simples (termos técnicos com definições, em ordem alfabética)
+% Compilar: latexmk -pdf glossario-manual.tex     Testado com: abntex2, TeX Live 2024 ou mais recente
+% Para glossários grandes, com remissões e referências cruzadas, veja o pacote glossaries-extra.
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+
+%%BEGIN:glossariodef
+% Ambiente "glossario": título em maiúsculas (entra no sumário) e um parágrafo por termo
+\newcommand{\termo}[2]{\par\noindent\textbf{#1:} #2\par\medskip}
+\newenvironment{glossario}{%
+  \pretextualchapter{\MakeUppercase{Glossário}}%
+  \addcontentsline{toc}{chapter}{\MakeUppercase{Glossário}}%
+  \begingroup\SingleSpacing}{\endgroup}
+%%END:glossariodef
+
+\begin{document}
+
+\tableofcontents*
+
+\textual
+\chapter{Introdução}
+
+Texto do trabalho.
+
+\postextual
+
+%%BEGIN:glossariouso
+\begin{glossario}
+  \termo{API}{Conjunto de definições e protocolos que permite a comunicação entre sistemas.}
+  \termo{Framework}{Estrutura reutilizável de software que oferece funcionalidades genéricas.}
+  \termo{SGBD}{Sistema que gerencia a criação, o acesso e a manutenção de bancos de dados.}
+\end{glossario}
+%%END:glossariouso
+
+\end{document}

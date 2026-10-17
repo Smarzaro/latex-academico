@@ -1,0 +1,51 @@
+% Exemplo: cronograma como quadro, com células sombreadas (colortbl), que imprime bem em preto e branco
+% Compilar: latexmk -pdf cronograma-sombreado.tex Testado com: abntex2, xcolor, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}            % cores como black!35 e \cellcolor (carrega o colortbl)
+
+%%BEGIN:quadropreambulo
+% Float "Quadro" (a abntex2 não o define): numeração própria e lista de quadros (memoir)
+\newfloat{quadro}{loq}{Quadro}
+\newlistof{listofquadros}{loq}{Lista de quadros}
+%%END:quadropreambulo
+
+\begin{document}
+
+O \autoref{qua:cronograma-cor} traz o cronograma com as células do período sombreadas.
+
+%%BEGIN:cronogramasombreado
+\newcommand{\mes}{\cellcolor{black!35}}   % célula sombreada
+
+\begin{quadro}[htbp]
+  \caption{Cronograma do projeto com células sombreadas}\label{qua:cronograma-cor}
+  \small
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabularx}{\linewidth}{|l|*{12}{>{\centering\arraybackslash}X|}}
+    \hline
+    \multirow{2}{*}{\textbf{Atividade}} & \multicolumn{12}{c|}{\textbf{Mês}} \\
+    \cline{2-13}
+     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \hline
+    Revisão bibliográfica & \mes & \mes & & & & & & & & & & \\
+    \hline
+    Métodos & & & \mes & \mes & & & & & & & & \\
+    \hline
+    Testes & & & & \mes & \mes & \mes & & & & & & \\
+    \hline
+    Resultados & & & & & & & \mes & \mes & & & & \\
+    \hline
+    Conclusão & & & & & & & \mes & \mes & \mes & & & \\
+    \hline
+    Banca & & & & & & & & & & \mes & \mes & \mes \\
+    \hline
+  \end{tabularx}
+  \fonte{Elaborado pelo próprio autor.}
+  \nota{As células sombreadas indicam os meses de execução de cada atividade.}
+\end{quadro}
+%%END:cronogramasombreado
+
+\end{document}

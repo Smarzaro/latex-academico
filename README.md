@@ -27,11 +27,14 @@ CC BY 4.0 and code examples under CC0 1.0.
 | Tema | Receitas |
 |---|---|
 | [Tabelas e quadros](receitas/tabelas/) | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro |
+| [Figuras e gráficos](receitas/figuras/) | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots |
 | [Código-fonte](receitas/codigo/) | configuração do `listings`, uso básico, opções, linguagens e acentos, preto e branco e `minted`, dicas |
+| [Referências e citações](receitas/referencias/) | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação |
+| [Siglas, abreviaturas e glossário](receitas/siglas-glossario/) | `acro`, lista de siglas, lista de abreviaturas, glossário |
+| [Cronograma](receitas/cronograma/) | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
+| [Escrita acadêmica](receitas/escrita/) | o que escrever em cada seção do trabalho |
 
-Em preparação: figuras e diagramas (TikZ, PGFPlots), referências com `biblatex-abnt`, siglas e
-glossário, cronograma (Gantt e PERT), escrita acadêmica. Veja o
-[índice completo e o estado de cada tema](receitas/README.md).
+Veja o [índice completo](receitas/README.md).
 
 ## Como usar
 
@@ -51,9 +54,13 @@ sh scripts/run-tests.sh tabelas    # só os que casam com o padrão
 ```
 
 Requisitos: TeX Live ou MiKTeX recente (2024 ou mais), `latexmk` e os pacotes `abntex2`,
-`booktabs`, `siunitx`, `multirow`, `tabularx`, `longtable`, `listings` e `FiraMono`. O exemplo
-do `minted` exige também Python e o Pygments e `-shell-escape` (o script o ignora se não houver
-Pygments).
+`biblatex-abnt`, `booktabs`, `siunitx`, `multirow`, `tabularx`, `longtable`, `xcolor`, `listings`,
+`FiraMono`, `tikz`, `pgfplots`, `acro` e `mwe`. O exemplo do `minted` exige também Python e o
+Pygments e `-shell-escape` (o script o ignora se não houver Pygments).
+
+```bash
+sh scripts/check-links.sh          # confere os links entre os arquivos Markdown
+```
 
 ## Usar os exemplos em outro documento (por exemplo, um livro)
 

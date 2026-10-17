@@ -1,0 +1,21 @@
+% Ajustes finos do biblatex-abnt para obter as formas exigidas pelo manual da UFV (NBR 6023/2025
+% e NBR 10520/2023). Não é um documento: inclua com \input{ajustes-abnt} DEPOIS de carregar o
+% biblatex e a classe abntex2 (usa \pretextualchapter e \SingleSpacing).
+% Testado com: abntex2, biblatex-abnt, TeX Live 2024 ou mais recente. O trecho entre
+% %%BEGIN:ajustesabnt e %%END:ajustesabnt é o que as receitas e o livro exibem.
+%%BEGIN:ajustesabnt
+% referências em espaço simples (a linha em branco entre elas já vem do biblatex-abnt)
+\AtBeginBibliography{\SingleSpacing}
+% intervalos: páginas com hífen (p. 855-869) e meses com barra (nov./dez. 2003)
+\DefineBibliographyExtras{brazilian}{\protected\def\bibrangedash{-}}
+\renewcommand*{\bibdaterangesep}{/}
+% citação de obra sem autoria: "Pequena [...]" (primeira palavra) ou, se o campo shorttitle
+% estiver preenchido, "A flor [...]" (título curto completo)
+\DeclareFieldFormat{firstword}{%
+  \normalfont
+  \iffieldundef{shorttitle}{\FirstWord{#1}}{#1}\space[...]\isdot}
+% título "REFERÊNCIAS" centralizado, sem indicativo numérico, como nos demais elementos
+\defbibheading{bibliography}[Refer\^encias]{%
+  \pretextualchapter{\texorpdfstring{\MakeTextUppercase{#1}}{#1}}%
+  \addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{#1}}{#1}}}
+%%END:ajustesabnt

@@ -1,0 +1,44 @@
+% Exemplo: cronograma como quadro, com marcas ($\bullet$) nos meses de execução
+% Compilar: latexmk -pdf cronograma-marcas.tex    Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{array}
+
+%%BEGIN:quadropreambulo
+% Float "Quadro" (a abntex2 não o define): numeração própria e lista de quadros (memoir)
+\newfloat{quadro}{loq}{Quadro}
+\newlistof{listofquadros}{loq}{Lista de quadros}
+%%END:quadropreambulo
+
+\begin{document}
+
+O cronograma das atividades é apresentado no \autoref{qua:cronograma}.
+
+%%BEGIN:cronogramamarcas
+\begin{quadro}[htbp]
+  \caption{Cronograma do projeto em meses}\label{qua:cronograma}
+  \small
+  \begin{tabularx}{\linewidth}{|l|*{12}{>{\centering\arraybackslash}X|}}
+    \hline
+    \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\
+    \hline
+    Revisão bibliográfica & $\bullet$ & $\bullet$ & & & & & & & & & & \\
+    \hline
+    Métodos & & & $\bullet$ & $\bullet$ & & & & & & & & \\
+    \hline
+    Testes & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
+    \hline
+    Resultados & & & & & & & $\bullet$ & $\bullet$ & & & & \\
+    \hline
+    Conclusão & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & \\
+    \hline
+    Banca & & & & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ \\
+    \hline
+  \end{tabularx}
+  \fonte{Elaborado pelo próprio autor.}
+  \nota{O símbolo $\bullet$ indica o mês em que a atividade é executada.}
+\end{quadro}
+%%END:cronogramamarcas
+
+\end{document}

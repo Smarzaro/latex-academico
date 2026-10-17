@@ -1,0 +1,23 @@
+% Exemplo: inserir uma imagem com título (acima), fonte (abaixo) e nota, e citá-la no texto
+% Compilar: latexmk -pdf figura-imagem.tex        Testado com: abntex2, mwe, TeX Live 2024 ou mais recente
+% A imagem "example-image-a" vem do pacote mwe; troque pelo seu arquivo (PDF, PNG ou JPG).
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{{imagens/}}             % as suas imagens ficam na pasta imagens/
+
+\begin{document}
+
+A \autoref{fig:imagem} mostra a inserção de uma imagem.
+
+%%BEGIN:figuraimagem
+\begin{figure}[htbp]
+  \caption{Exemplo de inserção de figura no \LaTeX}\label{fig:imagem}
+  \centering
+  \includegraphics[width=.6\linewidth]{example-image-a}
+  \fonte{Adaptado de Silva (2020).}
+  \nota{A imagem é um exemplo e deve ser substituída.}
+\end{figure}
+%%END:figuraimagem
+
+\end{document}

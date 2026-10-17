@@ -1,0 +1,24 @@
+% Exemplo: figura composta por subfiguras (\subbottom, do memoir, base da classe abntex2)
+% Compilar: latexmk -pdf figura-subfiguras.tex    Testado com: abntex2, mwe, TeX Live 2024 ou mais recente
+% Não carregue os pacotes subfig nem subcaption: eles são incompatíveis com o memoir.
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\newsubfloat{figure}                  % habilita \subbottom dentro de figure (memoir)
+
+\begin{document}
+
+A \autoref{fig:sub} reúne duas imagens; a \autoref{fig:sub-a} mostra a primeira.
+
+%%BEGIN:figurasubfiguras
+\begin{figure}[htbp]
+  \caption{Figura com duas subfiguras}\label{fig:sub}
+  \centering
+  \subbottom[Primeira imagem\label{fig:sub-a}]{\includegraphics[width=.45\linewidth]{example-image-a}}
+  \hfill
+  \subbottom[Segunda imagem\label{fig:sub-b}]{\includegraphics[width=.45\linewidth]{example-image-b}}
+  \fonte{Elaborado pelo próprio autor.}
+\end{figure}
+%%END:figurasubfiguras
+
+\end{document}
