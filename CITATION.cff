@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Se você usar este material, cite-o como abaixo. / If you use this material, please cite it as below."
+type: software
+title: "latex-academico: receitas, exemplos e modelos de LaTeX para documentos acadêmicos"
+abstract: >-
+  Coleção de receitas, exemplos compiláveis e modelos de LaTeX para documentos acadêmicos, com
+  atenção às normas da ABNT: tabelas e quadros, código-fonte, figuras, referências, siglas e
+  cronogramas. / Recipes, compilable examples and templates for typesetting academic documents
+  in LaTeX, with attention to the Brazilian ABNT standards (Portuguese-language content).
+authors:
+  - family-names: Smarzaro
+    given-names: Rodrigo
+    email: smarzaro@ufv.br
+    affiliation: "Universidade Federal de Viçosa, Campus Rio Paranaíba"
+    orcid: "https://orcid.org/0000-0002-4783-8383"
+version: "0.1.0"
+date-released: "2026-10-17"
+license: CC-BY-4.0
+repository-code: "https://github.com/Smarzaro/latex-academico"
+url: "https://github.com/Smarzaro/latex-academico"
+# doi: "10.5281/zenodo.XXXXXXX"   # DOI conceito do Zenodo, depois da primeira release
+keywords:
+  - LaTeX
+  - ABNT
+  - trabalhos acadêmicos
+  - abnTeX2
+  - biblatex
+  - listings
+language: por

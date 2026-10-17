@@ -1,0 +1,19 @@
+name: build
+
+# Compila todos os exemplos (exemplos/) e os testes (tests/) e confere os marcadores de inclusão.
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compilar exemplos e testes
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: sh scripts/run-tests.sh

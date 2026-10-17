@@ -1,0 +1,24 @@
+## Arquivos auxiliares do LaTeX e de editores
+build/
+_minted*/
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.bak
+*.sav
+*.tmp
+.vscode/
+.DS_Store
+
+## Gerado por scripts
+dist/

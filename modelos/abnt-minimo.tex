@@ -1,0 +1,42 @@
+% !TeX program = pdflatex
+% !BIB program = biber
+% Modelo mínimo ABNT: classe abntex2, referências com biblatex-abnt e um capítulo.
+% Compilar: latexmk -pdf abnt-minimo.tex       Testado com: abntex2, biblatex-abnt, TeX Live 2024+
+% Para um modelo completo de TCC (capa, folhas, resumo, listas), veja a classe abntex2-ufv ou o
+% modelo da sua instituição.
+\documentclass[12pt, a4paper, oneside, brazilian]{abntex2}
+
+% --- Pacotes ---
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}                 % figuras
+\graphicspath{{imagens/}}             % imagens na pasta imagens/
+\usepackage{csquotes}                 % exigido pelo biblatex
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields, justify, noslsn]{biblatex}
+\usepackage{xurl}                     % quebra de URLs longas
+\addbibresource{referencias-minimo.bib}
+
+% --- Dados ---
+\titulo{Título do trabalho}
+\autor{Nome do Autor}
+\data{\the\year}
+
+\begin{document}
+
+\imprimirtitulo
+
+\tableofcontents*
+
+\chapter{Introdução}
+
+Este é um texto de exemplo, que cita uma obra \cite{exemplo2020} e apresenta o
+\autoref{cap:desenvolvimento}.
+
+\chapter{Desenvolvimento}\label{cap:desenvolvimento}
+
+Outro capítulo, com uma citação direta curta: segundo \textcite{exemplo2020}, o texto é
+apenas um exemplo.
+
+\printbibliography
+
+\end{document}

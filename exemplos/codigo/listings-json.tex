@@ -1,0 +1,33 @@
+% Exemplo: linguagem desconhecida do listings (JSON), definida com \lstdefinelanguage
+% Compilar: latexmk -pdf listings-json.tex        Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\input{estilo-codigo}
+
+%%BEGIN:linguagemjson
+\lstdefinelanguage{json}{
+  morestring=[b]",
+  morecomment=[l]{//},
+  morekeywords={true, false, null},
+  sensitive=true}
+%%END:linguagemjson
+
+\begin{document}
+
+O Código~\ref{cod:json} usa a linguagem definida no preâmbulo.
+
+%%BEGIN:listingsjson
+\begin{lstlisting}[language=json, numbers=none,
+    caption={Resposta de uma API em JSON, com a linguagem definida pelo autor},
+    label={cod:json}]
+{
+  "usuario": "maria",
+  "ativo": true,
+  "notas": [8.5, 7.0, 9.25],
+  "orientador": null
+}
+\end{lstlisting}
+\fonte{Elaborado pelo próprio autor.}
+%%END:listingsjson
+
+\end{document}

@@ -1,0 +1,33 @@
+% Estilo de listagens de código (pacote listings), usado pelos exemplos desta pasta.
+% Não é um documento: é incluído com \input{estilo-codigo} no preâmbulo.
+% Testado com: listings, TeX Live 2024 ou mais recente. O trecho entre %%BEGIN:estilo e
+% %%END:estilo é o que as receitas e o livro exibem.
+%%BEGIN:estilo
+\usepackage[scaled=0.88]{FiraMono}      % fonte de largura fixa legível (0/O e 1/l/I distintos)
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{cod-kw}{RGB}{0,51,153}     % palavras-chave
+\definecolor{cod-com}{RGB}{0,110,50}    % comentários
+\definecolor{cod-str}{RGB}{163,21,21}   % cadeias de caracteres
+\lstdefinestyle{codigo}{
+  basicstyle=\ttfamily\footnotesize, columns=fixed, keepspaces=true, tabsize=4,
+  keywordstyle=\bfseries\color{cod-kw}, commentstyle=\itshape\color{cod-com},
+  stringstyle=\color{cod-str}, showstringspaces=false,
+  numbers=left, numberstyle=\tiny\color{black!55}, numbersep=7pt,
+  backgroundcolor=\color{black!4}, frame=single, rulecolor=\color{black!25},
+  breaklines=true, postbreak={\mbox{\textcolor{cod-com}{$\hookrightarrow$}\space}},
+  extendedchars=true,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+           {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1 {ã}{{\~a}}1 {õ}{{\~o}}1
+           {Ã}{{\~A}}1 {Õ}{{\~O}}1 {ç}{{\c c}}1 {Ç}{{\c C}}1 {à}{{\`a}}1
+           {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1,
+}
+% versão em preto e branco do mesmo estilo (para impressão sem cores)
+\lstdefinestyle{codigopb}{style=codigo, keywordstyle=\bfseries,
+  commentstyle=\itshape, stringstyle=\relax, backgroundcolor=\color{white},
+  rulecolor=\color{black}, numberstyle=\tiny}
+\lstset{style=codigo}
+\renewcommand{\lstlistingname}{Código}            % rótulo da legenda: "Código N"
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+%%END:estilo

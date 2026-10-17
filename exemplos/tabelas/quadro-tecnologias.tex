@@ -1,0 +1,37 @@
+% Exemplo: quadro com cabeçalhos centralizados (multicolumn de uma coluna) e letra reduzida
+% Compilar: latexmk -pdf quadro-tecnologias.tex   Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+
+%%BEGIN:quadropreambulo
+% Float "Quadro" (a abntex2 não o define): numeração própria e lista de quadros (memoir)
+\newfloat{quadro}{loq}{Quadro}
+\newlistof{listofquadros}{loq}{Lista de quadros}
+%%END:quadropreambulo
+
+\begin{document}
+
+As tecnologias estão no \autoref{qua:tecnologias}.
+
+%%BEGIN:quadrotecnologias
+\begin{quadro}[htbp]
+  \caption{Tecnologias empregadas e justificativas (exemplo)}\label{qua:tecnologias}
+  \small
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Camada}} & \multicolumn{1}{c|}{\textbf{Tecnologia}} & \multicolumn{1}{c|}{\textbf{Justificativa}} \\
+    \hline
+    Interface & React 18 & Componentização e grande comunidade; facilita a manutenção da interface. \\
+    \hline
+    Serviços & Python 3 e FastAPI & Produtividade, documentação automática da API e desempenho adequado ao porte do sistema. \\
+    \hline
+    Dados & PostgreSQL & SGBD relacional de código aberto, com transações e suporte a JSON. \\
+    \hline
+  \end{tabularx}
+  \fonte{Elaborado pelo próprio autor.}
+\end{quadro}
+%%END:quadrotecnologias
+
+\end{document}

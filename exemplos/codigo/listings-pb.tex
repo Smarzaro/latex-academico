@@ -1,0 +1,26 @@
+% Exemplo: o mesmo estilo em preto e branco (para impressão sem cores)
+% Compilar: latexmk -pdf listings-pb.tex          Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\input{estilo-codigo}
+
+\begin{document}
+
+O Código~\ref{cod:pb} usa o estilo sem cores.
+
+%%BEGIN:listingspb
+\begin{lstlisting}[language=SQL, style=codigopb,
+    caption={O mesmo código em preto e branco (estilo \texttt{codigopb})},
+    label={cod:pb}]
+-- Alunos aprovados por disciplina
+SELECT d.nome, COUNT(*) AS aprovados
+FROM matricula m
+JOIN disciplina d ON d.id = m.disciplina_id
+WHERE m.nota >= 6.0 AND m.situacao = 'APROVADO'
+GROUP BY d.nome
+ORDER BY aprovados DESC;
+\end{lstlisting}
+\fonte{Elaborado pelo próprio autor.}
+%%END:listingspb
+
+\end{document}

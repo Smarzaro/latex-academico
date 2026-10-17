@@ -1,0 +1,35 @@
+% Exemplo: tabela simples no padrão IBGE (booktabs + siunitx + \IBGEtab do abntex2)
+% Compilar: latexmk -pdf tabela-simples.tex       Testado com: abntex2, TeX Live 2024 ou mais recente
+% O trecho entre %%BEGIN:tabela-simples e %%END:tabela-simples é o que as receitas e o livro exibem.
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}                 % \toprule, \midrule, \bottomrule
+\usepackage{siunitx}                  % colunas S: alinhamento decimal
+\sisetup{output-decimal-marker = {,}, group-separator = {.}, group-minimum-digits = 4}
+
+\begin{document}
+
+Os dados aparecem na \autoref{tab:simples}.
+
+%%BEGIN:tabelasimples
+\begin{table}[htbp]
+\IBGEtab{%
+  \caption{Usuários ativos e tempo médio de sessão por plataforma}\label{tab:simples}%
+}{%
+  \begin{tabular}{l S[table-format=5.0] S[table-format=2.1] S[table-format=2.1]}
+    \toprule
+    \textbf{Plataforma} & {\textbf{Usuários (un.)}} & {\textbf{Sessão (min)}} & {\textbf{Rejeição (\%)}} \\
+    \midrule
+    Web     & 12840 &  8,4 & 31,2 \\
+    Android &  9317 & 11,9 & 24,7 \\
+    iOS     &  4102 & 12,3 & 22,0 \\
+    \bottomrule
+  \end{tabular}%
+}{%
+  \fonte{Elaborado pelo próprio autor.}%
+  \nota{Dados fictícios, apenas para exemplo.}%
+}
+\end{table}
+%%END:tabelasimples
+
+\end{document}

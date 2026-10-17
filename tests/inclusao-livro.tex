@@ -1,0 +1,23 @@
+% Teste: simula como um documento externo (o livro, que usa este repositório como submódulo)
+% inclui trechos dos exemplos pelos marcadores %%BEGIN:id / %%END:id.
+% Se um marcador for renomeado ou apagado, a listagem sai vazia e o teste de marcadores
+% de scripts/run-tests.sh acusa o problema.
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\input{../exemplos/codigo/estilo-codigo}   % listings + acentos (literate); veja a receita de código
+\lstset{language={[LaTeX]TeX}, numbers=none}
+
+% \trecho{arquivo}{id}: mostra o código entre %%BEGIN:id e %%END:id de um exemplo
+\newcommand{\trecho}[2]{%
+  \lstinputlisting[linerange={BEGIN:#2-END:#2}, rangeprefix=\%\%,
+                   includerangemarker=false]{../exemplos/#1}}
+
+\begin{document}
+
+\trecho{tabelas/tabela-simples.tex}{tabelasimples}
+
+\trecho{codigo/listings-basico.tex}{listingsbasico}
+
+\trecho{codigo/estilo-codigo.tex}{estilo}
+
+\end{document}

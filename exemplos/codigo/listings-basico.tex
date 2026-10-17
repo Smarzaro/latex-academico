@@ -1,0 +1,30 @@
+% Exemplo: listagem de código com o pacote listings (numeração de linhas e sintaxe colorida)
+% Compilar: latexmk -pdf listings-basico.tex      Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\input{estilo-codigo}
+
+\begin{document}
+
+O Código~\ref{cod:python} mostra o uso básico; a variante \lstinline[language=Python]{total += v}
+aparece no meio da frase.
+
+%%BEGIN:listingsbasico
+\begin{lstlisting}[language=Python,
+    caption={Função em Python, com numeração de linhas e sintaxe colorida},
+    label={cod:python}]
+def media(valores):
+    """Calcula a média aritmética de uma lista."""
+    if not valores:
+        return 0.0
+    total = 0  # acumulador
+    for v in valores:
+        total += v
+    return total / len(valores)
+
+print(f"Média: {media([8.5, 7.0, 9.25]):.2f}")
+\end{lstlisting}
+\fonte{Elaborado pelo próprio autor.}
+%%END:listingsbasico
+
+\end{document}

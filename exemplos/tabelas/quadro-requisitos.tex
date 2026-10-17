@@ -1,0 +1,37 @@
+% Exemplo: quadro (bordas fechadas, conteúdo textual) com tabularx e colunas de largura fixa
+% Compilar: latexmk -pdf quadro-requisitos.tex    Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}                 % colunas X (largura automática)
+\usepackage{array}                    % >{\raggedright\arraybackslash}
+
+%%BEGIN:quadropreambulo
+% Float "Quadro" (a abntex2 não o define): numeração própria e lista de quadros (memoir)
+\newfloat{quadro}{loq}{Quadro}
+\newlistof{listofquadros}{loq}{Lista de quadros}
+%%END:quadropreambulo
+
+\begin{document}
+
+Os requisitos estão no \autoref{qua:requisitos}.
+
+%%BEGIN:quadrorequisitos
+\begin{quadro}[htbp]
+  \caption{Requisitos funcionais do sistema (exemplo)}\label{qua:requisitos}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{3.6cm}|X|c|}
+    \hline
+    \textbf{ID} & \textbf{Requisito} & \textbf{Descrição} & \textbf{Prioridade} \\
+    \hline
+    RF01 & Cadastrar usuário & O sistema deve permitir que o visitante crie uma conta informando nome, \emph{e-mail} e senha. & Alta \\
+    \hline
+    RF02 & Autenticar usuário & O sistema deve permitir o acesso por \emph{e-mail} e senha e bloquear a conta após cinco tentativas inválidas. & Alta \\
+    \hline
+    RF03 & Gerar relatório & O sistema deve gerar relatório mensal de atividades, exportável em PDF e em CSV. & Média \\
+    \hline
+  \end{tabularx}
+  \fonte{Elaborado pelo próprio autor.}
+\end{quadro}
+%%END:quadrorequisitos
+
+\end{document}
