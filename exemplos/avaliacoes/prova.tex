@@ -1,0 +1,64 @@
+% Exemplo: prova com a classe exam (cabeçalho, questões com pontos, itens, múltipla escolha,
+% espaço para resposta e quadro de pontuação). O mesmo arquivo gera o gabarito: veja gabarito.tex.
+% Compilar: latexmk -pdf prova.tex              Testado com: exam 2.7, TeX Live 2024 ou mais recente
+%%BEGIN:provaclasse
+\documentclass[12pt, a4paper, addpoints]{exam}   % addpoints: soma os pontos das questões
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+%%END:provaclasse
+
+%%BEGIN:provaportugues
+% textos da classe em português
+\pointpoints{ponto}{pontos}
+\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\enspace}
+\hqword{Questão:} \hpword{Valor:} \hsword{Nota:} \htword{Total}   % quadro de pontuação
+\CorrectChoiceEmphasis{\bfseries}
+%%END:provaportugues
+
+%%BEGIN:provacabecalho
+\pagestyle{headandfoot}
+\firstpageheader{Cálculo I}{Prova 1}{\today}
+\runningheader{Cálculo I}{Prova 1 (continuação)}{}
+\footer{}{Página \thepage\ de \numpages}{}
+\runningheadrule
+%%END:provacabecalho
+
+\begin{document}
+
+%%BEGIN:provaidentificacao
+\noindent Nome: \makebox[0.55\textwidth]{\hrulefill} \hfill Matrícula: \makebox[3cm]{\hrulefill}
+
+\begin{center}
+  \gradetable[h][questions]
+\end{center}
+%%END:provaidentificacao
+
+%%BEGIN:provaquestoes
+\begin{questions}
+  \question[2] Calcule a derivada de $f(x) = 3x^2 + 2x$.
+  \begin{solutionorbox}[2cm]      % na prova: caixa vazia; no gabarito: a resposta
+    $f'(x) = 6x + 2$.
+  \end{solutionorbox}
+
+  \question Considere $g(x) = x^3$.
+  \begin{parts}
+    \part[1] Calcule $g'(2)$.
+    \begin{solution}[1cm] $g'(x) = 3x^2$, logo $g'(2) = 12$. \end{solution}
+    \part[2] Escreva a equação da reta tangente ao gráfico de $g$ em $x = 2$.
+    \begin{solutionorlines}[2cm]
+      $y = 12x - 16$.
+    \end{solutionorlines}
+  \end{parts}
+
+  \question[1] Qual é a derivada de $\sin x$?
+  \begin{choices}
+    \choice $-\cos x$
+    \CorrectChoice $\cos x$
+    \choice $\sin x$
+    \choice $-\sin x$
+  \end{choices}
+\end{questions}
+%%END:provaquestoes
+
+\end{document}

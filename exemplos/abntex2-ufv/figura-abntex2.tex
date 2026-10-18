@@ -1,0 +1,21 @@
+% Exemplo: a mesma figura de figura-ufv.tex só com a classe abntex2, para comparação
+% Compilar: latexmk -pdf figura-abntex2.tex   Testado com: abntex2, mwe, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+
+Na \autoref{fig:abntex2}, o título e o rodapé ocupam toda a largura do texto.
+
+%%BEGIN:figuraabntex
+\begin{figure}[htbp]
+  \centering
+  \caption{Imagem de exemplo com fonte e nota}\label{fig:abntex2}
+  \includegraphics[width=.5\linewidth]{example-image-a}
+  \fonte{Elaborado pelo próprio autor.}
+  \nota{O título e o rodapé ocupam a largura do texto.}
+\end{figure}
+%%END:figuraabntex
+
+\end{document}

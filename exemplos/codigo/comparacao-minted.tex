@@ -1,0 +1,23 @@
+% !shell-escape
+% Exemplo: o mesmo código de comparacao-listings.tex com o minted, sem opções
+% Compilar: latexmk -pdf -shell-escape comparacao-minted.tex   Testado com: abntex2, minted 3, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage[cache=false]{minted}
+
+\begin{document}
+
+%%BEGIN:compaminted
+\begin{minted}{python}
+from statistics import mean
+
+def situacao(notas, minimo=6.0):
+    """Retorna a media e a situacao do aluno."""
+    m = mean(notas) if notas else 0.0  # media aritmetica
+    return m, ("Aprovado" if m >= minimo else "Reprovado")
+
+print(f"{situacao([7.5, 5.0, 8.25])}")
+\end{minted}
+%%END:compaminted
+
+\end{document}

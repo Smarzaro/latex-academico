@@ -13,8 +13,12 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
-            repeatfields, justify, noslsn]{biblatex}
+            repeatfields, noslsn]{biblatex}
+\usepackage{ragged2e}
+\usepackage{xurl}
 \addbibresource{../referencias/catalogo.bib}
+\appto{\bibsetup}{\RaggedRight}       % referências à esquerda (NBR 6023), com hifenização
+\urlstyle{same}
 \hypersetup{hidelinks}                % a abntex2 carrega o hyperref; links sem moldura
 %%END:tccpacotes
 

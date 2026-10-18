@@ -1,0 +1,31 @@
+name: Comentário sobre o livro
+description: 'Leitores do livro "LaTeX para Documentos Acadêmicos": erros, dúvidas e sugestões.'
+title: "[Livro] "
+labels: ["livro"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Este repositório reúne os exemplos do livro. Use este formulário para relatar um erro no
+        texto, uma dúvida ou uma sugestão de tema para as próximas edições.
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo
+      options:
+        - Erro no texto ou no código (errata)
+        - Dúvida sobre o conteúdo
+        - Sugestão de tema ou de melhoria
+    validations:
+      required: true
+  - type: input
+    id: local
+    attributes:
+      label: Capítulo e página (ou seção)
+      description: 'Ex.: Capítulo 9, seção 9.3, p. 85 (versão do PDF, se souber).'
+  - type: textarea
+    id: comentario
+    attributes:
+      label: Comentário
+    validations:
+      required: true

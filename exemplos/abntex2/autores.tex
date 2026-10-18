@@ -1,0 +1,23 @@
+% Exemplo: trabalho com mais de um autor na classe abntex2. Com \and, os nomes saem na mesma linha,
+% separados por vírgula (página 1); com \\, um nome por linha (página 2).
+% Compilar: latexmk -pdf autores.tex            Testado com: abntex2, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, oneside, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\titulo{Título do trabalho}
+\local{Viçosa}
+\instituicao{Universidade Federal de Viçosa}
+\data{\the\year}
+
+\begin{document}
+
+%%BEGIN:autoresand
+\autor{Ana Souza \and Bruno Lima \and Carla Dias}
+\imprimircapa
+%%END:autoresand
+
+%%BEGIN:autoreslinha
+\autor{Ana Souza \\ Bruno Lima \\ Carla Dias}
+\imprimircapa
+%%END:autoreslinha
+
+\end{document}

@@ -13,9 +13,12 @@
 \graphicspath{{imagens/}}             % imagens na pasta imagens/
 \usepackage{csquotes}                 % exigido pelo biblatex
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
-            repeatfields, justify, noslsn]{biblatex}
+            repeatfields, noslsn]{biblatex}
+\usepackage{ragged2e}                 % \RaggedRight: à esquerda, com hifenização
 \usepackage{xurl}                     % quebra de URLs longas
 \addbibresource{referencias-minimo.bib}
+\appto{\bibsetup}{\RaggedRight}       % referências à esquerda (NBR 6023), com hifenização
+\urlstyle{same}                       % endereços na mesma fonte do texto
 
 % --- Dados ---
 \titulo{Título do trabalho}

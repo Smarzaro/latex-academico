@@ -1,0 +1,31 @@
+% !requer: abntex2-ufv.cls
+% Exemplo: tabela no padrão IBGE com o ambiente tabela da classe abntex2-ufv (compare com tabela-abntex2.tex)
+% Compilar: latexmk -pdf tabela-ufv.tex   Testado com: abntex2-ufv 1.7, TeX Live 2024 ou mais recente
+\documentclass{abntex2-ufv}
+\usepackage{booktabs}                 % \toprule, \midrule, \bottomrule
+\usepackage{siunitx}                  % colunas S: alinhamento decimal
+\sisetup{output-decimal-marker = {,}, group-separator = {.}, group-minimum-digits = 4}
+
+\begin{document}
+
+A \autoref{tab:ufv} usa o ambiente \texttt{tabela}: o título e o rodapé ficam com a largura da
+própria tabela, alinhados à esquerda dela, e o conteúdo sai na fonte menor do padrão IBGE.
+
+%%BEGIN:tabelaufv
+\begin{table}[htbp]
+\begin{tabela}{\caption{Usuários ativos e tempo médio de sessão por plataforma}\label{tab:ufv}}%
+              {\elaboracaopropria\nota{Dados fictícios, apenas para exemplo.}}
+  \begin{tabular}{l S[table-format=5.0] S[table-format=2.1]}
+    \toprule
+    \textbf{Plataforma} & {\textbf{Usuários (un.)}} & {\textbf{Sessão (min)}} \\
+    \midrule
+    Web     & 12840 &  8,4 \\
+    Android &  9317 & 11,9 \\
+    iOS     &  4102 & 12,3 \\
+    \bottomrule
+  \end{tabular}
+\end{tabela}
+\end{table}
+%%END:tabelaufv
+
+\end{document}

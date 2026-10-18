@@ -16,7 +16,9 @@
 - Documentos *online* levam, ao final, **Disponível em:** (endereço) e **Acesso em:** (data de
   acesso).
 - Quando um elemento não aparece na obra, mas pode ser identificado, vai entre colchetes:
-  `[Cupertino]`. Se não puder ser identificado, usam-se `[S. l.]` (local) e `[s. n.]` (editora).
+  `[Cupertino]`. Se não puder ser identificado, usam-se `[S. l.]` (*sine loco*, sem local) e
+  `[s. n.]` (*sine nomine*, sem editora). A NBR 6023:2018 deixou de exigir essas expressões; a
+  opção `noslsn` do `biblatex-abnt` as omite.
 
 ## Campos mais usados
 

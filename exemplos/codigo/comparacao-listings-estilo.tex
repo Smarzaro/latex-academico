@@ -1,0 +1,22 @@
+% Exemplo: o mesmo código de comparacao-listings.tex com o estilo do repositório (estilo-codigo.tex)
+% Compilar: latexmk -pdf comparacao-listings-estilo.tex   Testado com: abntex2, listings, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\input{estilo-codigo}
+
+\begin{document}
+
+%%BEGIN:compaestilo
+\begin{lstlisting}[language=Python]
+from statistics import mean
+
+def situacao(notas, minimo=6.0):
+    """Retorna a media e a situacao do aluno."""
+    m = mean(notas) if notas else 0.0  # media aritmetica
+    return m, ("Aprovado" if m >= minimo else "Reprovado")
+
+print(f"{situacao([7.5, 5.0, 8.25])}")
+\end{lstlisting}
+%%END:compaestilo
+
+\end{document}

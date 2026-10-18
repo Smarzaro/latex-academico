@@ -1,0 +1,23 @@
+% Exemplo: primeira versão de um texto, comparada com versao-2.tex pelo latexdiff
+% Gerar as diferenças: latexdiff versao-1.tex versao-2.tex > diferencas.tex && latexmk -pdf diferencas.tex
+% (no MiKTeX, se o latexdiff acusar falta do módulo Algorithm::Diff, use latexdiff-so)
+% Compilar: latexmk -pdf versao-1.tex           Testado com: latexdiff 1.4, TeX Live 2024 ou mais recente
+\documentclass[11pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[a5paper, margin=1.5cm]{geometry}
+
+\begin{document}
+
+\section{Introdução}
+
+O uso de dispositivos móveis em sala de aula cresceu nos últimos anos. Este trabalho avalia o
+impacto desse uso no desempenho dos alunos de uma turma de graduação.
+
+Os dados foram coletados por meio de questionários aplicados no fim do semestre.
+
+\section{Conclusão}
+
+Os resultados indicam que o uso dos dispositivos não altera o desempenho.
+
+\end{document}

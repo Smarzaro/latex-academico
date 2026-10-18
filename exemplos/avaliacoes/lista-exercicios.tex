@@ -1,0 +1,32 @@
+% Exemplo: lista de exercícios com a classe exam (sem pontuação), com lacunas, verdadeiro ou falso
+% e respostas que aparecem só na versão com a opção answers.
+% Compilar: latexmk -pdf lista-exercicios.tex   Testado com: exam 2.7, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\enspace}
+\qformat{\textbf{Exercício \thequestion}\hfill}   % título da questão em linha própria
+
+\begin{document}
+
+\begin{center}\large\bfseries Lista de exercícios 1: introdução ao \LaTeX\end{center}
+
+%%BEGIN:listaexercicios
+\begin{questions}
+  \question O comando que inicia o corpo do documento é \fillin[\texttt{\textbackslash begin\{document\}}][5cm].
+
+  \question Marque V (verdadeiro) ou F (falso).
+  \begin{parts}
+    \part \fillin[V][1cm] O \texttt{\%} inicia um comentário.
+    \part \fillin[F][1cm] Uma linha em branco junta dois parágrafos.
+  \end{parts}
+
+  \question Escreva o código de uma lista numerada com dois itens.
+  \begin{solutionorbox}[2.5cm]
+    \texttt{\textbackslash begin\{enumerate\} \textbackslash item A \textbackslash item B
+      \textbackslash end\{enumerate\}}
+  \end{solutionorbox}
+\end{questions}
+%%END:listaexercicios
+
+\end{document}

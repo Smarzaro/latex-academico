@@ -1,0 +1,22 @@
+% !requer: abntex2-ufv.cls
+% Exemplo: figura com o ambiente ilustracao da classe abntex2-ufv (compare com figura-abntex2.tex)
+% Compilar: latexmk -pdf figura-ufv.tex   Testado com: abntex2-ufv 1.7, mwe, TeX Live 2024 ou mais recente
+\documentclass{abntex2-ufv}
+\usepackage{graphicx}
+
+\begin{document}
+
+Na \autoref{fig:ufv}, o título, a fonte, a legenda e a nota acompanham a largura da imagem.
+
+%%BEGIN:figuraufv
+\begin{figure}[htbp]
+\begin{ilustracao}{\caption{Imagem de exemplo com fonte, legenda e nota}\label{fig:ufv}}%
+                  {\elaboracaopropria
+                   \legenda{A letra A ocupa o centro da imagem.}%
+                   \nota{O título e o rodapé têm a largura da imagem.}}
+  \includegraphics[width=.5\linewidth]{example-image-a}
+\end{ilustracao}
+\end{figure}
+%%END:figuraufv
+
+\end{document}

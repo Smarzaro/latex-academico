@@ -45,7 +45,10 @@ Veja o [índice completo](receitas/README.md).
 | [Referência cruzada](exemplos/referencia-cruzada/) | `\label`/`\ref`/`\pageref`, `\autoref` e `cleveref` |
 | [Matemática](exemplos/matematica/) | modos inline e destaque, `equation`, `align`, matrizes, casos, teoremas, unidades |
 | [Apresentações e pôster](exemplos/apresentacoes/) | beamer básico, sobreposições, modelo de apresentação (metropolis), pôster (tikzposter) |
-| [abnTeX2](exemplos/abntex2/) | esqueleto de TCC: elementos pré-textuais, textuais e pós-textuais |
+| [abnTeX2](exemplos/abntex2/) | esqueleto de TCC: elementos pré-textuais, textuais e pós-textuais; vários autores |
+| [abntex2-ufv](exemplos/abntex2-ufv/) | ambientes `tabela` e `ilustracao` e float `codigo` da classe [abntex2-ufv](https://ctan.org/pkg/abntex2-ufv), comparados com a abntex2 |
+| [Provas e listas](exemplos/avaliacoes/) | prova com pontuação e gabarito do mesmo arquivo, lista de exercícios (classe `exam`) |
+| [Versionamento](exemplos/versionamento/) | duas versões de um texto comparadas com o `latexdiff` |
 
 
 ## Licenças
@@ -62,8 +65,24 @@ Veja [`CITATION.cff`](CITATION.cff) (o GitHub mostra o botão *Cite this reposit
 
 Rodrigo Smarzaro ([Universidade Federal de Viçosa](https://www.ufv.br)).
 
+## Pedidos, erros e sugestões
+
+Use as [*issues*](https://github.com/Smarzaro/latex-academico/issues/new/choose) do repositório,
+com os formulários prontos:
+
+- **Pedido de exemplo ou receita**: um tema que ainda não está aqui;
+- **Erro em exemplo ou receita**: um exemplo que não compila ou um resultado errado;
+- **Comentário sobre o livro**: erratas, dúvidas e sugestões dos leitores do livro *LaTeX para
+  Documentos Acadêmicos*, que usa estes exemplos.
+
+Os formulários aplicam os rótulos `pedido`, `erro` e `livro`, o que facilita acompanhar o que
+entra nas próximas versões.
+
 ## Contribuir
 
 Correções e novas receitas são bem-vindas por *pull request*. Regras básicas: cada receita tem
 um exemplo `.tex` compilável em `exemplos/`; os ids dos marcadores `%%BEGIN`/`%%END` têm só
-letras e números; rode `sh scripts/run-tests.sh` antes de enviar.
+letras e números; rode `sh scripts/run-tests.sh` antes de enviar. Exemplos que dependem de uma
+classe fora da distribuição levam `% !requer: arquivo.cls` nas primeiras linhas e são ignorados
+pelos testes quando ela não está instalada (os da `abntex2-ufv` podem ser testados com
+`TEXINPUTS` apontando para a classe).

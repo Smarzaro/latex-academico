@@ -1,5 +1,26 @@
 # Changes
 
+## 0.3.0 (2026-10-18)
+
+- **Estilo de código** (`codigo/estilo-codigo.tex`): fonte Inconsolata no lugar da Fira Mono (o `&`
+  e os demais símbolos ficam mais legíveis, e a fonte mais estreita reduz as quebras de linha),
+  `basewidth=0.5em`, destaque dos comandos do LaTeX (`texcsstyle` e `moretexcs` com comandos de
+  pacotes como `\includegraphics` e `\toprule`) e estilo para as palavras em `emph`.
+- **Referências alinhadas à esquerda**, como pede a NBR 6023: os exemplos e o modelo deixam a opção
+  `justify`; `ajustes-abnt.tex` usa `\RaggedRight` (pacote `ragged2e`, mantém a hifenização) e
+  `\urlstyle{same}`. Novo exemplo `referencias/alinhamento-referencias.tex` compara as três formas; receitas
+  01, 02 e o índice de referências atualizados (inclui o significado de *s.l.* e *s.n.*).
+- Novos exemplos: `codigo/listings-opcoes.tex` (gobble, autogobble, espaços e tabulações,
+  palavras-chave, destaque, LaTeX no código, numeração), `codigo/comparacao-*.tex` (o mesmo código
+  com listings, listings com estilo e minted), `cronograma/cronograma-entregas.tex` (marcos de
+  entrega em cores), `abntex2/autores.tex` (vários autores com `\and` e com `\\`),
+  `abntex2-ufv/` (ambientes `tabela` e `ilustracao` e float `codigo`, comparados com a abntex2),
+  `avaliacoes/` (prova e gabarito do mesmo arquivo e lista de exercícios com a classe `exam`) e
+  `versionamento/` (duas versões comparadas com o `latexdiff`).
+- `scripts/run-tests.sh`: ignora exemplos com `% !requer: arquivo.cls` quando a classe não está
+  instalada e gera e compila as diferenças de `versionamento/` com `latexdiff` (ou `latexdiff-so`).
+- Formulários de *issue* para pedidos de exemplo, erros e comentários sobre o livro.
+
 ## 0.2.3 (2026-10-18)
 
 - Ids de marcadores renomeados porque eram o começo de outro id do mesmo arquivo, e o `listings`

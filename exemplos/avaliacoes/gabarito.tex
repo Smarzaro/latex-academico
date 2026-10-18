@@ -1,0 +1,8 @@
+% Exemplo: gabarito gerado do mesmo arquivo da prova. A opção answers da classe exam imprime as
+% respostas (ambientes solution e solutionorlines) e destaca as alternativas corretas; o
+% \documentclass vem de prova.tex.
+% Compilar: latexmk -pdf gabarito.tex           Testado com: exam 2.7, TeX Live 2024 ou mais recente
+%%BEGIN:gabarito
+\PassOptionsToClass{answers}{exam}
+\input{prova}
+%%END:gabarito

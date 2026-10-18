@@ -1,0 +1,27 @@
+name: Erro em exemplo ou receita
+description: Um exemplo não compila, produz um resultado errado ou uma receita está incorreta.
+title: "[Erro] "
+labels: ["erro"]
+body:
+  - type: input
+    id: arquivo
+    attributes:
+      label: Arquivo
+      description: 'Caminho do exemplo ou da receita (ex.: exemplos/tabelas/tabela-simples.tex).'
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: O que aconteceu
+      description: O que você esperava e o que obteve. Se houver erro de compilação, cole as linhas do .log que começam com "!".
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: distribuicao
+    attributes:
+      label: Distribuição e editor
+      description: 'Ex.: TeX Live 2025, MiKTeX 24.4, Overleaf; TeXstudio, VS Code.'
+    validations:
+      required: true

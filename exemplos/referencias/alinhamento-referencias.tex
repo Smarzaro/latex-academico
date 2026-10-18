@@ -1,0 +1,43 @@
+% Exemplo: alinhamento da lista de referências no biblatex-abnt. A NBR 6023 pede referências
+% alinhadas à esquerda; a opção justify do biblatex-abnt justifica a lista (fora da norma).
+% Página 1: justify; página 2: padrão do estilo (\raggedright, sem hifenização); página 3: alinhado
+% à esquerda com hifenização (ragged2e), URL na fonte do texto e quebra de URL (xurl).
+% A mancha estreita só exagera as diferenças. Compilar: latexmk -pdf alinhamento-referencias.tex
+% Testado com: abntex2, biblatex-abnt, ragged2e, xurl, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\setlrmarginsandblock{6cm}{6cm}{*}
+\checkandfixthelayout
+%%BEGIN:alinhamentopreambulo
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields, noslsn]{biblatex}        % sem a opção justify
+\usepackage{ragged2e}                             % \RaggedRight: à esquerda, com hifenização
+\usepackage{xurl}                                 % URLs quebram em qualquer caractere
+%%END:alinhamentopreambulo
+\addbibresource{catalogo.bib}
+\AtBeginBibliography{\SingleSpacing}
+\hypersetup{hidelinks}                 % sem as molduras dos links (só para a comparação)
+
+\begin{document}
+
+\nocite{ex-artigo-online, ex-legislacao, ex-site, ex-repositorio, ex-relatorio}
+
+\begingroup
+\toggletrue{justify}                               % o mesmo que a opção justify
+\printbibliography[heading=subbibliography, title={Com justify}]
+\endgroup
+
+\newpage
+\printbibliography[heading=subbibliography, title={Padrão (raggedright)}]
+
+\newpage
+\begingroup
+%%BEGIN:alinhamentorecomendado
+\appto{\bibsetup}{\RaggedRight}    % substitui o \raggedright do estilo
+\urlstyle{same}                    % URL na mesma fonte do texto
+%%END:alinhamentorecomendado
+\printbibliography[heading=subbibliography, title={Recomendado}]
+\endgroup
+
+\end{document}

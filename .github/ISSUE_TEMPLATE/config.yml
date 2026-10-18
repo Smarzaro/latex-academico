@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Dúvidas gerais de LaTeX (TeX Stack Exchange)
+    url: https://tex.stackexchange.com
+    about: Para dúvidas que não tratam dos exemplos deste repositório, o fórum de perguntas e respostas sobre TeX e LaTeX.

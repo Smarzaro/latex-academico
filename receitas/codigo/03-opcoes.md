@@ -19,6 +19,17 @@ listagem (só para ela).
 | `escapechar=\%` | Permite comandos LaTeX dentro do código, depois do caractere (por exemplo, `\textbf`) |
 | `tabsize=4` | Largura do caractere de tabulação, em espaços |
 | `caption={...}`, `label={...}` | Título (acima) e rótulo para `\ref` |
+| `gobble=4` | Descarta os 4 primeiros caracteres de cada linha (código recuado dentro de listas) |
+| `autogobble` | Mede o recuo na primeira linha e o descarta (pacote `lstautogobble`) |
+| `showspaces`, `showtabs` | Mostra os espaços (␣) e as tabulações (com `tab=\rightarrowfill`) |
+| `showstringspaces` | Mostra só os espaços dentro de cadeias de caracteres |
+| `deletekeywords={print}` | Retira palavras da lista de palavras-chave da linguagem |
+| `emph={palavra}`, `emphstyle` | Destaca palavras escolhidas com um estilo próprio |
+| `escapeinside={(*}{*)}` | Trecho em LaTeX dentro do código, entre `(*` e `*)` (fórmulas, negrito) |
+| `stepnumber=2`, `numberfirstline` | Numera de 2 em 2 linhas, sempre incluindo a primeira |
+
+O exemplo [`listings-opcoes.tex`](../../exemplos/codigo/listings-opcoes.tex) mostra essas opções,
+uma por página.
 
 Com `\footnotesize` cabem cerca de 85 colunas de código na largura do texto; linhas mais longas
 são quebradas se `breaklines=true`.

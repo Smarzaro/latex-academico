@@ -1,0 +1,24 @@
+% Exemplo: o mesmo código em Python com o listings sem nenhuma configuração (compare com
+% comparacao-listings-estilo.tex e comparacao-minted.tex). O código não tem acentos porque, sem o
+% literate do estilo, o listings com pdfLaTeX não aceita letras acentuadas em UTF-8.
+% Compilar: latexmk -pdf comparacao-listings.tex   Testado com: abntex2, listings, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\begin{document}
+
+%%BEGIN:compalistings
+\begin{lstlisting}[language=Python]
+from statistics import mean
+
+def situacao(notas, minimo=6.0):
+    """Retorna a media e a situacao do aluno."""
+    m = mean(notas) if notas else 0.0  # media aritmetica
+    return m, ("Aprovado" if m >= minimo else "Reprovado")
+
+print(f"{situacao([7.5, 5.0, 8.25])}")
+\end{lstlisting}
+%%END:compalistings
+
+\end{document}

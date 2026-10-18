@@ -4,6 +4,9 @@
 # Uso (na raiz do repositório):  sh scripts/run-tests.sh [padrão]     ex.: sh scripts/run-tests.sh tabelas
 # Exemplos que usam minted (primeira linha com "% !shell-escape") são compilados com
 # -shell-escape e ignorados se o Pygments não estiver instalado.
+# Exemplos com "% !requer: arquivo.cls" nas três primeiras linhas são ignorados se o kpsewhich não
+# achar o arquivo (ex.: a classe abntex2-ufv fora da distribuição; use TEXINPUTS para apontá-la).
+# Em exemplos/versionamento, se houver latexdiff, as versões 1 e 2 geram diferencas.pdf.
 set -u
 raiz="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$raiz" || exit 1
@@ -64,6 +67,10 @@ for t in $(find exemplos modelos tests -name '*.tex' | sort); do
       echo "-- $t: ignorado (Pygments não instalado)"; ignorados=$((ignorados+1)); continue
     fi
   fi
+  requer=$(head -n 3 "$t" | sed -n 's/.*!requer: *\([^ ]*\).*/\1/p')
+  if [ -n "$requer" ] && ! kpsewhich "$requer" >/dev/null 2>&1; then
+    echo "-- $t: ignorado ($requer não encontrado)"; ignorados=$((ignorados+1)); continue
+  fi
   total=$((total+1))
   echo "== $t"
   rm -rf "$dir/build/$nome"
@@ -79,5 +86,24 @@ for t in $(find exemplos modelos tests -name '*.tex' | sort); do
     echo "FALHA: problemas no log de $t"; falhas=$((falhas+1))
   fi
 done
+
+# latexdiff: compara as duas versões do exemplo de versionamento e compila o documento marcado
+case "versionamento" in *"$filtro"*)
+  # latexdiff-so já inclui o módulo Algorithm::Diff (útil no MiKTeX, onde o latexdiff pode falhar)
+  dif=""
+  for p in latexdiff latexdiff-so; do
+    if [ -z "$dif" ] && $p --version >/dev/null 2>&1; then dif=$p; fi
+  done
+  if [ -n "$dif" ]; then
+    total=$((total+1)); echo "== exemplos/versionamento/diferencas.tex (latexdiff)"
+    d=exemplos/versionamento/build/diferencas; rm -rf "$d"; mkdir -p "$d"
+    if ! ( $dif exemplos/versionamento/versao-1.tex exemplos/versionamento/versao-2.tex > "$d/diferencas.tex" 2>/dev/null &&
+           cd "$d" && $limite latexmk -pdf -interaction=nonstopmode -halt-on-error diferencas.tex < /dev/null > /dev/null 2>&1 ); then
+      echo "FALHA: latexdiff ou compilação de diferencas.tex"; falhas=$((falhas+1))
+    fi
+  else
+    echo "-- exemplos/versionamento/diferencas.tex: ignorado (latexdiff não disponível)"; ignorados=$((ignorados+1))
+  fi
+;; esac
 echo "Documentos compilados: $total; ignorados: $ignorados; falhas: $falhas"
 exit $((falhas > 0))

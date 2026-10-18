@@ -28,6 +28,12 @@ Pressupõe a classe `abntex2` e o `biblatex` com o estilo `abnt`:
 ```latex
 \usepackage{csquotes}
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
-            repeatfields, justify, noslsn]{biblatex}
+            repeatfields, noslsn]{biblatex}
+\usepackage{ragged2e}       % referências à esquerda com hifenização (receita 02)
+\usepackage{xurl}           % quebra de URLs longas
 \addbibresource{referencias.bib}
 ```
+
+A opção `justify` do `biblatex-abnt` justifica a lista, mas a NBR 6023 pede referências alinhadas
+à esquerda; veja a receita 02 para melhorar o alinhamento à esquerda. Confira sempre o manual de
+normalização da sua instituição, que pode ter regras próprias.

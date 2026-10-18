@@ -1,0 +1,48 @@
+name: Pedido de exemplo ou receita
+description: Sugira um tema, um exemplo compilável ou uma receita nova.
+title: "[Pedido] "
+labels: ["pedido"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pela sugestão! Antes de enviar, veja se o tema já está nas
+        [receitas](https://github.com/Smarzaro/latex-academico/tree/main/receitas) ou nos
+        [exemplos](https://github.com/Smarzaro/latex-academico/tree/main/exemplos).
+  - type: textarea
+    id: problema
+    attributes:
+      label: O que você quer fazer?
+      description: 'Descreva o problema ou o resultado desejado (ex.: "quadro com células mescladas e nota no rodapé").'
+    validations:
+      required: true
+  - type: dropdown
+    id: tema
+    attributes:
+      label: Tema
+      options:
+        - Primeiros passos
+        - Tabelas e quadros
+        - Figuras e gráficos
+        - Matemática
+        - Código-fonte
+        - Referências e citações
+        - Siglas e glossário
+        - abnTeX2 e normas ABNT
+        - Cronograma e escrita acadêmica
+        - Apresentações e pôsteres
+        - Provas e material didático
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: tentativa
+    attributes:
+      label: O que você já tentou (opcional)
+      description: Código mínimo, pacote usado ou link de referência.
+      render: latex
+  - type: input
+    id: contexto
+    attributes:
+      label: Classe e norma (opcional)
+      description: 'Ex.: abntex2, abntex2-ufv, article; manual de normalização da instituição.'

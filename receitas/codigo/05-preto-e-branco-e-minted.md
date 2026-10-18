@@ -50,3 +50,19 @@ latexmk -pdf -shell-escape documento.tex
   segurança. O Overleaf suporta o `minted`.
 - Com `cache=false`, o `minted` não cria a pasta `_minted-*`, o que simplifica o repositório.
 - O `listings` dispensa tudo isso e é a escolha mais simples para trabalhos acadêmicos.
+
+**Comparação.** Os exemplos [`comparacao-listings.tex`](../../exemplos/codigo/comparacao-listings.tex),
+[`comparacao-listings-estilo.tex`](../../exemplos/codigo/comparacao-listings-estilo.tex) e
+[`comparacao-minted.tex`](../../exemplos/codigo/comparacao-minted.tex) mostram o mesmo código com o
+`listings` sem configuração, com o estilo deste repositório e com o `minted` sem opções.
+
+| | `listings` | `minted` |
+|---|---|---|
+| Instalação | Só o pacote | Python, Pygments e `-shell-escape` |
+| Análise do código | Lista de palavras-chave por linguagem | Analisador léxico completo (Pygments) |
+| Linguagens | Cerca de 100, novas com `\lstdefinelanguage` | Mais de 500, todas as do Pygments |
+| Destaque | Palavras-chave, comentários e cadeias | Também números, operadores, funções, decoradores |
+| Acentos (pdfLaTeX) | Exige `literate` | Funcionam sem configuração |
+| Personalização | Total, por chaves do pacote | Por estilos do Pygments e opções do `fancyvrb` |
+| Velocidade | Rápido | Mais lento (chama um programa externo) |
+| Overleaf e CI | Funciona sem ajustes | Overleaf sim; CI precisa do Pygments |

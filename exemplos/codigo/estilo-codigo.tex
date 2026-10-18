@@ -2,16 +2,32 @@
 % Não é um documento: é incluído com \input{estilo-codigo} no preâmbulo.
 % Testado com: listings, TeX Live 2024 ou mais recente. O trecho marcado com o id "estilo" é o que as receitas e o livro exibem.
 %%BEGIN:estilo
-\usepackage[scaled=0.88]{FiraMono}      % fonte de largura fixa legível (0/O e 1/l/I distintos)
+\usepackage[varqu,varl,scaled=0.95]{inconsolata} % largura fixa legível (0/O, 1/l/I e & distintos)
 \usepackage{xcolor}
 \usepackage{listings}
-\definecolor{cod-kw}{RGB}{0,51,153}     % palavras-chave
+\lstloadaspects{tex,emph}               % habilita as chaves texcsstyle, moretexcs e emphstyle
+\definecolor{cod-kw}{RGB}{0,51,153}     % palavras-chave e comandos
 \definecolor{cod-com}{RGB}{0,110,50}    % comentários
 \definecolor{cod-str}{RGB}{163,21,21}   % cadeias de caracteres
+\definecolor{cod-foco}{RGB}{190,70,0}   % palavras em destaque (opção emph)
 \lstdefinestyle{codigo}{
-  basicstyle=\ttfamily\footnotesize, columns=fixed, keepspaces=true, tabsize=4,
+  basicstyle=\ttfamily\footnotesize, columns=fixed, basewidth=0.5em,
+  keepspaces=true, tabsize=4,
   keywordstyle=\bfseries\color{cod-kw}, commentstyle=\itshape\color{cod-com},
   stringstyle=\color{cod-str}, showstringspaces=false,
+  texcsstyle=*\bfseries\color{cod-kw}, emphstyle=\bfseries\color{cod-foco},
+  % comandos de pacotes que a linguagem [LaTeX]TeX não conhece
+  moretexcs={includegraphics, caption, toprule, midrule, bottomrule, cmidrule,
+    multicolumn, multirow, IBGEtab, fonte, nota, legenda, autocite, textcite,
+    cite, parencite, printbibliography, addbibresource, autoref, cref, Cref,
+    eqref, ref, pageref, url, href, lstinputlisting, lstset, lstdefinestyle,
+    lstinline, frametitle, pause, only, uncover, includeonly, input, include,
+    maketitle, tableofcontents, listoffigures, listoftables, newcommand,
+    renewcommand, setlength, textwidth, linewidth, hline, cline, footnote,
+    textit, texttt, frac, sqrt, autor, titulo, orientador, instituicao,
+    local, data, textual, postextual, pretextual, imprimircapa,
+    imprimirfolhaderosto, acrodef, ac, gls, question, part, choice,
+    CorrectChoice, points},
   numbers=left, numberstyle=\tiny\color{black!55}, numbersep=7pt,
   backgroundcolor=\color{black!4}, frame=single, rulecolor=\color{black!25},
   breaklines=true, postbreak={\mbox{\textcolor{cod-com}{$\hookrightarrow$}\space}},
@@ -26,6 +42,7 @@
 }
 % versão em preto e branco do mesmo estilo (para impressão sem cores)
 \lstdefinestyle{codigopb}{style=codigo, keywordstyle=\bfseries,
+  texcsstyle=*\bfseries, emphstyle=\bfseries\itshape,
   commentstyle=\itshape, stringstyle=\relax, backgroundcolor=\color{white},
   rulecolor=\color{black}, numberstyle=\tiny}
 \lstset{style=codigo}

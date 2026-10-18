@@ -1,0 +1,48 @@
+% Exemplo: cronograma com períodos de execução e marcos de entrega em cores (xcolor + colortbl)
+% Para cronogramas longos, que passam de uma página, troque o tabular por um longtable (pacote
+% longtable), com o cabeçalho repetido por \endhead.
+% Compilar: latexmk -pdf cronograma-entregas.tex   Testado com: abntex2, xcolor, booktabs, TeX Live 2024+
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}            % \cellcolor (carrega o colortbl)
+\usepackage{amssymb}                  % \blacklozenge
+
+%%BEGIN:entregaspreambulo
+\definecolor{periodo}{RGB}{158,202,225}    % meses de execução
+\definecolor{entrega}{RGB}{8,81,156}       % meses com entrega (marco)
+\newcommand{\mes}{\cellcolor{periodo}}
+\newcommand{\marco}{\cellcolor{entrega}\textcolor{white}{\scriptsize$\blacklozenge$}}
+\newfloat{quadro}{loq}{Quadro}             % a abntex2 não define o float Quadro
+\newlistof{listofquadros}{loq}{Lista de quadros}
+\newcommand{\quadroautorefname}{Quadro}    % nome usado pelo \autoref
+%%END:entregaspreambulo
+
+\begin{document}
+
+O \autoref{qua:entregas} destaca as entregas previstas no projeto.
+
+%%BEGIN:cronogramaentregas
+\begin{quadro}[htbp]
+  \caption{Cronograma de execução (meses); células escuras indicam entregas}
+  \label{qua:entregas}
+  \small\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{>{\raggedright}p{5.4cm} *{12}{>{\centering\arraybackslash}p{0.42cm}}}
+    \toprule
+    \sffamily\bfseries Atividade & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \midrule
+    Revisão da literatura      & \mes & \marco & & & & & & & & & & \\
+    Definição dos métodos      & & \mes & \mes & & & & & & & & & \\
+    Coleta de dados            & & & \mes & \mes & \marco & & & & & & & \\
+    Relatório parcial          & & & & & & \marco & & & & & & \\
+    Análise dos dados          & & & & & & \mes & \mes & \mes & & & & \\
+    Redação do artigo          & & & & & & & & \mes & \mes & \marco & & \\
+    Relatório final            & & & & & & & & & & \mes & \mes & \marco \\
+    \bottomrule
+  \end{tabular}
+  \fonte{Elaborado pelo próprio autor.}
+\end{quadro}
+%%END:cronogramaentregas
+
+\end{document}

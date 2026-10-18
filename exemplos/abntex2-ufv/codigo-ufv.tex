@@ -1,0 +1,27 @@
+% !requer: abntex2-ufv.cls
+% Exemplo: código-fonte como ilustração na classe abntex2-ufv (float codigo + ambiente ilustracao)
+% Compilar: latexmk -pdf codigo-ufv.tex   Testado com: abntex2-ufv 1.7, listings, TeX Live 2024 ou mais recente
+\documentclass{abntex2-ufv}
+\input{../codigo/estilo-codigo}
+
+\begin{document}
+
+O \autoref{cod:ufv} usa o float \texttt{codigo} da classe, que tem lista própria (Lista de
+códigos), e o ambiente \texttt{ilustracao} com a largura do texto.
+
+%%BEGIN:codigoufv
+\begin{codigo}[htbp]
+\begin{ilustracao}[\linewidth]{\caption{Função em Python}\label{cod:ufv}}%
+                  {\elaboracaopropria}
+\begin{lstlisting}[language=Python]
+def media(valores):
+    """Calcula a média aritmética de uma lista."""
+    if not valores:
+        return 0.0
+    return sum(valores) / len(valores)
+\end{lstlisting}
+\end{ilustracao}
+\end{codigo}
+%%END:codigoufv
+
+\end{document}
