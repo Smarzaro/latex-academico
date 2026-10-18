@@ -1,0 +1,72 @@
+% Exemplo: segunda aula do curso (subfiles), com colunas reveladas aos poucos, diagrama TikZ,
+% código com trechos destacados e tabela com linhas alternadas. O preâmbulo vem de ../curso.tex.
+% Compilar só esta aula: latexmk -pdf aula-02.tex   Testado com: beamer, subfiles, TeX Live 2024+
+\documentclass[../curso.tex]{subfiles}
+
+\begin{document}
+
+\part{Como o \LaTeX\ funciona}
+\begin{refsection}
+
+\section{Compilação}
+
+%%BEGIN:colunasreveladas
+\tikzset{etapa/.style={draw=primaria, fill=primaria!10, rounded corners,
+                       minimum width=2.6cm, minimum height=.8cm}}
+\begin{frame}{Do texto ao PDF}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{itemize}[<+->]
+        \item O autor escreve o arquivo \texttt{.tex}
+        \item O motor (pdf\LaTeX) compõe as páginas
+        \item O resultado é um PDF
+      \end{itemize}
+    \end{column}
+    \begin{column}{.45\textwidth}
+      \onslide<4->{%
+      \begin{tikzpicture}[node distance=6mm]
+        \node[etapa] (tex) {arquivo .tex};
+        \node[etapa, below=of tex] (motor) {pdf\LaTeX};
+        \node[etapa, below=of motor] (pdf) {arquivo .pdf};
+        \draw[->, thick] (tex) -- (motor);
+        \draw[->, thick] (motor) -- (pdf);
+      \end{tikzpicture}}
+    \end{column}
+  \end{columns}
+\end{frame}
+%%END:colunasreveladas
+
+\section{Estrutura do documento}
+
+%%BEGIN:codigoslide
+\begin{frame}[fragile]{Um documento mínimo}
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass{article}         (*\alert{\% classe}*)
+\usepackage[brazilian]{babel}   (*\alert{\% preâmbulo}*)
+\begin{document}
+Olá, mundo!                     (*\alert{\% corpo}*)
+\end{document}
+\end{lstlisting}
+  O \texttt{[fragile]} é obrigatório em slides com código.
+\end{frame}
+%%END:codigoslide
+
+%%BEGIN:tabelaslide
+\begin{frame}{Tamanhos de fonte}
+  \centering
+  \rowcolors{2}{primaria!8}{white}     % linhas alternadas, a partir da segunda
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Comando} & \textbf{Uso} \\
+    \midrule
+    \texttt{\textbackslash small}  & notas e legendas \\
+    \texttt{\textbackslash normalsize} & texto \\
+    \texttt{\textbackslash large}  & títulos curtos \\
+    \texttt{\textbackslash Large}  & destaques \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+%%END:tabelaslide
+
+\end{refsection}
+\end{document}

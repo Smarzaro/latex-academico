@@ -1,0 +1,93 @@
+% Exemplo: slides de uma disciplina organizados com o pacote subfiles. Este arquivo tem o preâmbulo
+% comum a todas as aulas e junta as aulas da pasta aulas/; cada aula também compila sozinha.
+% Compilar o curso inteiro: latexmk -pdf curso.tex
+% Compilar uma aula:       latexmk -pdf aula-01.tex   (dentro da pasta aulas/)
+% Versão para impressão (sem os passos das camadas): latexmk -pdf curso-handout.tex
+% Testado com: beamer, subfiles, biblatex-abnt, TeX Live 2024 ou mais recente
+%%BEGIN:cursoclasse
+\documentclass[aspectratio=169, xcolor=table]{beamer}   % table: \rowcolors nas tabelas
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{subfiles}              % aulas em arquivos separados, cada uma compilável
+%%END:cursoclasse
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+%%BEGIN:cursoidentidade
+% Identidade visual: troque as duas cores e, se quiser, inclua o logo da instituição
+\definecolor{primaria}{RGB}{31,78,121}
+\definecolor{secundaria}{RGB}{214,140,30}
+\usetheme{CambridgeUS}
+\usecolortheme[named=primaria]{structure}
+\setbeamercolor{palette primary}{bg=primaria!75!black, fg=white}     % faixas do tema
+\setbeamercolor{palette secondary}{bg=primaria, fg=white}
+\setbeamercolor{palette tertiary}{bg=secundaria, fg=black}
+\setbeamercolor{palette quaternary}{bg=primaria!60!black, fg=white}
+\setbeamertemplate{navigation symbols}{}
+% \titlegraphic{\includegraphics[height=1.2cm]{logo}}
+%%END:cursoidentidade
+
+%%BEGIN:cursoblocos
+% Blocos com significado: definição (block), exemplo (exampleblock), atenção (alertblock)
+\setbeamercolor{block title}{bg=primaria, fg=white}
+\setbeamercolor{block body}{bg=primaria!10}
+\setbeamercolor{block title example}{bg=secundaria, fg=black}
+\setbeamercolor{block body example}{bg=secundaria!10}
+\setbeamercolor{block title alerted}{bg=red!70!black, fg=white}
+\setbeamercolor{block body alerted}{bg=red!8}
+%%END:cursoblocos
+
+%%BEGIN:cursotransicoes
+% Slides de abertura gerados automaticamente para cada aula (\part) e cada seção
+\AtBeginPart{%
+  \begin{frame}[plain]
+    \centering\vfill
+    {\small\color{secundaria}\MakeUppercase{Aula \insertpartnumber}}\par\medskip
+    {\Large\bfseries\color{primaria}\insertpart}\par
+    \vfill
+  \end{frame}}
+\AtBeginSection[]{%
+  \begin{frame}[plain]
+    \centering\vfill
+    {\huge\bfseries\color{primaria}\insertsectionhead}\par\medskip
+    {\color{secundaria}\rule{.5\textwidth}{1.5pt}}\par
+    \vfill
+  \end{frame}}
+%%END:cursotransicoes
+
+%%BEGIN:cursocodigo
+\lstset{basicstyle=\ttfamily\small, keywordstyle=\bfseries\color{primaria},
+        commentstyle=\itshape\color{gray}, columns=fullflexible,
+        escapeinside={(*}{*)},                 % LaTeX dentro do código: (* ... *)
+        literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+                 {ã}{{\~a}}1 {õ}{{\~o}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1 {ç}{{\c c}}1}
+%%END:cursocodigo
+
+%%BEGIN:cursocaminhos
+% Caminhos que funcionam ao compilar o curso (nesta pasta) e uma aula (em aulas/)
+\graphicspath{{imagens/}{../imagens/}}
+\usepackage[backend=biber, style=abnt]{biblatex}
+\addbibresource{\subfix{referencias-curso.bib}}
+%%END:cursocaminhos
+
+\title{Introdução ao \LaTeX}
+\subtitle{Material de exemplo de uma disciplina}
+\author{Nome do Professor}
+\institute{Nome da Instituição}
+\date{\the\year}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%BEGIN:cursoaulas
+\subfile{aulas/aula-01}
+\subfile{aulas/aula-02}
+%%END:cursoaulas
+
+\end{document}

@@ -1,5 +1,21 @@
 # Changes
 
+## 0.4.0 (2026-10-18)
+
+- `apresentacoes/curso/`: slides de uma disciplina organizados com o pacote `subfiles` (preâmbulo
+  comum em `curso.tex`, uma aula por arquivo em `aulas/`, cada aula compilável sozinha), com
+  identidade visual em duas cores, blocos com significado, slides de transição automáticos por
+  aula e por seção, referências por aula (`refsection`), colunas reveladas aos poucos com
+  diagrama TikZ, código com trechos destacados, tabela com linhas alternadas e versão para
+  impressão (`curso-handout.tex`).
+- `avaliacoes/prova-versoes.tex`: prova com alternativas embaralhadas (`exam-randomizechoices`),
+  a versão como semente, gabarito do mesmo arquivo, letra correta e chave de respostas por versão
+  e folha de respostas; `gerar-versoes.sh` e `gerar-versoes.ps1` geram N versões e os gabaritos
+  com o `latexmk`.
+- `figuras/venn.tex`: diagramas de Venn (interseção, união, diferença) com `\clip`.
+- Exemplos com dados genéricos de instituição ("Nome da Instituição") no lugar da UFV:
+  `abntex2/tcc-esqueleto.tex`, `abntex2/autores.tex` e os exemplos de apresentações.
+
 ## 0.3.1 (2026-10-18)
 
 - `abntex2-ufv/figura-abntex2.tex`: o texto do exemplo descreve corretamente o resultado (na

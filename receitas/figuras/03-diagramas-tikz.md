@@ -39,3 +39,6 @@ fonte e tamanhos coerentes com o texto e sem depender de editor gráfico.
   [diagrama de Gantt](../cronograma/02-diagrama-de-gantt.md)).
 - Para diagramas grandes (UML, redes), considere ferramentas especializadas (PlantUML, draw.io)
   e inclua o resultado em PDF com `\includegraphics`.
+- Para pintar só uma região, como a interseção de dois círculos em um diagrama de Venn, use `\clip`
+  dentro de um `scope`: o que for desenhado depois fica restrito à forma recortada (veja
+  [`venn.tex`](../../exemplos/figuras/venn.tex)).

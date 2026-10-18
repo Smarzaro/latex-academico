@@ -22,6 +22,7 @@ _minted*/
 
 ## Gerado por scripts
 dist/
+versoes/
 
 ## Arquivos do Claude Code e do VS Code (nunca versionar)
 .claude/

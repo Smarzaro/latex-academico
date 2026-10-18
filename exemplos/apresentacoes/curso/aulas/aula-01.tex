@@ -1,0 +1,44 @@
+% Exemplo: primeira aula do curso (subfiles). O preâmbulo vem de ../curso.tex.
+% Compilar só esta aula: latexmk -pdf aula-01.tex   Testado com: beamer, subfiles, TeX Live 2024+
+%%BEGIN:aulainicio
+\documentclass[../curso.tex]{subfiles}
+
+\begin{document}
+
+\part{O que é o \LaTeX}
+\begin{refsection}       % referências próprias desta aula
+%%END:aulainicio
+
+\section{Motivação}
+
+%%BEGIN:aulablocos
+\begin{frame}{Texto e formatação separados}
+  \begin{block}{Definição}
+    O \LaTeX\ é um sistema de preparação de documentos: o autor escreve o conteúdo e a
+    estrutura, e o programa cuida da aparência \parencite{lamport1994}.
+  \end{block}
+  \begin{exampleblock}{Exemplo}
+    \texttt{\textbackslash section\{Introdução\}} cria uma seção numerada e a inclui no sumário.
+  \end{exampleblock}
+  \begin{alertblock}{Atenção}
+    O arquivo \texttt{.tex} precisa ser compilado para gerar o PDF.
+  \end{alertblock}
+\end{frame}
+%%END:aulablocos
+
+\begin{frame}{Vantagens}
+  \begin{itemize}[<+->]
+    \item Qualidade tipográfica, sobretudo em fórmulas
+    \item Numeração e referências automáticas
+    \item Arquivos de texto, fáceis de versionar
+  \end{itemize}
+\end{frame}
+
+\section{Referências}
+
+\begin{frame}[allowframebreaks]{Referências}
+  \printbibliography[heading=none]
+\end{frame}
+
+\end{refsection}
+\end{document}

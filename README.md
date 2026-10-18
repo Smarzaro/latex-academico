@@ -44,10 +44,10 @@ Veja o [índice completo](receitas/README.md).
 | [Documentos longos](exemplos/organizacao/) | documento dividido em arquivos com `\include` |
 | [Referência cruzada](exemplos/referencia-cruzada/) | `\label`/`\ref`/`\pageref`, `\autoref` e `cleveref` |
 | [Matemática](exemplos/matematica/) | modos inline e destaque, `equation`, `align`, matrizes, casos, teoremas, unidades |
-| [Apresentações e pôster](exemplos/apresentacoes/) | beamer básico, sobreposições, modelo de apresentação (metropolis), pôster (tikzposter) |
+| [Apresentações e pôster](exemplos/apresentacoes/) | beamer básico, sobreposições, modelo de apresentação (metropolis), pôster (tikzposter), slides de uma disciplina organizados com `subfiles` (`curso/`: aulas compiláveis separadamente, slides de transição automáticos, versão para impressão) |
 | [abnTeX2](exemplos/abntex2/) | esqueleto de TCC: elementos pré-textuais, textuais e pós-textuais; vários autores |
 | [abntex2-ufv](exemplos/abntex2-ufv/) | ambientes `tabela` e `ilustracao` e float `codigo` da classe [abntex2-ufv](https://ctan.org/pkg/abntex2-ufv), comparados com a abntex2 |
-| [Provas e listas](exemplos/avaliacoes/) | prova com pontuação e gabarito do mesmo arquivo, lista de exercícios (classe `exam`) |
+| [Provas e listas](exemplos/avaliacoes/) | prova com pontuação e gabarito do mesmo arquivo, lista de exercícios (classe `exam`), prova com várias versões embaralhadas e scripts que geram as versões e os gabaritos (`gerar-versoes.sh`, `gerar-versoes.ps1`) |
 | [Versionamento](exemplos/versionamento/) | duas versões de um texto comparadas com o `latexdiff` |
 
 

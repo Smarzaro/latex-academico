@@ -1,0 +1,109 @@
+% Exemplo: prova com várias versões. As alternativas são embaralhadas pelo pacote
+% exam-randomizechoices, com o número da versão como semente; o gabarito sai do mesmo arquivo.
+% Compilar a versão 1 (padrão):  latexmk -pdf prova-versoes.tex
+% Versão 3:          latexmk -pdf -jobname=prova-v3 -usepretex="\def\versao{3}" prova-versoes.tex
+% Gabarito da 3:     latexmk -pdf -jobname=gabarito-v3 -usepretex="\def\versao{3}\def\gabarito{1}" prova-versoes.tex
+% Várias versões de uma vez: scripts gerar-versoes.sh (Linux/macOS) e gerar-versoes.ps1 (Windows).
+% Testado com: exam 2.7, exam-randomizechoices, TeX Live 2024 ou mais recente
+\documentclass[12pt, a4paper, addpoints]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{amssymb}
+\pointpoints{ponto}{pontos}
+\renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\enspace}
+\CorrectChoiceEmphasis{\bfseries}
+\renewcommand{\thechoice}{\alph{choice}}     % alternativas a), b), c)...
+\renewcommand{\choicelabel}{\thechoice)}
+
+%%BEGIN:versoespreambulo
+\usepackage{exam-randomizechoices}   % ambiente randomizechoices: alternativas em ordem sorteada
+\providecommand{\versao}{1}          % versão padrão, se nenhuma for informada na compilação
+\setrandomizerseed{\versao}          % a versão é a semente do sorteio: mesma versão, mesma ordem
+\ifdefined\gabarito \printanswers \fi
+%%END:versoespreambulo
+\keylistquestionname{Questão}\keylistkeyname{Resposta}
+% letra da alternativa correta na versão compilada (acompanha o sorteio)
+\newcommand{\altcorreta}{\ref{question@\thequestion @correctchoice}}
+
+\pagestyle{headandfoot}
+\firstpageheader{Introdução ao \LaTeX}{Prova 1 --- versão \versao}{\today}
+\runningheader{Introdução ao \LaTeX}{Prova 1 --- versão \versao}{}
+\footer{}{Página \thepage\ de \numpages}{}
+
+%%BEGIN:folharespostas
+% Folha de respostas: os números das questões vêm dos \label de cada questão
+\newcommand{\circulo}[1]{\textcircled{\footnotesize #1}}
+\newcommand{\linhaMC}[1]{\ref{#1} & \circulo{a} & \circulo{b} & \circulo{c} & \circulo{d}\\[1ex]}
+\newcommand{\folharespostas}{%
+  \begin{center}
+    \fbox{\begin{tabular}{c|cccc}
+      \multicolumn{5}{c}{\textbf{Folha de respostas: marque uma alternativa}}\\[1ex]
+      \textbf{Questão} & a & b & c & d \\ \hline\rule{0pt}{2.6ex}
+      \linhaMC{q:comentario}
+      \linhaMC{q:biber}
+      \linhaMC{q:label}
+    \end{tabular}}
+  \end{center}}
+%%END:folharespostas
+
+\begin{document}
+
+\noindent Nome: \makebox[0.55\textwidth]{\hrulefill} \hfill Matrícula: \makebox[3cm]{\hrulefill}
+
+\folharespostas
+
+%%BEGIN:versoesquestoes
+\begin{questions}
+  \question[1]\label{q:comentario}
+  Qual caractere inicia um comentário em um arquivo \texttt{.tex}?
+  \begin{randomizechoices}
+    \choice \texttt{\#}
+    \correctchoice \texttt{\%}
+    \choice \texttt{\&}
+    \choice \texttt{\textbackslash}
+  \end{randomizechoices}
+  \begin{solution}
+    Alternativa \altcorreta: o \texttt{\%} faz o \LaTeX\ ignorar o resto da linha.
+  \end{solution}
+
+  \question[1]\label{q:biber}
+  Com o pacote \texttt{biblatex}, qual programa monta a lista de referências?
+  \begin{randomizechoices}
+    \choice \texttt{makeindex}
+    \choice \texttt{bibtex8}
+    \correctchoice \texttt{biber}
+    \choice \texttt{dvips}
+  \end{randomizechoices}
+  \begin{solution}
+    Alternativa \altcorreta.
+  \end{solution}
+
+  \question[1]\label{q:label}
+  Em uma figura, onde deve ficar o \texttt{\textbackslash label}?
+  \begin{randomizechoices}
+    \choice Antes do \texttt{\textbackslash begin\{figure\}}.
+    \choice Antes do \texttt{\textbackslash caption}.
+    \correctchoice Logo depois do \texttt{\textbackslash caption}.
+    \choice Depois do \texttt{\textbackslash end\{figure\}}.
+  \end{randomizechoices}
+  \begin{solution}
+    Alternativa \altcorreta: o rótulo guarda o número criado pelo \texttt{\textbackslash caption}.
+  \end{solution}
+
+  \question[2]
+  Explique a diferença entre uma tabela e um quadro nos trabalhos acadêmicos.
+  \begin{solutionorlines}[2.5cm]
+    A tabela apresenta dados, geralmente numéricos, com as laterais abertas; o quadro apresenta
+    informação textual, com bordas em todos os lados.
+  \end{solutionorlines}
+\end{questions}
+%%END:versoesquestoes
+
+%%BEGIN:versoeschave
+\ifprintanswers
+  \bigskip\noindent\textbf{Chave de respostas --- versão \versao}\par\smallskip
+  \printkeytable[1-3]
+\fi
+%%END:versoeschave
+
+\end{document}

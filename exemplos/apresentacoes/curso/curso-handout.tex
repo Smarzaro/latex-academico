@@ -1,0 +1,7 @@
+% Exemplo: versão para impressão dos slides do curso, sem os passos intermediários das camadas.
+% O \documentclass e todo o resto vêm de curso.tex; só a opção handout é acrescentada.
+% Compilar: latexmk -pdf curso-handout.tex      Testado com: beamer, subfiles, TeX Live 2024+
+%%BEGIN:cursohandout
+\PassOptionsToClass{handout}{beamer}
+\input{curso}
+%%END:cursohandout
