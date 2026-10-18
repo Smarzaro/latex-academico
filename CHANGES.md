@@ -1,5 +1,10 @@
 # Changes
 
+## 0.3.1 (2026-10-18)
+
+- `abntex2-ufv/figura-abntex2.tex`: o texto do exemplo descreve corretamente o resultado (na
+  classe abntex2, a fonte e a nota ficam centralizadas sob a figura).
+
 ## 0.3.0 (2026-10-18)
 
 - **Estilo de código** (`codigo/estilo-codigo.tex`): fonte Inconsolata no lugar da Fira Mono (o `&`
