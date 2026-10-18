@@ -1,5 +1,10 @@
 # Changes
 
+## 0.4.1 (2026-10-18)
+
+- `avaliacoes/prova-versoes.tex`: o título da folha de respostas sai acima da tabela; dentro dela,
+  ele alargava a última coluna e desalinhava as alternativas.
+
 ## 0.4.0 (2026-10-18)
 
 - `apresentacoes/curso/`: slides de uma disciplina organizados com o pacote `subfiles` (preâmbulo
