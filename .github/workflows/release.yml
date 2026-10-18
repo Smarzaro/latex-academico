@@ -1,0 +1,53 @@
+name: release
+
+# Cria uma GitHub Release a cada tag de versão (v0.4.1, v1.0.0...). A integração com o Zenodo
+# só arquiva o repositório e atribui um DOI quando uma release é publicada; o push da tag,
+# sozinho, não basta. As notas da release são a seção da versão no CHANGES.md.
+# Para criar a release de uma tag que já existe: Actions > release > Run workflow, informando
+# a tag (ex.: v0.4.1).
+on:
+  push:
+    tags:
+      - 'v[0-9]*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag já existente para a qual criar a release (ex.: v0.4.1)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Definir a tag
+        run: echo "TAG=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Compilar os exemplos (a release só sai se os testes passarem)
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: sh scripts/run-tests.sh
+
+      - name: Extrair as notas da versão do CHANGES.md
+        run: |
+          versao="${TAG#v}"
+          awk -v v="$versao" '
+            /^## / { dentro = (index($0, "## " v " ") == 1) ; next }
+            dentro { print }
+          ' CHANGES.md > notas.md
+          [ -s notas.md ] || echo "Versão ${versao}. Veja o CHANGES.md." > notas.md
+          cat notas.md
+
+      - name: Publicar a release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          name: ${{ env.TAG }}
+          body_path: notas.md

@@ -1,5 +1,10 @@
 # Changes
 
+## 0.4.2 (2026-10-18)
+
+- Workflow `release`: cada tag de versão gera uma GitHub Release (com as notas desta lista), o que
+  permite ao Zenodo arquivar o repositório e atribuir o DOI. Primeira versão publicada no Zenodo.
+
 ## 0.4.1 (2026-10-18)
 
 - `avaliacoes/prova-versoes.tex`: o título da folha de respostas sai acima da tabela; dentro dela,
