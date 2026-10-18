@@ -18,7 +18,7 @@ date-released: "2026-10-18"
 license: CC-BY-4.0
 repository-code: "https://github.com/Smarzaro/latex-academico"
 url: "https://github.com/Smarzaro/latex-academico"
-# doi: "10.5281/zenodo.XXXXXXX"   # DOI conceito do Zenodo, depois da primeira release
+doi: "10.5281/zenodo.23458965"   # DOI conceito do Zenodo (todas as versões)
 keywords:
   - LaTeX
   - ABNT

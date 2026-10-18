@@ -1,5 +1,7 @@
 # latex-academico
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23458965.svg)](https://doi.org/10.5281/zenodo.23458965)
+
 Receitas, exemplos e modelos de LaTeX para documentos acadêmicos (trabalhos de conclusão de
 curso, dissertações, teses, artigos), com atenção às normas da ABNT.
 
@@ -59,7 +61,9 @@ Veja o [índice completo](receitas/README.md).
 
 ## Como citar
 
-Veja [`CITATION.cff`](CITATION.cff) (o GitHub mostra o botão *Cite this repository*).
+Veja [`CITATION.cff`](CITATION.cff) (o GitHub mostra o botão *Cite this repository*). O DOI
+[10.5281/zenodo.23458965](https://doi.org/10.5281/zenodo.23458965) aponta sempre para a versão mais
+recente; cada versão tem também o seu DOI próprio, listado no Zenodo.
 
 ## Autor
 
