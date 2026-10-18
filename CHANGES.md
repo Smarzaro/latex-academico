@@ -1,5 +1,11 @@
 # Changes
 
+## 0.2.2 (2026-10-18)
+
+- `codigo/estilo-codigo.tex`: o `literate` passa a cobrir também `Â`, `Ê`, `Ô`, `À`, `ü` e `Ü`
+  (antes, um `Ê` em um código, como em "REFERÊNCIAS", parava a compilação com `Invalid UTF-8 byte
+  sequence`).
+
 ## 0.2.1 (2026-10-18)
 
 - Correção: os comentários de cabeçalho de `tabela-simples.tex`, `estilo-codigo.tex` e
