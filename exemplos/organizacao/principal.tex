@@ -1,0 +1,20 @@
+% Exemplo: documento longo dividido em arquivos (um por capítulo) com \include e \includeonly
+% Compilar: latexmk -pdf principal.tex             Testado com: TeX Live 2024 ou mais recente
+% Os capítulos estão em capitulos/. Compile sempre o arquivo principal, nunca um capítulo.
+%%BEGIN:principal
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage[hidelinks]{hyperref}
+
+% Para compilar só alguns capítulos (mais rápido durante a escrita), descomente:
+% \includeonly{capitulos/metodologia}
+
+\begin{document}
+\tableofcontents
+
+\include{capitulos/introducao}    % sem a extensão .tex
+\include{capitulos/metodologia}
+\end{document}
+%%END:principal

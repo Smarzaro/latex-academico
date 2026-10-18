@@ -1,0 +1,35 @@
+% Exemplo: apresentação mínima com beamer: slide de título, frames, listas, blocos e tema
+% Compilar: latexmk -pdf apresentacao-basica.tex   Testado com: beamer, TeX Live 2024 ou mais recente
+% Cada frame vira uma página do PDF.
+%%BEGIN:beamerpreambulo
+\documentclass[aspectratio=169]{beamer}   % 16:9; sem a opção, 4:3
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usetheme{Madrid}                         % troque por CambridgeUS, Rochester, default...
+
+\title{Apresentação com beamer}
+\author{Nome do Autor}
+\institute{Universidade Federal de Viçosa}
+\date{\today}
+%%END:beamerpreambulo
+
+\begin{document}
+
+%%BEGIN:beamerframes
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Primeiro slide}   % o título do frame vai entre chaves
+  \begin{itemize}
+    \item Primeiro tópico
+    \item Segundo tópico
+  \end{itemize}
+
+  \begin{block}{Título do bloco}
+    Conteúdo destacado em um bloco.
+  \end{block}
+\end{frame}
+%%END:beamerframes
+
+\end{document}

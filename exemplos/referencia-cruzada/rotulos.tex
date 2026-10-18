@@ -1,0 +1,64 @@
+% Exemplo: referência cruzada com \label, \ref e \pageref (itens de lista, figura, tabela, seções)
+% Compilar: latexmk -pdf rotulos.tex               Testado com: TeX Live 2024 ou mais recente, mwe
+% Cada trecho fica em uma página. A imagem "example-image-a" vem do pacote mwe.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\begin{document}
+
+%%BEGIN:rotuloslista
+Razões para usar o \LaTeX:
+\begin{enumerate}
+  \item é gratuito;\label{it:gratuito}
+  \item separa o conteúdo da formatação;\label{it:conteudo}
+  \item gerencia a bibliografia;
+  \item usa arquivos de texto puro.\label{it:texto}
+\end{enumerate}
+As razões mais citadas são os itens \ref{it:gratuito} e \ref{it:conteudo}, mas o item
+\ref{it:texto} também pesa muito. A lista completa está na página~\pageref{it:gratuito}.
+%%END:rotuloslista
+
+\clearpage
+
+%%BEGIN:rotulosflutuantes
+A Figura~\ref{fig:exemplo} mostra uma imagem e a Tabela~\ref{tab:cargas} resume as cargas
+horárias.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=4cm]{example-image-a}
+  \caption{Uma imagem de exemplo.}\label{fig:exemplo}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Carga horária por tipo de atividade.}\label{tab:cargas}
+  \begin{tabular}{lr}
+    \toprule
+    Atividade              & Horas \\
+    \midrule
+    Disciplinas            & 2.400 \\
+    Estágio supervisionado &   300 \\
+    Trabalho de conclusão  &   120 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+%%END:rotulosflutuantes
+
+\clearpage
+
+%%BEGIN:rotulossecoes
+\section{Introdução}
+Tudo é explicado na Seção~\ref{sec:refcruzada}. Para tabelas, consulte a
+Seção~\ref{sec:tabelas}; para figuras, a Seção~\ref{sec:figuras}.
+
+\section{Referência cruzada}\label{sec:refcruzada}
+\subsection{Tabelas}\label{sec:tabelas}
+\subsection{Figuras}\label{sec:figuras}
+%%END:rotulossecoes
+
+\end{document}

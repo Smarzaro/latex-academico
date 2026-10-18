@@ -1,0 +1,46 @@
+% Exemplo: revelar o conteúdo aos poucos no beamer: \pause, especificadores <...>, \uncover e \only
+% Compilar: latexmk -pdf sobreposicoes.tex         Testado com: beamer, TeX Live 2024 ou mais recente
+% Cada passo de um frame vira uma página do PDF.
+\documentclass[aspectratio=169]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usetheme{Madrid}
+
+\begin{document}
+
+%%BEGIN:beamerpause
+\begin{frame}{Comando pause}
+  Os tópicos aparecem um de cada vez.
+  \begin{itemize}
+    \pause \item Primeiro tópico
+    \pause \item Segundo tópico
+  \end{itemize}
+\end{frame}
+%%END:beamerpause
+
+%%BEGIN:beamerespecificadores
+\begin{frame}{Especificadores de sobreposição}
+  \begin{itemize}
+    \item<1>  Aparece só no primeiro passo
+    \item<2-3> Aparece no segundo e no terceiro
+    \item<3-> Aparece a partir do terceiro e continua
+  \end{itemize}
+  \begin{block}<4->{Bloco}
+    O bloco só aparece no quarto passo.
+  \end{block}
+\end{frame}
+%%END:beamerespecificadores
+
+%%BEGIN:beamerincremental
+\begin{frame}{Lista incremental}
+  \begin{itemize}[<+->]          % equivale a <+-> em cada \item
+    \item Primeiro tópico
+    \item Segundo tópico
+    \item Terceiro tópico
+  \end{itemize}
+  \uncover<3->{Visível (e com espaço reservado) a partir do terceiro passo.}
+  \only<2>{Só no segundo passo, sem reservar espaço nos outros.}
+\end{frame}
+%%END:beamerincremental
+
+\end{document}

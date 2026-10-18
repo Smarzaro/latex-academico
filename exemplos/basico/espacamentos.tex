@@ -1,0 +1,29 @@
+% Exemplo: espaçamentos horizontais e verticais, recuo de parágrafo e entrelinhas (setspace)
+% Compilar: latexmk -pdf espacamentos.tex          Testado com: TeX Live 2024 ou mais recente
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:espacamentospreambulo
+\usepackage{setspace}             % \onehalfspacing, \doublespacing, ambiente spacing
+\setlength{\parindent}{1.25cm}    % recuo da primeira linha dos parágrafos
+%%END:espacamentospreambulo
+
+\begin{document}
+
+%%BEGIN:espacamentos
+Palavra\hspace{2cm}separada por 2\,cm. Esquerda\hfill direita.
+
+\vspace{1cm}
+Este parágrafo começa 1\,cm abaixo do anterior.
+
+\noindent Este parágrafo não tem recuo na primeira linha.\\
+Esta linha foi quebrada com \verb|\\|, sem começar um novo parágrafo.
+
+\begin{onehalfspace}
+Este parágrafo usa espaçamento de 1,5 entre as linhas, comum em trabalhos acadêmicos.
+O comando \verb|\onehalfspacing| no preâmbulo aplica o mesmo espaçamento ao documento todo.
+\end{onehalfspace}
+%%END:espacamentos
+
+\end{document}

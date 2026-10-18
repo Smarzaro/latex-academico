@@ -1,0 +1,18 @@
+% Exemplo: preâmbulo para textos em português com pdfLaTeX
+% Compilar: latexmk -pdf portugues.tex             Testado com: TeX Live 2024 ou mais recente
+% Desde 2018 o LaTeX lê arquivos em UTF-8 por padrão: \usepackage[utf8]{inputenc} não é mais
+% necessário. Com XeLaTeX ou LuaLaTeX, fontenc e lmodern também não são usados (veja fontspec).
+\documentclass[a4paper]{report}
+%%BEGIN:preambuloportugues
+\usepackage[T1]{fontenc}          % codificação da saída: acentos copiáveis e hifenização correta
+\usepackage{lmodern}              % fonte Latin Modern (versão moderna da Computer Modern)
+\usepackage[brazilian]{babel}     % termos traduzidos (Capítulo, Sumário...) e hifenização
+%%END:preambuloportugues
+
+\begin{document}
+\tableofcontents
+
+\chapter{Primeiro capítulo}
+Acentuação e cedilha funcionam: ação, coração, pé, avô, à toa. Os termos inseridos pelo
+\LaTeX, como \emph{Capítulo} e \emph{Sumário}, aparecem em português.
+\end{document}

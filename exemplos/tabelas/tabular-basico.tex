@@ -1,0 +1,181 @@
+% Exemplo: construção de tabelas passo a passo: tabular, linhas, colunas de parágrafo, tabularx,
+% tabulary, booktabs, mesclagem de células e cores
+% Compilar: latexmk -pdf tabular-basico.tex        Testado com: TeX Live 2024 ou mais recente
+% Cada trecho fica em uma página, para que o resultado de cada um possa ser mostrado separadamente.
+% Para tabelas no padrão ABNT/IBGE (título, fonte e nota), veja tabela-simples.tex.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:tabelaspreambulo
+\usepackage{array}             % colunas m{} e b{}
+\usepackage{tabularx}          % colunas X (largura total fixa)
+\usepackage{tabulary}          % colunas L, C, R, J (largura máxima)
+\usepackage{booktabs}          % \toprule, \midrule, \bottomrule
+\usepackage{multirow}          % \multirow
+\usepackage[table]{xcolor}     % cores em tabelas
+%%END:tabelaspreambulo
+
+\begin{document}
+
+%%BEGIN:tabularsimples
+\begin{tabular}{ccl}
+  \textbf{Qtd} & \textbf{Medida}  & \textbf{Ingrediente} \\
+  500          & g                & polvilho azedo \\
+  1            & copo americano   & água \\
+  1            & copo americano   & leite \\
+  1/2          & xícara           & óleo \\
+  2            & un               & ovos \\
+  100          & g                & queijo parmesão ralado \\
+  ---          & ---              & sal a gosto \\
+\end{tabular}
+%%END:tabularsimples
+
+\clearpage
+
+%%BEGIN:tabularlinhas
+\begin{tabular}{|c|c|l|}
+  \hline
+  \textbf{Qtd} & \textbf{Medida} & \textbf{Ingrediente} \\
+  \hline
+  500 & g              & polvilho azedo \\
+  \cline{2-3}
+  1   & copo americano & água \\
+  \cline{1-2}
+  1   & copo americano & leite \\ \hline
+  1/2 & xícara         & óleo \\ \hline
+\end{tabular}
+%%END:tabularlinhas
+
+\clearpage
+
+%%BEGIN:colunalonga
+\begin{tabular}{|l|c|l|}
+  \hline
+  1 & 2 & 3 \\ \hline
+  4 & 5 & Célula com muito texto, que alarga a coluna até sair da margem da página \\ \hline
+  7 & 8 & 9 \\ \hline
+\end{tabular}
+%%END:colunalonga
+
+\clearpage
+
+%%BEGIN:colunap
+\begin{tabular}{|l|c|p{4cm}|}
+  \hline
+  1 & 2 & 3 \\ \hline
+  4 & 5 & Célula com muito texto, que agora quebra em várias linhas \\ \hline
+  7 & 8 & 9 \\ \hline
+\end{tabular}
+%%END:colunap
+
+\clearpage
+
+%%BEGIN:tabularx
+\begin{tabularx}{.6\linewidth}{|l|c|X|}
+  \hline
+  1 & 2 & 3 \\ \hline
+  4 & 5 & Célula com muito texto: a coluna X ocupa a largura que sobra \\ \hline
+  7 & 8 & 9 \\ \hline
+\end{tabularx}
+%%END:tabularx
+
+\clearpage
+
+%%BEGIN:tabularxdesperdicio
+\begin{tabularx}{\linewidth}{X|X|X}
+  \hline
+  Esticar esta coluna & 2 & 3 \\ \hline
+  4 & 5 & Esticar esta coluna \\ \hline
+  7 & Esta também & 9 \\ \hline
+\end{tabularx}
+%%END:tabularxdesperdicio
+
+\clearpage
+
+%%BEGIN:tabulary
+\begin{tabulary}{\linewidth}{|L|C|L|}
+  \hline
+  Esticar esta coluna & 2 & 3 \\ \hline
+  4 & 5 & Esticar esta coluna \\ \hline
+  7 & Esta também & 9 \\ \hline
+\end{tabulary}
+%%END:tabulary
+
+\clearpage
+
+%%BEGIN:booktabs
+\begin{tabular}{ccl}
+  \toprule
+  \textbf{Qtd} & \textbf{Medida} & \textbf{Ingrediente} \\
+  \midrule
+  500 & g              & polvilho azedo \\
+  1   & copo americano & água \\
+  1   & copo americano & leite \\
+  1/2 & xícara         & óleo \\
+  2   & un             & ovos \\
+  100 & g              & queijo parmesão ralado \\
+  --- & ---            & sal a gosto \\
+  \bottomrule
+\end{tabular}
+%%END:booktabs
+
+\clearpage
+
+%%BEGIN:mesclagemcolunas
+\begin{tabular}{llr}
+  \toprule
+  \multicolumn{3}{c}{\textbf{Matriz curricular (trecho)}} \\
+  \midrule
+  1º período & Cálculo I                 & 60 \\
+  1º período & Introdução à Programação  & 60 \\
+  1º período & Metodologia Científica    & 30 \\
+  2º período & Cálculo II                & 60 \\
+  2º período & Estruturas de Dados       & 60 \\
+  \bottomrule
+\end{tabular}
+%%END:mesclagemcolunas
+
+\clearpage
+
+%%BEGIN:mesclagemlinhas
+\begin{tabular}{|l|l|r|}
+  \hline
+  \multicolumn{3}{|c|}{\textbf{Matriz curricular (trecho)}} \\ \hline
+  \multirow{3}{*}{1º período} & Cálculo I                & 60 \\
+                              & Introdução à Programação & 60 \\
+                              & Metodologia Científica   & 30 \\ \hline
+  \multirow{2}{*}{2º período} & Cálculo II               & 60 \\
+                              & Estruturas de Dados      & 60 \\ \hline
+\end{tabular}
+%%END:mesclagemlinhas
+
+\clearpage
+
+%%BEGIN:coresalternadas
+\rowcolors{2}{gray!15}{white}   % a partir da linha 2: cinza nas pares, branco nas ímpares
+\begin{tabular}{lr}
+  \textbf{Disciplina} & \textbf{Média} \\
+  Cálculo I           & 7,2 \\
+  Programação         & 8,1 \\
+  \hiderowcolors                  % desliga as cores a partir daqui
+  Metodologia         & 8,8 \\
+  \showrowcolors                  % religa as cores
+  Estruturas de Dados & 6,9 \\
+  Bancos de Dados     & 7,5 \\
+\end{tabular}
+%%END:coresalternadas
+
+\clearpage
+
+%%BEGIN:corescelulas
+\begin{tabular}{lr}
+  \rowcolor{gray!30}
+  \textbf{Disciplina} & \textbf{Média} \\
+  Cálculo I           & 7,2 \\
+  Estruturas de Dados & \cellcolor{red!20}5,9 \\
+  Programação         & \cellcolor{green!20}8,1 \\
+\end{tabular}
+%%END:corescelulas
+
+\end{document}

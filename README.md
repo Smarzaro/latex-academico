@@ -36,6 +36,17 @@ CC BY 4.0 and code examples under CC0 1.0.
 
 Veja o [índice completo](receitas/README.md).
 
+### Exemplos sem receita (ainda)
+
+| Tema | Exemplos |
+|---|---|
+| [Primeiros passos](exemplos/basico/) | olá mundo, estrutura mínima, espaços e comentários, divisões, português, hifenização, alinhamento, espaçamentos, notas e links, comandos próprios |
+| [Documentos longos](exemplos/organizacao/) | documento dividido em arquivos com `\include` |
+| [Referência cruzada](exemplos/referencia-cruzada/) | `\label`/`\ref`/`\pageref`, `\autoref` e `cleveref` |
+| [Matemática](exemplos/matematica/) | modos inline e destaque, `equation`, `align`, matrizes, casos, teoremas, unidades |
+| [Apresentações e pôster](exemplos/apresentacoes/) | beamer básico, sobreposições, modelo de apresentação (metropolis), pôster (tikzposter) |
+| [abnTeX2](exemplos/abntex2/) | esqueleto de TCC: elementos pré-textuais, textuais e pós-textuais |
+
 
 ## Licenças
 

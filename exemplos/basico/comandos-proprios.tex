@@ -1,0 +1,24 @@
+% Exemplo: definir comandos próprios com \newcommand (sem e com argumentos)
+% Compilar: latexmk -pdf comandos-proprios.tex     Testado com: TeX Live 2024 ou mais recente
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:comandospreambulo
+% sem argumentos: um nome que se repete muito no texto
+\newcommand{\sistema}{\textsf{GestaUFV}}
+% com um argumento (#1): termos em outro idioma sempre em itálico
+\newcommand{\estrangeiro}[1]{\textit{#1}}
+% com um argumento opcional (padrão "pendente") e um obrigatório
+\newcommand{\revisar}[2][pendente]{\textbf{[#1: #2]}}
+%%END:comandospreambulo
+
+\begin{document}
+
+%%BEGIN:comandosuso
+O \sistema{} foi desenvolvido com o \estrangeiro{framework} Django. A versão móvel do
+\sistema{} ainda está em teste \revisar{conferir a data}. A interface usa
+\estrangeiro{layout} responsivo \revisar[ok]{testado em 3 navegadores}.
+%%END:comandosuso
+
+\end{document}

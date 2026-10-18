@@ -1,0 +1,28 @@
+% Exemplo: referências que escrevem o tipo do elemento: \autoref (hyperref) e \cref (cleveref)
+% Compilar: latexmk -pdf autoref-cleveref.tex      Testado com: TeX Live 2024 ou mais recente
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:cleverefpreambulo
+\usepackage[hidelinks]{hyperref}   % links e \autoref
+\usepackage{cleveref}              % depois do hyperref
+% nomes usados pelo \cref/\Cref (singular, plural)
+\crefname{section}{seção}{seções}
+\Crefname{section}{Seção}{Seções}
+\crefname{table}{tabela}{tabelas}
+\Crefname{table}{Tabela}{Tabelas}
+%%END:cleverefpreambulo
+
+\begin{document}
+
+%%BEGIN:cleverefuso
+\section{Introdução}\label{sec:intro}
+Com \verb|\autoref|: veja a \autoref{sec:metodo}. Com \verb|\cref|: veja a \cref{sec:metodo};
+no início da frase, \verb|\Cref|: \Cref{sec:metodo} descreve o método. Vários rótulos de uma
+vez: \cref{sec:intro,sec:metodo}.
+
+\section{Método}\label{sec:metodo}
+%%END:cleverefuso
+
+\end{document}

@@ -1,0 +1,46 @@
+% Exemplo: alinhamento de texto com comandos (\raggedright...) e com ambientes (flushleft...)
+% Compilar: latexmk -pdf alinhamento.tex           Testado com: TeX Live 2024 ou mais recente
+% Cada trecho fica em uma página. As minipages limitam o efeito dos comandos ao seu interior.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+
+\begin{document}
+
+%%BEGIN:alinhamentocomandos
+\begin{minipage}{5cm}
+  \raggedright
+  Um bloco de texto alinhado à esquerda, com a margem direita irregular.
+\end{minipage}
+
+\bigskip
+\begin{minipage}{5cm}
+  \raggedleft
+  Um bloco de texto alinhado à direita, com a margem esquerda irregular.
+\end{minipage}
+
+\bigskip
+\begin{minipage}{5cm}
+  \centering
+  Um bloco de texto centralizado.
+\end{minipage}
+%%END:alinhamentocomandos
+
+\clearpage
+
+%%BEGIN:alinhamentoambientes
+\begin{flushleft}
+  Texto alinhado à esquerda.
+\end{flushleft}
+
+\begin{flushright}
+  Texto alinhado à direita.
+\end{flushright}
+
+\begin{center}
+  Texto centralizado.
+\end{center}
+%%END:alinhamentoambientes
+
+\end{document}

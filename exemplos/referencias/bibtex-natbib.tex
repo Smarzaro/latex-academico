@@ -1,0 +1,17 @@
+% Exemplo: referências com BibTeX e o pacote natbib (\citet, \citep), estilo plainnat
+% Compilar: latexmk -pdf bibtex-natbib.tex         Testado com: natbib, bibtex, TeX Live 2024+
+% Forma clássica, ainda usada por modelos de periódicos. Para trabalhos novos, prefira biblatex.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:natbib
+\usepackage[round]{natbib}        % citações entre parênteses
+
+\begin{document}
+Citação implícita: \citep{knuth1986}. Citação explícita: \citet{goossens1997}.
+
+\bibliographystyle{plainnat}      % estilo das referências (.bst)
+\bibliography{classico}           % arquivo classico.bib, sem a extensão
+\end{document}
+%%END:natbib

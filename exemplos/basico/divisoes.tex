@@ -1,0 +1,18 @@
+% Exemplo: divisões lógicas do documento (capítulo, seção, subseção...)
+% Compilar: latexmk -pdf divisoes.tex              Testado com: TeX Live 2024 ou mais recente
+% A classe report tem \chapter; na classe article a divisão mais alta (depois de \part) é \section.
+%%BEGIN:divisoes
+\documentclass[a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+
+\begin{document}
+\chapter{Título do capítulo}
+\section{Uma seção}
+\subsection{Uma subseção}
+\subsubsection{Uma subsubseção}
+\paragraph{Um parágrafo destacado} Texto do parágrafo\ldots
+\subparagraph{Um subparágrafo} Texto do subparágrafo\ldots
+\end{document}
+%%END:divisoes

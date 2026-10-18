@@ -1,0 +1,29 @@
+% Exemplo: biblatex + biber com o estilo padrão (numérico) e os principais comandos de citação
+% Compilar: latexmk -pdf biblatex-comandos.tex     Testado com: biblatex, biber, TeX Live 2024+
+% Para o padrão ABNT, troque o estilo por style=abnt (veja citacoes.tex).
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+%%BEGIN:biblatexpreambulo
+\usepackage{csquotes}                    % recomendado pelo biblatex
+\usepackage[backend=biber]{biblatex}     % estilo padrão: numérico
+\addbibresource{catalogo.bib}            % com a extensão .bib
+%%END:biblatexpreambulo
+
+\begin{document}
+
+%%BEGIN:biblatexcomandos
+\begin{itemize}
+  \item \verb|\cite{ex-livro}|: \cite{ex-livro}
+  \item \verb|\parencite{ex-artigo}|: \parencite{ex-artigo}
+  \item \verb|\textcite{ex-livro-3}|: \textcite{ex-livro-3}
+  \item \verb|\cite[p.~35]{ex-livro}|: \cite[p.~35]{ex-livro}
+  \item \verb|\footcite{ex-artigo}|: em nota de rodapé\footcite{ex-artigo}
+  \item \verb|\fullcite{ex-livro}|: \fullcite{ex-livro}
+\end{itemize}
+
+\printbibliography
+%%END:biblatexcomandos
+
+\end{document}

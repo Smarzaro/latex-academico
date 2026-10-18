@@ -1,0 +1,21 @@
+% Exemplo: lista de referências escrita à mão com o ambiente thebibliography (sem arquivo .bib)
+% Compilar: latexmk -pdf thebibliography.tex       Testado com: TeX Live 2024 ou mais recente
+% Forma histórica: a formatação é manual e todos os itens aparecem, citados ou não.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+
+\begin{document}
+
+%%BEGIN:thebibliography
+O \TeX\ foi criado por Knuth \cite{knuth1986}. Para gráficos, consulte \cite{goossens1997}.
+
+\begin{thebibliography}{9}   % o argumento é o rótulo mais largo da lista
+  \bibitem{knuth1986} KNUTH, D. E. \textbf{The \TeX book}. Reading: Addison-Wesley, 1986.
+  \bibitem{goossens1997} GOOSSENS, M.; RAHTZ, S.; MITTELBACH, F. \textbf{The \LaTeX\ Graphics
+    Companion}. Reading: Addison-Wesley, 1997.
+\end{thebibliography}
+%%END:thebibliography
+
+\end{document}

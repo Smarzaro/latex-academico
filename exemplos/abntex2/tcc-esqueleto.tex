@@ -1,0 +1,93 @@
+% Exemplo: esqueleto de TCC com a classe abntex2 e referências com biblatex-abnt
+% Compilar: latexmk -pdf tcc-esqueleto.tex         Testado com: abntex2, biblatex-abnt, TeX Live 2024+
+% Mostra a ordem dos elementos (NBR 14724): capa, folha de rosto, resumos, listas, sumário,
+% texto, referências, apêndices e anexos. A folha de aprovação assinada e a ficha catalográfica
+% costumam ser incluídas como PDF (\includepdf, pacote pdfpages).
+%%BEGIN:tccclasse
+\documentclass[12pt, a4paper, oneside, english, brazilian, sumario=tradicional]{abntex2}
+%%END:tccclasse
+%%BEGIN:tccpacotes
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{indentfirst}              % recua também o primeiro parágrafo de cada seção
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields, justify, noslsn]{biblatex}
+\addbibresource{../referencias/catalogo.bib}
+%%END:tccpacotes
+
+%%BEGIN:tccdados
+\titulo{Meu primeiro TCC com abn\TeX2}
+\autor{Nome do Autor}
+\local{Rio Paranaíba}
+\instituicao{Universidade Federal de Viçosa \par Campus Rio Paranaíba}
+\data{\the\year}
+\orientador{Prof. Dr. Fulano de Tal}
+\coorientador{Profa. Dra. Beltrana da Silva}
+\tipotrabalho{Trabalho de Conclusão de Curso (Graduação)}
+\preambulo{Trabalho apresentado à Universidade Federal de Viçosa como parte das exigências
+para a obtenção do título de Bacharel em Sistemas de Informação.}
+%%END:tccdados
+
+\begin{document}
+
+%%BEGIN:tccpretextuais
+\pretextual
+\imprimircapa
+\imprimirfolhaderosto
+
+\begin{resumo}
+Texto do resumo em português, em parágrafo único.
+
+\textbf{Palavras-chave}: LaTeX. abnTeX2. Trabalho acadêmico.
+\end{resumo}
+
+\begin{resumo}[Abstract]
+\begin{otherlanguage*}{english}
+Abstract text in English.
+
+\textbf{Keywords}: LaTeX. abnTeX2. Academic writing.
+\end{otherlanguage*}
+\end{resumo}
+
+\listoffigures*       % o * deixa a lista fora do sumário
+\listoftables*
+\tableofcontents*
+%%END:tccpretextuais
+
+%%BEGIN:tcctextual
+\textual
+\chapter{Introdução}\label{cap:introducao}
+
+Os objetivos do trabalho são:
+\begin{alineas}
+  \item levantar os requisitos;
+  \item desenvolver o protótipo;
+  \item avaliar o protótipo com usuários.
+\end{alineas}
+
+Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas) fica recuada:
+\begin{citacao}
+Texto citado literalmente, com mais de três linhas, que a classe abntex2 formata com recuo de
+4\,cm, fonte menor e espaçamento simples, como pede a NBR 10520. A referência vem ao final
+da citação, entre parênteses \cite[p.~35]{ex-livro}.
+\end{citacao}
+%%END:tcctextual
+
+%%BEGIN:tccpostextual
+\postextual
+\printbibliography[title=Referências]
+
+\begin{apendicesenv}
+\chapter{Questionário aplicado}
+Texto do apêndice (elaborado pelo autor).
+\end{apendicesenv}
+
+\begin{anexosenv}
+\chapter{Regulamento do curso}
+Texto do anexo (elaborado por terceiros).
+\end{anexosenv}
+%%END:tccpostextual
+
+\end{document}

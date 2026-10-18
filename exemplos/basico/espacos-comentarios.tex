@@ -1,0 +1,35 @@
+% Exemplo: espaços em branco, quebras de linha, parágrafos e comentários
+% Compilar: latexmk -pdf espacos-comentarios.tex   Testado com: TeX Live 2024 ou mais recente
+% Cada trecho fica em uma página, para que o resultado de cada um possa ser mostrado separadamente.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+
+\begin{document}
+
+%%BEGIN:espacos
+Esses   espaços   em    branco  extras    serão ignorados.
+
+Quebras de
+linha são tratadas como
+espaço.
+
+
+Uma linha em branco (ou várias) cria um novo parágrafo.
+%%END:espacos
+
+\clearpage
+
+%%BEGIN:comentarios
+Este é um parágrafo em \LaTeX. % daqui até o fim da linha é comentário
+O parágrafo continua nesta linha.
+
+% Um comentário
+% espalhado por
+% várias linhas.
+
+Os comentários não aparecem no documento final.
+%%END:comentarios
+
+\end{document}

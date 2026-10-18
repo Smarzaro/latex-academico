@@ -1,0 +1,50 @@
+% Exemplo: modo matemático no texto (inline) e em destaque, equações numeradas e \eqref
+% Compilar: latexmk -pdf modos.tex                 Testado com: TeX Live 2024 ou mais recente
+% Cada trecho fica em uma página. Evite $$ ... $$ (sintaxe do TeX puro, com espaçamento errado
+% no LaTeX): use \[ ... \] ou os ambientes do amsmath.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+
+\begin{document}
+
+%%BEGIN:matinline
+No texto, a fórmula fica na linha: $\lim_{x \to \infty} e^{-x} = 0$, \(x^{1/2} = \sqrt{x}\) e
+$\int \frac{1}{x}\,dx = \ln\lvert x\rvert + c$. Para não alterar o espaçamento entre as linhas, o
+\LaTeX\ reduz frações, limites e integrais.
+%%END:matinline
+
+\clearpage
+
+%%BEGIN:matdestaque
+Em destaque, a fórmula fica centralizada em uma linha própria:
+\[
+  \int \frac{1}{x}\,dx = \ln\lvert x\rvert + c
+\]
+e, quando precisa ser citada, é numerada com o ambiente \texttt{equation}:
+\begin{equation}\label{eq:normal}
+  f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation}
+A Equação~\ref{eq:normal} é a densidade da distribuição normal. Com \verb|\eqref| o número sai
+entre parênteses: veja \eqref{eq:normal}.
+%%END:matdestaque
+
+\clearpage
+
+%%BEGIN:matalign
+O ambiente \texttt{align} alinha as linhas no \verb|&| e numera cada uma:
+\begin{align}
+  f(x) &= (x+a)(x+b) \\
+       &= x^2 + (a+b)x + ab
+\end{align}
+Na versão \texttt{align*} nenhuma linha é numerada; \verb|\notag| retira o número de uma linha e
+\verb|\tag{...}| troca o número por um rótulo:
+\begin{align}
+  f(x) &= (x+a)(x+b) \notag \\
+       &= x^2 + (a+b)x + ab \tag{resultado}
+\end{align}
+%%END:matalign
+
+\end{document}

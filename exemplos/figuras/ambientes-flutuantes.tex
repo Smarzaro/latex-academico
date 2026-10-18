@@ -1,0 +1,39 @@
+% Exemplo: figura e tabela em ambientes flutuantes; o LaTeX escolhe a posição entre as permitidas
+% Compilar: latexmk -pdf ambientes-flutuantes.tex  Testado com: TeX Live 2024 ou mais recente, mwe
+% Experimente trocar [htbp] por [t] na figura e [b] na tabela e compare os resultados.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{lipsum}            % texto de preenchimento
+
+\begin{document}
+
+%%BEGIN:flutuantes
+\lipsum[1]
+
+\begin{figure}[htbp]          % posições permitidas: aqui, topo, base, página de floats
+  \centering
+  \includegraphics[width=5cm]{example-image-a}
+  \caption{Legenda da figura (abaixo da imagem).}\label{fig:flutuante}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Legenda da tabela (acima da tabela).}\label{tab:flutuante}
+  \begin{tabular}{lr}
+    \toprule
+    Atividade   & Horas \\
+    \midrule
+    Disciplinas & 2.400 \\
+    Estágio     &   300 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\lipsum[2-4]
+%%END:flutuantes
+
+\end{document}

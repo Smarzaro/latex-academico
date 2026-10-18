@@ -1,0 +1,31 @@
+% Exemplo: pôster acadêmico em A0 com a classe tikzposter (título, colunas e blocos)
+% Compilar: latexmk -pdf poster.tex                Testado com: tikzposter, TeX Live 2024 ou mais recente
+% A imagem "example-image" vem do pacote mwe.
+%%BEGIN:poster
+\documentclass[25pt, a0paper, portrait]{tikzposter}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usetheme{Simple}
+
+\title{Título do trabalho apresentado em pôster}
+\author{Nome do Autor, Nome do Orientador}
+\institute{Universidade Federal de Viçosa}
+
+\begin{document}
+\maketitle
+
+\begin{columns}
+  \column{0.5}
+  \block{Introdução}{Contexto, problema e objetivos do trabalho, em poucas linhas.}
+  \block{Metodologia}{Etapas do trabalho e materiais utilizados.}
+
+  \column{0.5}
+  \block{Resultados}{
+    \begin{tikzfigure}[Legenda da figura]
+      \includegraphics[width=.8\linewidth]{example-image}
+    \end{tikzfigure}
+  }
+  \block{Conclusões}{Principais conclusões e trabalhos futuros.}
+\end{columns}
+\end{document}
+%%END:poster

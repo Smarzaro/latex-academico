@@ -1,0 +1,75 @@
+% Exemplo: modelo de apresentação acadêmica (tema metropolis, 16:9) com colunas, figura,
+% tabela, citações com biblatex-abnt, referências e slide de encerramento
+% Compilar: latexmk -pdf modelo-apresentacao.tex   Testado com: beamer, metropolis, biblatex-abnt, TeX Live 2024+
+% Ponto de partida para defesas e seminários: troque os dados, o conteúdo e, se quiser, o logo
+% da sua instituição (\titlegraphic). A imagem "example-image" vem do pacote mwe.
+%%BEGIN:modelopreambulo
+\documentclass[aspectratio=169]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=abnt]{biblatex}
+\addbibresource{../referencias/catalogo.bib}
+
+\title{Título do trabalho}
+\subtitle{Defesa de Trabalho de Conclusão de Curso}
+\author{Nome do Autor \\ \small Orientador: Prof. Dr. Fulano de Tal}
+\institute{Universidade Federal de Viçosa}
+\date{\today}
+% \titlegraphic{\hfill\includegraphics[height=1cm]{logo}}
+%%END:modelopreambulo
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Roteiro}
+  \tableofcontents
+\end{frame}
+
+\section{Introdução}
+
+%%BEGIN:modelocolunas
+\begin{frame}{Problema e objetivos}
+  \begin{columns}[T]
+    \begin{column}{.55\textwidth}
+      \begin{itemize}
+        \item Contexto do problema \parencite{ex-livro}
+        \item Objetivo geral
+        \item Objetivos específicos
+      \end{itemize}
+    \end{column}
+    \begin{column}{.4\textwidth}
+      \includegraphics[width=\linewidth]{example-image}
+    \end{column}
+  \end{columns}
+\end{frame}
+%%END:modelocolunas
+
+\section{Resultados}
+
+\begin{frame}{Resultados}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    Cenário & Acurácia (\%) & Tempo (s) \\
+    \midrule
+    A & 91,2 & 3,4 \\
+    B & 94,8 & 5,1 \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+%%BEGIN:modelobib
+\begin{frame}[allowframebreaks]{Referências}
+  \printbibliography[heading=none]
+\end{frame}
+%%END:modelobib
+
+\begin{frame}[standout]
+  Obrigado!
+\end{frame}
+
+\end{document}
