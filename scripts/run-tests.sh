@@ -19,6 +19,11 @@ for f in $(find exemplos modelos -name '*.tex' | sort); do
   if grep -nE '^%%(BEGIN|END):[A-Za-z0-9]*[^A-Za-z0-9[:space:]]' "$f"; then
     echo "FALHA: id de marcador com caractere inválido em $f (use só letras e números)"; falhas=$((falhas+1))
   fi
+  # o marcador só pode aparecer no início da linha: o listings também reconhece um marcador citado
+  # no meio de um comentário, e o trecho passaria a começar no lugar errado
+  if grep -nE '.%%(BEGIN|END):[A-Za-z0-9]' "$f"; then
+    echo "FALHA: marcador citado fora do início da linha em $f (reescreva o comentário)"; falhas=$((falhas+1))
+  fi
   grep -o '^%%BEGIN:[A-Za-z0-9]*' "$f" | sed 's/BEGIN/ID/' | sort > "$tmp.b"
   grep -o '^%%END:[A-Za-z0-9]*' "$f" | sed 's/END/ID/' | sort > "$tmp.e"
   if ! cmp -s "$tmp.b" "$tmp.e"; then

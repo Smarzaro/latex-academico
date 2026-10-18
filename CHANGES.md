@@ -1,5 +1,12 @@
 # Changes
 
+## 0.2.1 (2026-10-18)
+
+- Correção: os comentários de cabeçalho de `tabela-simples.tex`, `estilo-codigo.tex` e
+  `ajustes-abnt.tex` citavam o marcador literal (ex.: `%%BEGIN:tabelasimples`), e o `listings`
+  passava a incluir o trecho a partir do comentário. Os comentários foram reescritos e
+  `scripts/run-tests.sh` acusa marcadores fora do início da linha.
+
 ## 0.2.0 (2026-10-18)
 
 - Exemplos compiláveis (ainda sem receitas) para os temas básicos, usados pelo livro *LaTeX para
