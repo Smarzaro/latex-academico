@@ -24,6 +24,14 @@ for f in $(find exemplos modelos -name '*.tex' | sort); do
   if grep -nE '.%%(BEGIN|END):[A-Za-z0-9]' "$f"; then
     echo "FALHA: marcador citado fora do início da linha em $f (reescreva o comentário)"; falhas=$((falhas+1))
   fi
+  # um id não pode ser o começo de outro id do mesmo arquivo (o listings compara só o início da
+  # linha: "recursos" casaria com "%%BEGIN:recursospreambulo")
+  ids=$(grep -o '^%%BEGIN:[A-Za-z0-9]*' "$f" | sed 's/%%BEGIN://' | sort -u)
+  for a in $ids; do for b in $ids; do
+    if [ "$a" != "$b" ]; then case "$b" in "$a"*)
+      echo "FALHA: em $f o id \"$a\" é o começo do id \"$b\" (renomeie um deles)"; falhas=$((falhas+1));;
+    esac; fi
+  done; done
   grep -o '^%%BEGIN:[A-Za-z0-9]*' "$f" | sed 's/BEGIN/ID/' | sort > "$tmp.b"
   grep -o '^%%END:[A-Za-z0-9]*' "$f" | sed 's/END/ID/' | sort > "$tmp.e"
   if ! cmp -s "$tmp.b" "$tmp.e"; then

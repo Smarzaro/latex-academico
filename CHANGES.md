@@ -1,5 +1,11 @@
 # Changes
 
+## 0.2.3 (2026-10-18)
+
+- Ids de marcadores renomeados porque eram o começo de outro id do mesmo arquivo, e o `listings`
+  incluía o trecho errado: `espacamentos` passou a `espacamentosuso`, `recursos` a `recursosuso` e
+  `tabularxdesperdicio` a `colunasxiguais`. O `scripts/run-tests.sh` passa a acusar esses casos.
+
 ## 0.2.2 (2026-10-18)
 
 - `codigo/estilo-codigo.tex`: o `literate` passa a cobrir também `Â`, `Ê`, `Ô`, `À`, `ü` e `Ü`
