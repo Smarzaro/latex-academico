@@ -82,6 +82,13 @@ com os formulários prontos:
 Os formulários aplicam os rótulos `pedido`, `erro` e `livro`, o que facilita acompanhar o que
 entra nas próximas versões.
 
+## Opiniões e relatos
+
+Gostou do guia ou do livro, tem uma crítica ou quer contar como o conteúdo ajudou no seu trabalho?
+Escreva na categoria [Feedback](https://github.com/Smarzaro/latex-academico/discussions/categories/feedback)
+das *Discussions*. Os relatos orientam as próximas edições e, com a sua autorização (perguntada no
+formulário), trechos podem ser citados em materiais do livro e do guia.
+
 ## Contribuir
 
 Correções e novas receitas são bem-vindas por *pull request*. Regras básicas: cada receita tem

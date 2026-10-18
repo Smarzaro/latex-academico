@@ -1,0 +1,51 @@
+title: "[Relato] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por compartilhar a sua experiência com o livro *LaTeX para Documentos Acadêmicos*
+        e com este guia! Elogios, críticas e relatos de como o conteúdo ajudou no seu trabalho são
+        lidos com atenção e orientam as próximas edições.
+
+        Para relatar um erro ou pedir um exemplo, use as
+        [issues](https://github.com/Smarzaro/latex-academico/issues/new/choose).
+  - type: textarea
+    id: relato
+    attributes:
+      label: O que você achou ou como o conteúdo ajudou?
+      description: 'Ex.: o capítulo que mais ajudou, um trabalho que você fez com o LaTeX, o que poderia melhorar.'
+    validations:
+      required: true
+  - type: dropdown
+    id: perfil
+    attributes:
+      label: Você é
+      options:
+        - Estudante de graduação
+        - Estudante de pós-graduação
+        - Docente
+        - Pesquisador ou profissional
+        - Outro
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: Área ou curso (opcional)
+      description: 'Ex.: Sistemas de Informação, Engenharia Civil, Letras.'
+  - type: dropdown
+    id: autorizacao
+    attributes:
+      label: Autoriza citar este relato em materiais do livro e do guia?
+      description: Trechos podem ser usados em apresentações do livro, edições futuras e divulgação.
+      options:
+        - Sim, com o meu nome
+        - Sim, sem identificação
+        - Não autorizo
+    validations:
+      required: true
+  - type: input
+    id: nome
+    attributes:
+      label: Nome para a citação (opcional)
+      description: Só se você escolheu "Sim, com o meu nome".
