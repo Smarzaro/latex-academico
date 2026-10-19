@@ -7,37 +7,47 @@
 \usepackage[brazilian]{babel}
 \usepackage{cwpuzzle}                 % ambientes Puzzle e PuzzleClues
 \usepackage{qrcode}
-\usepackage{multicol}
+% a grade fica na mesma linha que o QR code (sem o \par antes e depois)
+\renewcommand{\PuzzlePre}{}\renewcommand{\PuzzlePost}{}
 \ifdefined\solucao \PuzzleSolution \fi   % a solução preenche as casas
 %%END:cruzadaspreambulo
 
 \begin{document}
 \pagestyle{empty}
 
-%%BEGIN:cruzadasgrade
 \begin{center}
+%%BEGIN:cruzadasgrade
+\PuzzleUnitlength=16pt               % lado de cada casa (o padrão é 20pt)
 \begin{Puzzle}{14}{15}
-  |{} |[1]E |{} |[2]I |{} |{} |{} |{} |{} |{} |{} |{} |[3]O |{} |.
-  |{} |X |{} |T |{} |{} |{} |{} |{} |{} |{} |{} |V |{} |.
-  |[4]L |A |B |E |L |{} |{} |{} |{} |{} |{} |{} |E |{} |.
-  |{} |M |{} |M |{} |{} |{} |{} |[5]F |I |G |U |R |E |.
-  |{} |{} |[6]T |I |K |Z |{} |{} |{} |{} |{} |{} |L |{} |.
-  |{} |{} |{} |Z |{} |{} |{} |{} |{} |{} |[7]S |{} |E |{} |.
-  |[8]C |I |T |E |{} |[9]B |{} |[10]T |A |B |U |L |A |R |.
-  |A |{} |{} |{} |{} |A |{} |{} |{} |{} |B |{} |F |{} |.
-  |[11]P |R |E |[12]A |M |B |U |[13]L |O |{} |F |{} |{} |{} |.
-  |T |{} |{} |C |{} |E |{} |A |{} |[14]B |I |B |E |R |.
-  |I |{} |{} |R |{} |L |{} |T |{} |{} |L |{} |{} |{} |.
-  |O |{} |[15]L |O |G |{} |[16]B |E |A |M |E |R |{} |{} |.
-  |N |{} |{} |{} |{} |{} |{} |X |{} |{} |S |{} |{} |{} |.
-  |{} |{} |{} |{} |{} |{} |{} |M |{} |{} |{} |{} |{} |{} |.
-  |{} |{} |{} |{} |{} |{} |{} |K |{} |{} |{} |{} |{} |{} |.
+  |{}   |[1]E|{}   |[2]I |{}|{}  |{}   |{}   |{}  |{}   |{}  |{}|[3]O|{}|.
+  |{}   |X   |{}   |T    |{}|{}  |{}   |{}   |{}  |{}   |{}  |{}|V   |{}|.
+  |[4]L |A   |B    |E    |L |{}  |{}   |{}   |{}  |{}   |{}  |{}|E   |{}|.
+  |{}   |M   |{}   |M    |{}|{}  |{}   |{}   |[5]F|I    |G   |U |R   |E |.
+  |{}   |{}  |[6]T |I    |K |Z   |{}   |{}   |{}  |{}   |{}  |{}|L   |{}|.
+  |{}   |{}  |{}   |Z    |{}|{}  |{}   |{}   |{}  |{}   |[7]S|{}|E   |{}|.
+  |[8]C |I   |T    |E    |{}|[9]B|{}   |[10]T|A   |B    |U   |L |A   |R |.
+  |A    |{}  |{}   |{}   |{}|A   |{}   |{}   |{}  |{}   |B   |{}|F   |{}|.
+  |[11]P|R   |E    |[12]A|M |B   |U    |[13]L|O   |{}   |F   |{}|{}  |{}|.
+  |T    |{}  |{}   |C    |{}|E   |{}   |A    |{}  |[14]B|I   |B |E   |R |.
+  |I    |{}  |{}   |R    |{}|L   |{}   |T    |{}  |{}   |L   |{}|{}  |{}|.
+  |O    |{}  |[15]L|O    |G |{}  |[16]B|E    |A   |M    |E   |R |{}  |{}|.
+  |N    |{}  |{}   |{}   |{}|{}  |{}   |X    |{}  |{}   |S   |{}|{}  |{}|.
+  |{}   |{}  |{}   |{}   |{}|{}  |{}   |M    |{}  |{}   |{}  |{}|{}  |{}|.
+  |{}   |{}  |{}   |{}   |{}|{}  |{}   |K    |{}  |{}   |{}  |{}|{}  |{}|.
 \end{Puzzle}
-\end{center}
 %%END:cruzadasgrade
+\qquad
+%%BEGIN:cruzadasqr
+\parbox[b]{2cm}{\centering   % ao lado da grade, alinhado pela base
+  \qrcode[height=1.8cm]{https://github.com/Smarzaro/latex-academico/blob/main/exemplos/diversao/solucao-palavras-cruzadas.md}\\[2pt]
+  \footnotesize Solução no guia}
+%%END:cruzadasqr
+\end{center}
 
 %%BEGIN:cruzadaspistas
-\begin{multicols}{2}\small\raggedright
+% cada PuzzleClues é uma coluna, alinhada pelo topo (o % as deixa lado a lado)
+{\footnotesize\raggedright\noindent
+\renewcommand{\PuzzleClueWidth}{.48\textwidth}
 \begin{PuzzleClues}{\textbf{Horizontais}}
   \Clue{4}{LABEL}{Comando que dá nome a um elemento para a referência cruzada}
   \Clue{5}{FIGURE}{Ambiente flutuante para ilustrações}
@@ -48,7 +58,7 @@
   \Clue{14}{BIBER}{Programa que processa as referências do \texttt{biblatex}}
   \Clue{15}{LOG}{Arquivo em que ficam os erros e os avisos da compilação}
   \Clue{16}{BEAMER}{Classe para apresentações de slides}
-\end{PuzzleClues}
+\end{PuzzleClues}%
 \begin{PuzzleClues}{\textbf{Verticais}}
   \Clue{1}{EXAM}{Classe para provas e listas de exercícios}
   \Clue{2}{ITEMIZE}{Ambiente de lista com marcadores}
@@ -58,15 +68,7 @@
   \Clue{9}{BABEL}{Pacote que adapta o documento ao português}
   \Clue{12}{ACRO}{Pacote de siglas}
   \Clue{13}{LATEXMK}{Programa que repete as compilações até tudo ficar certo}
-\end{PuzzleClues}
-\end{multicols}
+\end{PuzzleClues}\par}
 %%END:cruzadaspistas
-
-%%BEGIN:cruzadasqr
-\begin{center}
-  \qrcode[height=2cm]{https://github.com/Smarzaro/latex-academico/blob/main/exemplos/diversao/solucao-palavras-cruzadas.md}\\[2pt]
-  \footnotesize Solução no guia
-\end{center}
-%%END:cruzadasqr
 
 \end{document}

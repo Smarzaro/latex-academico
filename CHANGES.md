@@ -1,5 +1,11 @@
 # Changes
 
+## 0.7.2 (2026-10-19)
+
+- `diversao/palavras-cruzadas.tex`: grade com as barras alinhadas em colunas (até 79 colunas) e
+  casas de 16 pt; pistas lado a lado sem `multicols` (as duas colunas começam no topo), em
+  `\footnotesize`; QR code ao lado da grade. O passatempo inteiro cabe em meia página A4.
+
 ## 0.7.1 (2026-10-19)
 
 - `codigo/estilo-codigo.tex`: comentários sem `\itshape` (a Inconsolata não tem itálico e o
