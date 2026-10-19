@@ -2,21 +2,22 @@
 
 ## Página *web*
 
-Use `[S. l.]` se o local não é identificado.
+Se o local não é identificado, omita o campo `location` ([receita 01](01-regras-e-campos.md)).
 
 ```bibtex
 @misc{ex-site,
   author       = {{Python Software Foundation}},
   title        = {Python 3 documentation},
-  location     = {[S. l.]},
   year         = {2025},
   url          = {https://docs.python.org/3/},
   urldate      = {2025-01-28},
 }
 ```
 
-> PYTHON SOFTWARE FOUNDATION. **Python 3 documentation**. [S. l.], 2025. Disponível em:
+> PYTHON SOFTWARE FOUNDATION. **Python 3 documentation**. 2025. Disponível em:
 > https://docs.python.org/3/. Acesso em: 28 jan. 2025.
+
+Sem a opção `noslsn`, o estilo imprime "[S. l.: s. n.], 2025".
 
 ## Repositório de código
 

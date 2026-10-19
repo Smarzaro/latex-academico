@@ -1,5 +1,12 @@
 # Changes
 
+## 0.7.4 (2026-10-19)
+
+- *S. l.* e *s. n.* deixam de ser escritos no `.bib`: a NBR 6023:2018 não os exige mais, e o
+  `biblatex-abnt` os trata como opção (imprime as expressões quando falta o local ou a editora;
+  `noslsn` as omite). `referencias/catalogo.bib` (página da *web* e obra sem autoria) e as
+  receitas 01, 07 e 08 de referências passam a omitir o campo `location`.
+
 ## 0.7.3 (2026-10-19)
 
 - Linhas de código com até 78 colunas nos trechos marcados (eram 79), para a moldura das

@@ -27,14 +27,16 @@ usado na citação:
 @book{ex-sem-autor-artigo,
   title      = {OS GRANDES clássicos das poesias líricas},
   shorttitle = {Os grandes},
-  location   = {[S. l.]},
   publisher  = {Ex Libris},
   year       = {1981},
   pagetotal  = {60},
 }
 ```
 
-> OS GRANDES clássicos das poesias líricas. [S. l.]: Ex Libris, 1981. 60 p.
+> OS GRANDES clássicos das poesias líricas. Ex Libris, 1981. 60 p.
+
+O local não é identificado, e o campo `location` fica de fora: com a opção `noslsn`, nada é
+impresso no lugar (sem ela, o estilo imprime "[S. l.]: Ex Libris").
 
 Na citação: `\cite{ex-sem-autor-artigo}` → (Os grandes [...], 1981).
 

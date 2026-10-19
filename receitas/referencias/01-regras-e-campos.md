@@ -16,9 +16,11 @@
 - Documentos *online* levam, ao final, **Disponível em:** (endereço) e **Acesso em:** (data de
   acesso).
 - Quando um elemento não aparece na obra, mas pode ser identificado, vai entre colchetes:
-  `[Cupertino]`. Se não puder ser identificado, usam-se `[S. l.]` (*sine loco*, sem local) e
-  `[s. n.]` (*sine nomine*, sem editora). A NBR 6023:2018 deixou de exigir essas expressões; a
-  opção `noslsn` do `biblatex-abnt` as omite.
+  `[Cupertino]`. Se não puder ser identificado, o elemento é omitido: a NBR 6023:2018 deixou de
+  exigir as expressões `[S. l.]` (*sine loco*, sem local) e `[s. n.]` (*sine nomine*, sem
+  editora), obrigatórias nas versões anteriores. No `biblatex-abnt`, elas são uma opção: o estilo
+  as imprime quando faltam o local ou a editora, e a opção `noslsn` (usada nestes exemplos) as
+  omite. Não as escreva no arquivo `.bib`.
 
 ## Campos mais usados
 
@@ -52,7 +54,8 @@ O `biblatex-abnt` segue a NBR 6023, mas algumas formas só saem certas com estas
   `@online` não imprime local nem editora.
 - **Obras sem autoria:** omita `author`; se o título começar por artigo ou monossílabo, preencha
   `shorttitle` ([receita 08](08-sem-autoria.md)).
-- **Local ou editora desconhecidos:** escreva `[S. l.]` ou `[s. n.]` no próprio campo.
+- **Local ou editora desconhecidos:** omita o campo `location` ou `publisher`. Com a opção
+  `noslsn`, nada é impresso no lugar; sem ela, o estilo imprime `[S. l.]` ou `[s. n.]`.
 - **Autor institucional:** use chaves duplas, `author = {{Universidade Federal de Viçosa}}`. Com
   chaves simples, o `biblatex` trata "Viçosa" como sobrenome e imprime *VIÇOSA, U. F. de.* na
   lista e "(Viçosa, 1999)" na citação, o que está errado.
