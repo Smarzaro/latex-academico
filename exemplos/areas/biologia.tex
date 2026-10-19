@@ -1,0 +1,53 @@
+% Exemplo: biologia com genealogytree (heredograma com indivíduos afetados; quadrado, círculo e
+% preenchimento definidos como estilos próprios) e um quadro de Punnett feito com tabular.
+% Compilar: latexmk -pdf biologia.tex             Testado com: genealogytree 2.4, TeX Live 2024 ou mais recente
+%%BEGIN:biopreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[all]{genealogytree}       % heredogramas e árvores genealógicas
+\usepackage{array}
+%%END:biopreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:bioheredograma
+Heredograma de uma característica recessiva (símbolos cheios: afetados):
+\begin{center}
+\begin{genealogypicture}[node size=9mm, level size=9mm, level distance=9mm,
+    box={colback=white, colframe=black, boxrule=0.6pt, boxsep=0pt,
+         left=0pt, right=0pt, halign=center, valign=center, fontupper=\tiny},
+    edges={foreground={black, line width=0.6pt}, background={white}},
+    homem/.style={box={sharp corners}},          % quadrado
+    mulher/.style={box={arc=4.5mm}},             % círculo (arco = metade do lado)
+    afetado/.style={box={colback=black!75, colupper=white}}]
+  child{
+    g[homem]{I-1} p[mulher]{I-2}
+    c[mulher]{II-1}
+    c[homem, afetado]{II-2}
+    child{
+      g[mulher]{II-3} p[homem]{II-4}
+      c[homem]{III-1}
+      c[mulher, afetado]{III-2}
+    }
+  }
+\end{genealogypicture}
+\end{center}
+%%END:bioheredograma
+
+%%BEGIN:biopunnett
+Cruzamento \textit{Aa} $\times$ \textit{Aa}:
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{c|>{\centering\itshape}p{1cm}|>{\centering\itshape\arraybackslash}p{1cm}|}
+  \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textit{A}} & \multicolumn{1}{c}{\textit{a}} \\
+  \cline{2-3}
+  \textit{A} & AA & Aa \\ \cline{2-3}
+  \textit{a} & Aa & aa \\ \cline{2-3}
+\end{tabular}
+\end{center}
+Proporção genotípica 1~\textit{AA} : 2~\textit{Aa} : 1~\textit{aa}.
+%%END:biopunnett
+
+\end{document}

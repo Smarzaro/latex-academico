@@ -1,5 +1,20 @@
 # Changes
 
+## 0.5.0 (2026-10-18)
+
+- `areas/`: recursos por área do conhecimento, com README e convite a pedidos: química (`mhchem`,
+  fórmula estrutural da cafeína com `chemfig`, grandezas com `siunitx`), estruturas de dados (árvore
+  binária com `forest`, lista encadeada com TikZ, busca binária com `algpseudocodex` em português),
+  bancos de dados (dependências funcionais com `fddiagram`, álgebra relacional, SQL), programação
+  (fluxograma com TikZ, `algorithm2e` em português) e biologia (heredograma com `genealogytree`,
+  quadro de Punnett).
+- `diversao/`: xadrez (`xskak`), sudoku e dados (`sudoku`, `epsdice`), patos e bichinhos
+  (`tikzducks`, `tikzlings`), fractais (`lindenmayersystems`), calendário de provas (biblioteca
+  `calendar`), QR codes (`qrcode`) e palavras cruzadas sobre LaTeX (`cwpuzzle`), com a solução
+  gerada do mesmo arquivo e publicada em `solucao-palavras-cruzadas.md`.
+- Formulário de pedido de exemplo: temas "Recursos de uma área do conhecimento" e "Diversão com
+  LaTeX" e campo opcional para a área.
+
 ## 0.4.2 (2026-10-18)
 
 - Workflow `release`: cada tag de versão gera uma GitHub Release (com as notas desta lista), o que

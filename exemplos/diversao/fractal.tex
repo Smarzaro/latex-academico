@@ -1,0 +1,36 @@
+% Exemplo: fractais com a biblioteca lindenmayersystems do TikZ: o floco de neve de Koch e uma
+% planta, descritos por regras de reescrita (sistemas de Lindenmayer).
+% Compilar: latexmk -pdf fractal.tex              Testado com: TikZ 3.1, TeX Live 2024 ou mais recente
+%%BEGIN:fractalpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{tikz}
+\usetikzlibrary{lindenmayersystems}
+%%END:fractalpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:fractalkoch
+\pgfdeclarelindenmayersystem{Koch}{%
+  \rule{F -> F-F++F-F}}              % cada segmento vira quatro
+\begin{tikzpicture}
+  \draw[blue!70!black, l-system={Koch, axiom=F++F++F, order=4,
+        step=0.8mm, angle=60}]
+    lindenmayer system -- cycle;
+\end{tikzpicture}
+%%END:fractalkoch
+\hfill
+%%BEGIN:fractalplanta
+\pgfdeclarelindenmayersystem{Planta}{%
+  \rule{X -> F[+X]F[-X]+X}           % [ e ] guardam e recuperam a posição
+  \rule{F -> FF}}
+\begin{tikzpicture}
+  \draw[green!50!black, rotate=90, l-system={Planta, axiom=X, order=5,
+        step=1.1mm, angle=25}]
+    lindenmayer system;
+\end{tikzpicture}
+%%END:fractalplanta
+
+\end{document}

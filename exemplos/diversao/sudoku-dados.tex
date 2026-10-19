@@ -1,0 +1,42 @@
+% Exemplo: um sudoku com o pacote sudoku e uma rolagem de dados com epsdice e números aleatórios do
+% PGF (a semente fixa repete a mesma rolagem a cada compilação; mude-a para outra rolagem).
+% Compilar: latexmk -pdf sudoku-dados.tex         Testado com: sudoku 1.0, epsdice 2.1, TeX Live 2024 ou mais recente
+%%BEGIN:sudokupreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{sudoku}                   % ambiente sudoku
+\usepackage{epsdice}                  % \epsdice{n}: face de um dado
+\usepackage{pgffor, pgfmath}          % \foreach e números aleatórios
+%%END:sudokupreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:sudokugrade
+\setlength{\sudokusize}{6cm}
+\begin{center}
+\begin{sudoku}
+|5|3| | |7| | | | |.
+|6| | |1|9|5| | | |.
+| |9|8| | | | |6| |.
+|8| | | |6| | | |3|.
+|4| | |8| |3| | |1|.
+|7| | | |2| | | |6|.
+| |6| | | | |2|8| |.
+| | | |4|1|9| | |5|.
+| | | | |8| | |7|9|.
+\end{sudoku}
+\end{center}
+%%END:sudokugrade
+
+%%BEGIN:sudokudados
+\pgfmathsetseed{2026}
+Rolagem de cinco dados:
+\foreach \i in {1,...,5} {%
+  \pgfmathrandominteger{\face}{1}{6}%
+  \epsdice{\face}\ %
+}
+%%END:sudokudados
+
+\end{document}

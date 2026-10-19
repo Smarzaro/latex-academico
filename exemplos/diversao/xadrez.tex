@@ -1,0 +1,25 @@
+% Exemplo: xadrez com xskak e chessboard: uma partida curta (o "mate do pastor") escrita em notação
+% algébrica e o tabuleiro na posição final, com as casas do último lance destacadas.
+% Compilar: latexmk -pdf xadrez.tex               Testado com: xskak 1.5, chessboard 1.9, TeX Live 2024 ou mais recente
+%%BEGIN:xadrezpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{xskak}                    % partidas (carrega o chessboard)
+%%END:xadrezpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:xadrezpartida
+\newchessgame
+Partida: \mainline{1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7#}
+
+\xskakset{moveid=\xskakgetgame{lastmoveid}}   % posição depois do último lance
+\begin{center}
+  \chessboard[setfen=\xskakget{nextfen}, showmover=false,
+              pgfstyle=border, markfields={f7, h5}, color=red]
+\end{center}
+%%END:xadrezpartida
+
+\end{document}

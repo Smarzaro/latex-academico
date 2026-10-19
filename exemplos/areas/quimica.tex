@@ -1,0 +1,39 @@
+% Exemplo: química com mhchem (fórmulas e equações), chemfig (fórmula estrutural da cafeína) e
+% siunitx (grandezas com unidade: massa, volume, concentração e massa molar).
+% Compilar: latexmk -pdf quimica.tex              Testado com: mhchem 4, chemfig 1.6, TeX Live 2024 ou mais recente
+%%BEGIN:quimicapreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[version=4]{mhchem}   % \ce{...}: fórmulas e equações químicas
+\usepackage{chemfig}             % \chemfig{...}: fórmulas estruturais
+\usepackage{siunitx}             % \qty{valor}{unidade}: grandezas com unidade
+\sisetup{output-decimal-marker = {,}, per-mode = symbol}   % vírgula decimal e mol/L
+%%END:quimicapreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:quimicaequacoes
+Combustão completa do metano:
+\begin{center}
+  \ce{CH4 + 2 O2 -> CO2 + 2 H2O}
+\end{center}
+Equilíbrio químico: \ce{N2 + 3 H2 <=> 2 NH3}.
+Íons e hidratos: \ce{SO4^2-}, \ce{Fe^3+} e \ce{CuSO4 * 5 H2O}.
+%%END:quimicaequacoes
+
+%%BEGIN:quimicaestrutura
+A cafeína, \ce{C8H10N4O2}, substância indispensável à realização deste livro:
+\begin{center}
+  \chemfig{*6((=O)-N(-CH_3)-*5(-N=-N(-CH_3)-=)--(=O)-N(-H_3C)-)}
+\end{center}
+%%END:quimicaestrutura
+
+%%BEGIN:quimicagrandezas
+Um café expresso de \qty{30}{\milli\litre} tem cerca de \qty{60}{\milli\gram} de cafeína
+(massa molar \qty{194,19}{\gram\per\mole}), ou seja, \qty{2}{\gram\per\litre}, cerca de
+\qty{0,01}{\mole\per\litre}.
+%%END:quimicagrandezas
+
+\end{document}

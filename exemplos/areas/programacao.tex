@@ -1,0 +1,55 @@
+% Exemplo: programação com um fluxograma em TikZ e um algoritmo com algorithm2e (palavras-chave
+% em português pela opção portuguese).
+% Compilar: latexmk -pdf programacao.tex          Testado com: algorithm2e 5.2, TeX Live 2024 ou mais recente
+%%BEGIN:progpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, shapes.misc, positioning}
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+%%END:progpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:progfluxograma
+\begin{center}
+\begin{tikzpicture}[node distance=7mm, font=\small,
+    terminal/.style={draw, rounded rectangle, minimum width=2cm},
+    processo/.style={draw, rectangle, minimum width=2.6cm, minimum height=7mm},
+    decisao/.style={draw, diamond, aspect=2, inner sep=1pt},
+    es/.style={draw, trapezium, trapezium left angle=70, trapezium right angle=110},
+    seta/.style={-stealth}]
+  \node[terminal]                     (ini)  {início};
+  \node[es, below=of ini]             (le)   {ler $n_1$, $n_2$};
+  \node[processo, below=of le]        (med)  {$m \gets (n_1 + n_2)/2$};
+  \node[decisao, below=of med]        (dec)  {$m \ge 6$?};
+  \node[es, below left=7mm and 10mm of dec]  (apr) {``aprovado''};
+  \node[es, below right=7mm and 10mm of dec] (rep) {``reprovado''};
+  \node[terminal, below=18mm of dec]  (fim)  {fim};
+  \draw[seta] (ini) -- (le);
+  \draw[seta] (le) -- (med);
+  \draw[seta] (med) -- (dec);
+  \draw[seta] (dec) -| node[pos=0.3, above] {sim} (apr);
+  \draw[seta] (dec) -| node[pos=0.3, above] {não} (rep);
+  \draw[seta] (apr) |- (fim);
+  \draw[seta] (rep) |- (fim);
+\end{tikzpicture}
+\end{center}
+%%END:progfluxograma
+
+%%BEGIN:progalgoritmo
+\begin{algorithm}[htbp]
+  \caption{Fatorial de um número natural}
+  \Entrada{um número natural $n$}
+  \Saida{$n!$}
+  $f \gets 1$\;
+  \Para{$i \gets 2$ \Ate $n$}{
+    $f \gets f \times i$\;
+  }
+  \Retorna{$f$}\;
+\end{algorithm}
+%%END:progalgoritmo
+
+\end{document}

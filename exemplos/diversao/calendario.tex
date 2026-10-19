@@ -1,0 +1,37 @@
+% Exemplo: calendário de um mês com a biblioteca calendar do TikZ, com fins de semana em cinza e
+% as datas de provas e entregas destacadas. Troque o mês nas datas de início e fim.
+% Compilar: latexmk -pdf calendario.tex           Testado com: TikZ 3.1, TeX Live 2024 ou mais recente
+%%BEGIN:calendariopreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{tikz}
+\usetikzlibrary{calendar}
+%%END:calendariopreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:calendariomes
+\begin{center}
+\textbf{Novembro de 2026}\par\smallskip
+\begin{tikzpicture}
+  % cabeçalho: uma coluna por dia da semana, com o mesmo espaçamento dos dias
+  \foreach \d [count=\i from 0] in {seg, ter, qua, qui, sex, sáb, dom}
+    \node[font=\footnotesize\bfseries, text height=1.6ex, text depth=0.3ex]
+      at (\i*8mm, 6mm) {\d};
+  \calendar[dates=2026-11-01 to 2026-11-30, week list, day xshift=8mm,
+            day yshift=6mm, day code={
+              \node[anchor=center, minimum size=5.5mm, inner sep=0pt,
+                    name=\pgfcalendarsuggestedname] {\tikzdaytext};}]
+    if (weekend) [black!40]
+    if (equals=2026-11-12) [nodes={draw=red, thick, circle}]            % prova 1
+    if (equals=2026-11-26) [nodes={fill=blue!20, rounded corners=1pt}]   % entrega
+  ;
+\end{tikzpicture}\par\smallskip
+\footnotesize\textcolor{red}{$\bigcirc$} prova \qquad
+\colorbox{blue!20}{\phantom{0}} entrega do trabalho
+\end{center}
+%%END:calendariomes
+
+\end{document}

@@ -1,0 +1,26 @@
+% Exemplo: QR codes com o pacote qrcode (sem imagens externas): endereço do guia, DOI e texto livre,
+% com tamanho e nível de correção de erros. Útil em slides, pôsteres, crachás e provas.
+% Compilar: latexmk -pdf qrcode.tex               Testado com: qrcode 1.51, TeX Live 2024 ou mais recente
+%%BEGIN:qrpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[hidelinks]{hyperref}      % o QR code também vira um link no PDF
+\usepackage{qrcode}
+%%END:qrpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:qrexemplos
+\begin{center}
+\begin{tabular}{ccc}
+  \qrcode[height=2.5cm]{https://github.com/Smarzaro/latex-academico} &
+  \qrcode[height=2.5cm, level=H]{https://doi.org/10.5281/zenodo.23458965} &
+  \qrcode[height=2.5cm, nolink]{Parabéns: você leu um QR code feito em LaTeX!} \\[4pt]
+  guia \texttt{latex-academico} & DOI (correção alta) & texto, sem link
+\end{tabular}
+\end{center}
+%%END:qrexemplos
+
+\end{document}

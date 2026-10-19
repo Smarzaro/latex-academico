@@ -1,0 +1,48 @@
+% Exemplo: bancos de dados com fddiagram (diagrama de dependências funcionais, para normalização),
+% álgebra relacional em modo matemático e consulta SQL com listings (estilo de codigo/).
+% Compilar: latexmk -pdf bancos-de-dados.tex      Testado com: fddiagram 0.3, TeX Live 2026 ou mais recente
+%%BEGIN:bdpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}                  % \text{...}
+\usepackage[spacing=2.4]{fddiagram}  % diagramas de dependências funcionais
+\input{../codigo/estilo-codigo}       % listings com o estilo dos exemplos
+%%END:bdpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:bddependencias
+Dependências funcionais da relação
+Inscrição(Matrícula, Nome, Curso, Coordenador, Disciplina, Nota):
+\begin{center}
+% os nomes saem em modo matemático: \text{} mantém os acentos e a letra reta
+\begin{fddiagram}
+  \text{Matrícula} -> \text{Nome}, \text{Curso} ;
+  \text{Curso} -> \text{Coordenador} ;
+  \text{Matrícula}, \text{Disciplina} -> \text{Nota}
+\end{fddiagram}
+\end{center}
+%%END:bddependencias
+
+%%BEGIN:bdalgebra
+Nomes dos alunos do curso de Química:
+\[
+  \pi_{\text{Nome}}\bigl(\sigma_{\text{Curso} = \text{'Química'}}(\text{Aluno})\bigr)
+\]
+Alunos e suas notas, com a junção natural:
+\(\pi_{\text{Nome},\,\text{Nota}}(\text{Aluno} \bowtie \text{Inscrição})\).
+%%END:bdalgebra
+
+%%BEGIN:bdsql
+\begin{lstlisting}[language=SQL, morekeywords={JOIN}]
+SELECT a.nome, i.nota
+  FROM aluno a
+  JOIN inscricao i ON i.matricula = a.matricula
+ WHERE i.disciplina = 'BD1'
+ ORDER BY i.nota DESC;
+\end{lstlisting}
+%%END:bdsql
+
+\end{document}

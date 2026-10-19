@@ -1,0 +1,31 @@
+% Exemplo: desenhos prontos com tikzducks e tikzlings: um pato formando-se, com beca e livro, e
+% alguns bichinhos. Cada acessório é uma opção do comando de desenho.
+% Compilar: latexmk -pdf bichinhos.tex            Testado com: tikzducks 1.7, tikzlings 1.12, TeX Live 2024 ou mais recente
+%%BEGIN:bichospreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{tikzducks}                % \duck[opções]
+\usepackage{tikzlings}                % \penguin, \owl, \cat, \bee...
+%%END:bichospreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:bichospato
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  \duck[graduate=black, tassel=red, book=\scalebox{0.4}{\LaTeX}, bookcolour=blue!60]
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[scale=1.5]
+  \penguin[signpost=\scalebox{0.5}{Olá!}]
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[scale=1.5]
+  \owl[magichat, magicwand]
+\end{tikzpicture}
+\end{center}
+%%END:bichospato
+
+\end{document}

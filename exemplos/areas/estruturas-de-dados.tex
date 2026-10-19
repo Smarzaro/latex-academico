@@ -1,0 +1,75 @@
+% Exemplo: estruturas de dados com forest (árvore binária de busca), TikZ (lista encadeada) e
+% algpseudocodex (pseudocódigo da busca binária, com as palavras-chave em português).
+% Compilar: latexmk -pdf estruturas-de-dados.tex  Testado com: forest 2.1, algpseudocodex 1.1, TeX Live 2024 ou mais recente
+%%BEGIN:edpreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{forest}                  % árvores
+\usetikzlibrary{shapes.multipart, positioning, calc}   % nós com duas partes (lista)
+\usepackage{algorithm}               % float "Algoritmo"
+\usepackage{algpseudocodex}          % pseudocódigo
+\floatname{algorithm}{Algoritmo}
+% palavras-chave em português
+\algrenewcommand\algorithmicfunction{\textbf{função}}
+\algrenewcommand\algorithmicwhile{\textbf{enquanto}}
+\algrenewcommand\algorithmicdo{\textbf{faça}}
+\algrenewcommand\algorithmicif{\textbf{se}}
+\algrenewcommand\algorithmicthen{\textbf{então}}
+\algrenewcommand\algorithmicelse{\textbf{senão}}
+\algrenewcommand\algorithmicreturn{\textbf{retorne}}
+%%END:edpreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:edarvore
+\begin{center}
+\begin{forest}
+  for tree={circle, draw, minimum size=2.2em, inner sep=1pt, s sep=1.5em}
+  [50 [30 [20] [40]] [70 [60] [80, fill=yellow!40]]]
+\end{forest}
+\end{center}
+%%END:edarvore
+
+%%BEGIN:edlista
+\begin{center}
+\begin{tikzpicture}[
+    no/.style={draw, rectangle split, rectangle split parts=2,
+               rectangle split horizontal, minimum height=2.2em},
+    seta/.style={-stealth, thick}]
+  \node[no] (a) {12 \nodepart{two} \phantom{0}};
+  \node[no, right=1cm of a] (b) {7 \nodepart{two} \phantom{0}};
+  \node[no, right=1cm of b] (c) {31 \nodepart{two} \phantom{0}};
+  \node[left=1cm of a] (ini) {\texttt{início}};
+  \node[right=1cm of c] (nulo) {\textsc{nulo}};
+  \draw[seta] (ini) -- (a);
+  \foreach \x/\y in {a/b, b/c, c/nulo}
+    \draw[seta] ($(\x.one split)!0.5!(\x.east)$) -- (\y);
+\end{tikzpicture}
+\end{center}
+%%END:edlista
+
+%%BEGIN:edalgoritmo
+\begin{algorithm}[htbp]
+  \caption{Busca binária em um vetor ordenado}
+  \begin{algorithmic}[1]
+    \Function{Busca}{$v, n, x$}
+      \State $i \gets 1$; \ $f \gets n$
+      \While{$i \le f$}
+        \State $m \gets \lfloor (i + f)/2 \rfloor$
+        \If{$v[m] = x$}
+          \State \Return $m$
+        \ElsIf{$v[m] < x$}
+          \State $i \gets m + 1$
+        \Else
+          \State $f \gets m - 1$
+        \EndIf
+      \EndWhile
+      \State \Return $-1$     \Comment{não encontrado}
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+%%END:edalgoritmo
+
+\end{document}

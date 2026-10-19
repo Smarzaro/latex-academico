@@ -32,9 +32,16 @@ body:
         - Cronograma e escrita acadêmica
         - Apresentações e pôsteres
         - Provas e material didático
+        - Recursos de uma área do conhecimento
+        - Diversão com LaTeX
         - Outro
     validations:
       required: true
+  - type: input
+    id: area
+    attributes:
+      label: Área do conhecimento (opcional)
+      description: 'Ex.: química, física, estruturas de dados, bancos de dados, biologia, música.'
   - type: textarea
     id: tentativa
     attributes:

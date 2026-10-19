@@ -51,6 +51,8 @@ Veja o [índice completo](receitas/README.md).
 | [abntex2-ufv](exemplos/abntex2-ufv/) | ambientes `tabela` e `ilustracao` e float `codigo` da classe [abntex2-ufv](https://ctan.org/pkg/abntex2-ufv), comparados com a abntex2 |
 | [Provas e listas](exemplos/avaliacoes/) | prova com pontuação e gabarito do mesmo arquivo, lista de exercícios (classe `exam`), prova com várias versões embaralhadas e scripts que geram as versões e os gabaritos (`gerar-versoes.sh`, `gerar-versoes.ps1`) |
 | [Versionamento](exemplos/versionamento/) | duas versões de um texto comparadas com o `latexdiff` |
+| [Recursos por área](exemplos/areas/) | química (`mhchem`, `chemfig`, `siunitx`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, álgebra relacional, SQL), programação (fluxograma, `algorithm2e`), biologia (heredograma com `genealogytree`, quadro de Punnett) |
+| [Diversão com LaTeX](exemplos/diversao/) | xadrez (`xskak`), sudoku e dados, patos e bichinhos (`tikzducks`, `tikzlings`), fractais (`lindenmayersystems`), calendário (TikZ), QR codes (`qrcode`), palavras cruzadas sobre LaTeX (`cwpuzzle`) com a [solução](exemplos/diversao/solucao-palavras-cruzadas.md) |
 
 
 ## Licenças
