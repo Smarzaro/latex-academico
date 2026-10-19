@@ -20,7 +20,7 @@ o incluem com `\input{estilo-codigo}`.
 \lstdefinestyle{codigo}{
   basicstyle=\ttfamily\footnotesize, columns=fixed, basewidth=0.5em,
   keepspaces=true, tabsize=4,
-  keywordstyle=\bfseries\color{cod-kw}, commentstyle=\itshape\color{cod-com},
+  keywordstyle=\bfseries\color{cod-kw}, commentstyle=\color{cod-com},
   stringstyle=\color{cod-str}, showstringspaces=false,
   texcsstyle=*\bfseries\color{cod-kw}, emphstyle=\bfseries\color{cod-foco},
   moretexcs={includegraphics, caption, toprule, midrule, ...},   % comandos de pacotes
@@ -51,8 +51,9 @@ A versão completa do `literate` (todas as vogais acentuadas e `ç`) está no ar
 - **Destaque.** `emphstyle` define a aparência das palavras passadas em `emph={...}` em uma
   listagem, útil para chamar a atenção para o comando que está sendo explicado.
 - **Cores.** Escolha cores que continuem legíveis em escala de cinza; palavras-chave em negrito e
-  comentários em itálico ajudam. Para quem imprime em preto e branco, o estilo `codigopb`
-  ([receita 05](05-preto-e-branco-e-minted.md)) desliga as cores.
+  comentários em cor mais clara ajudam (a Inconsolata não tem itálico: um `\itshape` sairia reto,
+  com aviso de fonte substituída). Para quem imprime em preto e branco, o estilo `codigopb`
+  ([receita 05](05-preto-e-branco-e-minted.md)) troca as cores por negrito e cinza.
 - **Quebra de linhas.** `breaklines=true` quebra linhas longas; `postbreak` marca a continuação
   com uma seta.
 - **Rótulo e lista.** `\lstlistingname` troca "Listing" por "Código"; `\lstlistoflistings`

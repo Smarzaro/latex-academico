@@ -3,15 +3,16 @@
 ## Impressão em preto e branco
 
 O estilo `codigopb` é o mesmo `codigo` sem cores: palavras-chave em negrito, comentários em
-itálico e fundo branco. Está definido em
+cinza e fundo branco (a Inconsolata não tem itálico). Está definido em
 [`estilo-codigo.tex`](../../exemplos/codigo/estilo-codigo.tex). Escolha-o em uma listagem com
 `[style=codigopb]` ou para todas com `\lstset{style=codigopb}`. Exemplo:
 [`listings-pb.tex`](../../exemplos/codigo/listings-pb.tex).
 
 ```latex
 \lstdefinestyle{codigopb}{style=codigo, keywordstyle=\bfseries,
-  commentstyle=\itshape, stringstyle=\relax, backgroundcolor=\color{white},
-  rulecolor=\color{black}, numberstyle=\tiny}
+  texcsstyle=*\bfseries, emphstyle=\bfseries, commentstyle=\color{black!60},
+  stringstyle=\relax, backgroundcolor=\color{white}, rulecolor=\color{black},
+  numberstyle=\tiny}
 ```
 
 ## Alternativa: `minted`

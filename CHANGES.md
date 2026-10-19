@@ -1,5 +1,11 @@
 # Changes
 
+## 0.7.1 (2026-10-19)
+
+- `codigo/estilo-codigo.tex`: comentários sem `\itshape` (a Inconsolata não tem itálico e o
+  LaTeX trocava a forma com aviso); no estilo `codigopb`, comentários em cinza e destaque
+  (`emph`) só em negrito. Receitas 01 e 05 de código atualizadas.
+
 ## 0.7.0 (2026-10-19)
 
 - **Linhas de código com até 79 colunas** nos trechos marcados (`%%BEGIN`/`%%END`) de 51
