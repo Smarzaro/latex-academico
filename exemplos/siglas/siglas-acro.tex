@@ -5,11 +5,13 @@
 \usepackage{acro}
 
 %%BEGIN:acroconfig
-% Lista em duas colunas alinhadas: sigla à esquerda e significado ao lado (a NBR 14724 só exige a
-% ordem alfabética e o significado por extenso; o formato é livre). Título como os demais
-% elementos pré-textuais (centralizado, sem número, no sumário).
+% Lista em duas colunas alinhadas: sigla à esquerda e significado ao lado
+% (a NBR 14724 só exige a ordem alfabética e o significado por extenso; o
+% formato é livre). Título como os demais elementos pré-textuais
+% (centralizado, sem número, no sumário).
 \NewAcroTemplate[heading]{abnt}{\pretextualchapter{\acrolistname}}
-\acsetup{list/name = {Lista de siglas}, list/heading = abnt, list/template = tabular,
+\acsetup{list/name = {Lista de siglas}, list/heading = abnt,
+  list/template = tabular,
   templates/colspec = {@{}l@{\hspace{1.5em}}p{.8\linewidth}@{}}}
 % duas listas: siglas e abreviaturas (as abreviaturas levam tag = abreviatura)
 \newcommand{\listadesiglas}{{\renewcommand{\arraystretch}{1.5}%
@@ -19,11 +21,14 @@
 %%END:acroconfig
 
 %%BEGIN:acrodeclaracoes
-\DeclareAcronym{abnt}{short = ABNT, long = Associação Brasileira de Normas Técnicas}
-% long-plural-form: forma plural completa, para quando o plural não é só "+s" (sem ele: "Aplicaçõess")
-\DeclareAcronym{api}{short = API, long = Interface de Programação de Aplicações,
+\DeclareAcronym{abnt}{short = ABNT,
+  long = Associação Brasileira de Normas Técnicas}
+% long-plural-form: plural que não é só "+s" (sem ele: "Aplicaçõess")
+\DeclareAcronym{api}{short = API,
+  long = Interface de Programação de Aplicações,
   long-plural-form = Interfaces de Programação de Aplicações}
-\DeclareAcronym{ieee}{short = IEEE, long = \textit{Institute of Electrical and Electronics Engineers}}
+\DeclareAcronym{ieee}{short = IEEE,
+  long = \textit{Institute of Electrical and Electronics Engineers}}
 % abreviatura: lista própria, citada com \acs{}
 \DeclareAcronym{art}{short = art., long = artigo, tag = abreviatura}
 \DeclareAcronym{ed}{short = ed., long = edição, tag = abreviatura}
@@ -39,10 +44,12 @@
 \chapter{Introdução}
 
 %%BEGIN:acrouso
-A elaboração de trabalhos segue a \ac{abnt}. A primeira ocorrência de uma sigla sai por extenso,
-com a sigla entre parênteses; as seguintes, só a sigla: \ac{abnt}. No plural: \acp{api}. Só a
-sigla, mesmo na primeira vez: \acs{ieee}. Só o nome por extenso: \acl{ieee}. Abreviaturas:
-\acs{art} 5 e \acs{ed} revista (a abreviatura já traz o ponto; evite repeti-lo no fim da frase).
+A elaboração de trabalhos segue a \ac{abnt}. A primeira ocorrência de uma
+sigla sai por extenso, com a sigla entre parênteses; as seguintes, só a
+sigla: \ac{abnt}. No plural: \acp{api}. Só a sigla, mesmo na primeira vez:
+\acs{ieee}. Só o nome por extenso: \acl{ieee}. Abreviaturas: \acs{art} 5 e
+\acs{ed} revista (a abreviatura já traz o ponto; evite repeti-lo no fim da
+frase).
 %%END:acrouso
 
 \end{document}

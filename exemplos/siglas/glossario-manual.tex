@@ -5,7 +5,8 @@
 \usepackage[T1]{fontenc}
 
 %%BEGIN:glossariodef
-% Ambiente "glossario": título em maiúsculas (entra no sumário) e um parágrafo por termo
+% Ambiente "glossario": título em maiúsculas (entra no sumário) e um
+% parágrafo por termo
 \newcommand{\termo}[2]{\par\noindent\textbf{#1:} #2\par\medskip}
 \newenvironment{glossario}{%
   \pretextualchapter{\MakeUppercase{Glossário}}%
@@ -26,9 +27,12 @@ Texto do trabalho.
 
 %%BEGIN:glossariouso
 \begin{glossario}
-  \termo{API}{Conjunto de definições e protocolos que permite a comunicação entre sistemas.}
-  \termo{Framework}{Estrutura reutilizável de software que oferece funcionalidades genéricas.}
-  \termo{SGBD}{Sistema que gerencia a criação, o acesso e a manutenção de bancos de dados.}
+  \termo{API}{Conjunto de definições e protocolos que permite a comunicação
+    entre sistemas.}
+  \termo{Framework}{Estrutura reutilizável de software que oferece
+    funcionalidades genéricas.}
+  \termo{SGBD}{Sistema que gerencia a criação, o acesso e a manutenção de
+    bancos de dados.}
 \end{glossario}
 %%END:glossariouso
 

@@ -7,7 +7,8 @@
 \pgfplotsset{compat=newest}
 
 %%BEGIN:graficopreambulo
-% Float "Gráfico" (a abntex2 não o define): numeração própria e lista de gráficos (memoir)
+% Float "Gráfico" (a abntex2 não o define): numeração própria e lista de
+% gráficos (memoir)
 \newfloat{grafico}{lgr}{Gráfico}
 \newlistof{listofgraficos}{lgr}{Lista de gráficos}
 %%END:graficopreambulo
@@ -35,13 +36,17 @@ do tempo de resposta.
 
 %%BEGIN:graficolinhas
 \begin{grafico}[htbp]
-  \caption{Tempo de resposta por número de usuários simultâneos}\label{gra:linhas}
+  \caption{Tempo de resposta por número de usuários simultâneos}
+  \label{gra:linhas}
   \centering
   \begin{tikzpicture}
-    \begin{axis}[width=0.8\linewidth, height=6cm, xlabel={Usuários simultâneos},
-        ylabel={Tempo (ms)}, grid=major, legend pos=north west]
-      \addplot[mark=square*, thick] coordinates {(10,40) (50,55) (100,90) (200,180)};
-      \addplot[mark=triangle*, thick, dashed] coordinates {(10,35) (50,45) (100,60) (200,95)};
+    \begin{axis}[width=0.8\linewidth, height=6cm,
+        xlabel={Usuários simultâneos}, ylabel={Tempo (ms)},
+        grid=major, legend pos=north west]
+      \addplot[mark=square*, thick]
+        coordinates {(10,40) (50,55) (100,90) (200,180)};
+      \addplot[mark=triangle*, thick, dashed]
+        coordinates {(10,35) (50,45) (100,60) (200,95)};
       \legend{Versão 1, Versão 2}
     \end{axis}
   \end{tikzpicture}

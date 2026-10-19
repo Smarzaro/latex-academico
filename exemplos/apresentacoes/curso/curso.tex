@@ -5,10 +5,11 @@
 % Versão para impressão (sem os passos das camadas): latexmk -pdf curso-handout.tex
 % Testado com: beamer, subfiles, biblatex-abnt, TeX Live 2024 ou mais recente
 %%BEGIN:cursoclasse
-\documentclass[aspectratio=169, xcolor=table]{beamer}   % table: \rowcolors nas tabelas
+% xcolor=table: \rowcolors nas tabelas
+\documentclass[aspectratio=169, xcolor=table]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
-\usepackage{subfiles}              % aulas em arquivos separados, cada uma compilável
+\usepackage{subfiles}              % aulas em arquivos separados e compiláveis
 %%END:cursoclasse
 \usepackage{csquotes}
 \usepackage{booktabs}
@@ -44,11 +45,12 @@
 %%END:cursoblocos
 
 %%BEGIN:cursotransicoes
-% Slides de abertura gerados automaticamente para cada aula (\part) e cada seção
+% Slides de abertura gerados automaticamente para cada aula (\part) e seção
 \AtBeginPart{%
   \begin{frame}[plain]
     \centering\vfill
-    {\small\color{secundaria}\MakeUppercase{Aula \insertpartnumber}}\par\medskip
+    {\small\color{secundaria}\MakeUppercase{Aula \insertpartnumber}}\par
+    \medskip
     {\Large\bfseries\color{primaria}\insertpart}\par
     \vfill
   \end{frame}}
@@ -70,7 +72,7 @@
 %%END:cursocodigo
 
 %%BEGIN:cursocaminhos
-% Caminhos que funcionam ao compilar o curso (nesta pasta) e uma aula (em aulas/)
+% Caminhos que valem ao compilar o curso (nesta pasta) e uma aula (em aulas/)
 \graphicspath{{imagens/}{../imagens/}}
 \usepackage[backend=biber, style=abnt]{biblatex}
 \addbibresource{\subfix{referencias-curso.bib}}

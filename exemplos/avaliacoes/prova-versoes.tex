@@ -17,9 +17,9 @@
 \renewcommand{\choicelabel}{\thechoice)}
 
 %%BEGIN:versoespreambulo
-\usepackage{exam-randomizechoices}   % ambiente randomizechoices: alternativas em ordem sorteada
-\providecommand{\versao}{1}          % versão padrão, se nenhuma for informada na compilação
-\setrandomizerseed{\versao}          % a versão é a semente do sorteio: mesma versão, mesma ordem
+\usepackage{exam-randomizechoices}   % randomizechoices: embaralha alternativas
+\providecommand{\versao}{1}          % versão padrão, se nenhuma for informada
+\setrandomizerseed{\versao}          % semente: mesma versão, mesma ordem
 \ifdefined\gabarito \printanswers \fi
 %%END:versoespreambulo
 \keylistquestionname{Questão}\keylistkeyname{Resposta}
@@ -64,7 +64,8 @@
     \choice \texttt{\textbackslash}
   \end{randomizechoices}
   \begin{solution}
-    Alternativa \altcorreta: o \texttt{\%} faz o \LaTeX\ ignorar o resto da linha.
+    Alternativa \altcorreta: o \texttt{\%} faz o
+    \LaTeX\ ignorar o resto da linha.
   \end{solution}
 
   \question[1]\label{q:biber}
@@ -88,14 +89,15 @@
     \choice Depois do \texttt{\textbackslash end\{figure\}}.
   \end{randomizechoices}
   \begin{solution}
-    Alternativa \altcorreta: o rótulo guarda o número criado pelo \texttt{\textbackslash caption}.
+    Alternativa \altcorreta: o rótulo guarda o número criado pelo
+    \texttt{\textbackslash caption}.
   \end{solution}
 
   \question[2]
   Explique a diferença entre uma tabela e um quadro nos trabalhos acadêmicos.
   \begin{solutionorlines}[2.5cm]
-    A tabela apresenta dados, geralmente numéricos, com as laterais abertas; o quadro apresenta
-    informação textual, com bordas em todos os lados.
+    A tabela apresenta dados, geralmente numéricos, com as laterais abertas;
+    o quadro apresenta informação textual, com bordas em todos os lados.
   \end{solutionorlines}
 \end{questions}
 %%END:versoesquestoes

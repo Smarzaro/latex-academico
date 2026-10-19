@@ -10,7 +10,8 @@
 
 %%BEGIN:gobble
 \begin{itemize}
-  \item Com \texttt{gobble=4}, os 4 primeiros caracteres de cada linha são descartados:
+  \item Com \texttt{gobble=4}, os 4 primeiros caracteres de cada linha são
+    descartados:
     \begin{lstlisting}[language=Python, gobble=4]
     for v in valores:
         total += v
@@ -33,7 +34,8 @@
 
 \newpage
 %%BEGIN:palavraschave
-\begin{lstlisting}[language=Python, morekeywords={self, len}, deletekeywords={print}]
+\begin{lstlisting}[language=Python, morekeywords={self, len},
+                   deletekeywords={print}]
 class Turma:
     def media(self):
         print(len(self.notas))

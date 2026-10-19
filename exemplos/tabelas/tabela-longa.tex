@@ -15,8 +15,11 @@ A \autoref{tab:longa} ocupa mais de uma página.
 %%BEGIN:tabelalonga
 {\captionstyle[\raggedright]{\raggedright}\setlength{\LTcapwidth}{\linewidth}
 \small\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
-\begin{longtable}{@{\extracolsep{\fill}} l S[table-format=5.0] S[table-format=3.1]}
-  \caption{Cobertura de testes por módulo do sistema (exemplo de tabela longa)}\label{tab:longa}\\
+\begin{longtable}{@{\extracolsep{\fill}} l
+                  S[table-format=5.0] S[table-format=3.1]}
+  \caption{Cobertura de testes por módulo do sistema
+    (exemplo de tabela longa)}%
+  \label{tab:longa}\\
   \toprule
   \textbf{Módulo} & {\textbf{Linhas de código}} & {\textbf{Cobertura (\%)}} \\
   \midrule
@@ -95,7 +98,8 @@ A \autoref{tab:longa} ocupa mais de uma página.
 }
 \nopagebreak
 \fonte{Elaborado pelo próprio autor. Dados fictícios.}
-\nota{Tabela com 60 linhas, para mostrar a quebra de página e a repetição do cabeçalho.}
+\nota{Tabela com 60 linhas, para mostrar a quebra de página e a repetição
+  do cabeçalho.}
 %%END:tabelalonga
 
 \end{document}

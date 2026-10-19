@@ -2,7 +2,8 @@
 % espaço para resposta e quadro de pontuação). O mesmo arquivo gera o gabarito: veja gabarito.tex.
 % Compilar: latexmk -pdf prova.tex              Testado com: exam 2.7, TeX Live 2024 ou mais recente
 %%BEGIN:provaclasse
-\documentclass[12pt, a4paper, addpoints]{exam}   % addpoints: soma os pontos das questões
+% addpoints: soma os pontos das questões
+\documentclass[12pt, a4paper, addpoints]{exam}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
 \usepackage{amsmath}
@@ -12,7 +13,8 @@
 % textos da classe em português
 \pointpoints{ponto}{pontos}
 \renewcommand{\solutiontitle}{\noindent\textbf{Resposta:}\enspace}
-\hqword{Questão:} \hpword{Valor:} \hsword{Nota:} \htword{Total}   % quadro de pontuação
+% quadro de pontuação
+\hqword{Questão:} \hpword{Valor:} \hsword{Nota:} \htword{Total}
 \CorrectChoiceEmphasis{\bfseries}
 %%END:provaportugues
 
@@ -27,7 +29,8 @@
 \begin{document}
 
 %%BEGIN:provaidentificacao
-\noindent Nome: \makebox[0.55\textwidth]{\hrulefill} \hfill Matrícula: \makebox[3cm]{\hrulefill}
+\noindent Nome: \makebox[0.55\textwidth]{\hrulefill} \hfill
+Matrícula: \makebox[3cm]{\hrulefill}
 
 \begin{center}
   \gradetable[h][questions]
@@ -37,7 +40,7 @@
 %%BEGIN:provaquestoes
 \begin{questions}
   \question[2] Calcule a derivada de $f(x) = 3x^2 + 2x$.
-  \begin{solutionorbox}[2cm]      % na prova: caixa vazia; no gabarito: a resposta
+  \begin{solutionorbox}[2cm] % na prova: caixa vazia; no gabarito: a resposta
     $f'(x) = 6x + 2$.
   \end{solutionorbox}
 

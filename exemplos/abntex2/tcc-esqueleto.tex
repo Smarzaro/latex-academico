@@ -4,12 +4,13 @@
 % texto, referências, apêndices e anexos. A folha de aprovação assinada e a ficha catalográfica
 % costumam ser incluídas como PDF (\includepdf, pacote pdfpages).
 %%BEGIN:tccclasse
-\documentclass[12pt, a4paper, oneside, english, brazilian, sumario=tradicional]{abntex2}
+\documentclass[12pt, a4paper, oneside, english, brazilian,
+  sumario=tradicional]{abntex2}
 %%END:tccclasse
 %%BEGIN:tccpacotes
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{indentfirst}              % recua também o primeiro parágrafo de cada seção
+\usepackage{indentfirst}              % recua o primeiro parágrafo da seção
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
@@ -17,9 +18,9 @@
 \usepackage{ragged2e}
 \usepackage{xurl}
 \addbibresource{../referencias/catalogo.bib}
-\appto{\bibsetup}{\RaggedRight}       % referências à esquerda (NBR 6023), com hifenização
+\appto{\bibsetup}{\RaggedRight}       % à esquerda (NBR 6023), com hifenização
 \urlstyle{same}
-\hypersetup{hidelinks}                % a abntex2 carrega o hyperref; links sem moldura
+\hypersetup{hidelinks}                % links sem moldura (hyperref da abntex2)
 %%END:tccpacotes
 
 %%BEGIN:tccdados
@@ -75,11 +76,13 @@ Os objetivos do trabalho são:
   \item avaliar o protótipo com usuários.
 \end{alineas}
 
-Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas) fica recuada:
+Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas)
+fica recuada:
 \begin{citacao}
-Texto citado literalmente, com mais de três linhas, que a classe abntex2 formata com recuo de
-4\,cm, fonte menor e espaçamento simples, como pede a NBR 10520. A referência vem ao final
-da citação, entre parênteses \cite[p.~35]{ex-livro}.
+Texto citado literalmente, com mais de três linhas, que a classe abntex2
+formata com recuo de 4\,cm, fonte menor e espaçamento simples, como pede a
+NBR 10520. A referência vem ao final da citação, entre parênteses
+\cite[p.~35]{ex-livro}.
 \end{citacao}
 %%END:tcctextual
 

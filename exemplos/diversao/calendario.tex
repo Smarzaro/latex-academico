@@ -25,8 +25,10 @@
               \node[anchor=center, minimum size=5.5mm, inner sep=0pt,
                     name=\pgfcalendarsuggestedname] {\tikzdaytext};}]
     if (weekend) [black!40]
-    if (equals=2026-11-12) [nodes={draw=red, thick, circle}]            % prova 1
-    if (equals=2026-11-26) [nodes={fill=blue!20, rounded corners=1pt}]   % entrega
+    % prova 1
+    if (equals=2026-11-12) [nodes={draw=red, thick, circle}]
+    % entrega
+    if (equals=2026-11-26) [nodes={fill=blue!20, rounded corners=1pt}]
   ;
 \end{tikzpicture}\par\smallskip
 \footnotesize\textcolor{red}{$\bigcirc$} prova \qquad

@@ -1,5 +1,12 @@
 # Changes
 
+## 0.7.0 (2026-10-19)
+
+- **Linhas de código com até 79 colunas** nos trechos marcados (`%%BEGIN`/`%%END`) de 51
+  exemplos, para caberem sem quebra numa página de livro de 16 × 23 cm: comentários com menos
+  espaço antes, mais curtos ou na linha anterior; opções longas em várias linhas; prosa dos
+  exemplos requebrada. O resultado compilado de cada exemplo não muda.
+
 ## 0.6.0 (2026-10-18)
 
 - **Receitas para todos os temas**: primeiros passos, documentos longos, referência cruzada,

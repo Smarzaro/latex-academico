@@ -19,8 +19,8 @@ Heredograma de uma característica recessiva (símbolos cheios: afetados):
     box={colback=white, colframe=black, boxrule=0.6pt, boxsep=0pt,
          left=0pt, right=0pt, halign=center, valign=center, fontupper=\tiny},
     edges={foreground={black, line width=0.6pt}, background={white}},
-    homem/.style={box={sharp corners}},          % quadrado
-    mulher/.style={box={arc=4.5mm}},             % círculo (arco = metade do lado)
+    homem/.style={box={sharp corners}}, % quadrado
+    mulher/.style={box={arc=4.5mm}},    % círculo (arco = metade do lado)
     afetado/.style={box={colback=black!75, colupper=white}}]
   child{
     g[homem]{I-1} p[mulher]{I-2}
@@ -40,8 +40,10 @@ Heredograma de uma característica recessiva (símbolos cheios: afetados):
 Cruzamento \textit{Aa} $\times$ \textit{Aa}:
 \begin{center}
 \renewcommand{\arraystretch}{1.6}
-\begin{tabular}{c|>{\centering\itshape}p{1cm}|>{\centering\itshape\arraybackslash}p{1cm}|}
-  \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textit{A}} & \multicolumn{1}{c}{\textit{a}} \\
+\begin{tabular}{c|>{\centering\itshape}p{1cm}|%
+                >{\centering\itshape\arraybackslash}p{1cm}|}
+  \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textit{A}}
+    & \multicolumn{1}{c}{\textit{a}} \\
   \cline{2-3}
   \textit{A} & AA & Aa \\ \cline{2-3}
   \textit{a} & Aa & aa \\ \cline{2-3}

@@ -14,9 +14,11 @@ A \autoref{fig:sub} reúne duas imagens; a \autoref{fig:sub-a} mostra a primeira
 \begin{figure}[htbp]
   \caption{Figura com duas subfiguras}\label{fig:sub}
   \centering
-  \subbottom[Primeira imagem\label{fig:sub-a}]{\includegraphics[width=.45\linewidth]{example-image-a}}
+  \subbottom[Primeira imagem\label{fig:sub-a}]{%
+    \includegraphics[width=.45\linewidth]{example-image-a}}
   \hfill
-  \subbottom[Segunda imagem\label{fig:sub-b}]{\includegraphics[width=.45\linewidth]{example-image-b}}
+  \subbottom[Segunda imagem\label{fig:sub-b}]{%
+    \includegraphics[width=.45\linewidth]{example-image-b}}
   \fonte{Elaborado pelo próprio autor.}
 \end{figure}
 %%END:figurasubfiguras

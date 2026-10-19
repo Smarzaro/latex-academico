@@ -2,10 +2,12 @@
 % Não é um documento: é incluído com \input{estilo-codigo} no preâmbulo.
 % Testado com: listings, TeX Live 2024 ou mais recente. O trecho marcado com o id "estilo" é o que as receitas e o livro exibem.
 %%BEGIN:estilo
-\usepackage[varqu,varl,scaled=0.95]{inconsolata} % largura fixa legível (0/O, 1/l/I e & distintos)
+% largura fixa legível (0/O, 1/l/I e & distintos)
+\usepackage[varqu,varl,scaled=0.95]{inconsolata}
 \usepackage{xcolor}
 \usepackage{listings}
-\lstloadaspects{tex,emph}               % habilita as chaves texcsstyle, moretexcs e emphstyle
+% habilita as chaves texcsstyle, moretexcs e emphstyle
+\lstloadaspects{tex,emph}
 \definecolor{cod-kw}{RGB}{0,51,153}     % palavras-chave e comandos
 \definecolor{cod-com}{RGB}{0,110,50}    % comentários
 \definecolor{cod-str}{RGB}{163,21,21}   % cadeias de caracteres
@@ -30,7 +32,8 @@
     CorrectChoice, points},
   numbers=left, numberstyle=\tiny\color{black!55}, numbersep=7pt,
   backgroundcolor=\color{black!4}, frame=single, rulecolor=\color{black!25},
-  breaklines=true, postbreak={\mbox{\textcolor{cod-com}{$\hookrightarrow$}\space}},
+  breaklines=true,
+  postbreak={\mbox{\textcolor{cod-com}{$\hookrightarrow$}\space}},
   extendedchars=true,
   literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
            {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
@@ -46,6 +49,6 @@
   commentstyle=\itshape, stringstyle=\relax, backgroundcolor=\color{white},
   rulecolor=\color{black}, numberstyle=\tiny}
 \lstset{style=codigo}
-\renewcommand{\lstlistingname}{Código}            % rótulo da legenda: "Código N"
+\renewcommand{\lstlistingname}{Código}  % rótulo da legenda: "Código N"
 \renewcommand{\lstlistlistingname}{Lista de códigos}
 %%END:estilo

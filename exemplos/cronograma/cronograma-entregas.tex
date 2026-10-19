@@ -10,13 +10,14 @@
 \usepackage{amssymb}                  % \blacklozenge
 
 %%BEGIN:entregaspreambulo
-\definecolor{periodo}{RGB}{158,202,225}    % meses de execução
-\definecolor{entrega}{RGB}{8,81,156}       % meses com entrega (marco)
+\definecolor{periodo}{RGB}{158,202,225}  % meses de execução
+\definecolor{entrega}{RGB}{8,81,156}     % meses com entrega (marco)
 \newcommand{\mes}{\cellcolor{periodo}}
-\newcommand{\marco}{\cellcolor{entrega}\textcolor{white}{\scriptsize$\blacklozenge$}}
-\newfloat{quadro}{loq}{Quadro}             % a abntex2 não define o float Quadro
+\newcommand{\marco}{\cellcolor{entrega}%
+  \textcolor{white}{\scriptsize$\blacklozenge$}}
+\newfloat{quadro}{loq}{Quadro}           % a abntex2 não define o float Quadro
 \newlistof{listofquadros}{loq}{Lista de quadros}
-\newcommand{\quadroautorefname}{Quadro}    % nome usado pelo \autoref
+\newcommand{\quadroautorefname}{Quadro}  % nome usado pelo \autoref
 %%END:entregaspreambulo
 
 \begin{document}
@@ -28,9 +29,11 @@ O \autoref{qua:entregas} destaca as entregas previstas no projeto.
   \caption{Cronograma de execução (meses); células escuras indicam entregas}
   \label{qua:entregas}
   \small\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{>{\raggedright}p{5.4cm} *{12}{>{\centering\arraybackslash}p{0.42cm}}}
+  \begin{tabular}{>{\raggedright}p{5.4cm}
+                  *{12}{>{\centering\arraybackslash}p{0.42cm}}}
     \toprule
-    \sffamily\bfseries Atividade & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \sffamily\bfseries Atividade & 1 & 2 & 3 & 4 & 5 & 6
+      & 7 & 8 & 9 & 10 & 11 & 12 \\
     \midrule
     Revisão da literatura      & \mes & \marco & & & & & & & & & & \\
     Definição dos métodos      & & \mes & \mes & & & & & & & & & \\

@@ -29,7 +29,8 @@ Inscrição(Matrícula, Nome, Curso, Coordenador, Disciplina, Nota):
 %%BEGIN:bdalgebra
 Nomes dos alunos do curso de Química:
 \[
-  \pi_{\text{Nome}}\bigl(\sigma_{\text{Curso} = \text{'Química'}}(\text{Aluno})\bigr)
+  \pi_{\text{Nome}}\bigl(\sigma_{\text{Curso} = \text{'Química'}}
+    (\text{Aluno})\bigr)
 \]
 Alunos e suas notas, com a junção natural:
 \(\pi_{\text{Nome},\,\text{Nota}}(\text{Aluno} \bowtie \text{Inscrição})\).

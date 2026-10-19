@@ -8,7 +8,8 @@
 \usepackage[version=4]{mhchem}   % \ce{...}: fórmulas e equações químicas
 \usepackage{chemfig}             % \chemfig{...}: fórmulas estruturais
 \usepackage{siunitx}             % \qty{valor}{unidade}: grandezas com unidade
-\sisetup{output-decimal-marker = {,}, per-mode = symbol}   % vírgula decimal e mol/L
+% vírgula decimal e mol/L
+\sisetup{output-decimal-marker = {,}, per-mode = symbol}
 %%END:quimicapreambulo
 
 \begin{document}
@@ -31,9 +32,9 @@ A cafeína, \ce{C8H10N4O2}, substância indispensável à realização deste liv
 %%END:quimicaestrutura
 
 %%BEGIN:quimicagrandezas
-Um café expresso de \qty{30}{\milli\litre} tem cerca de \qty{60}{\milli\gram} de cafeína
-(massa molar \qty{194,19}{\gram\per\mole}), ou seja, \qty{2}{\gram\per\litre}, cerca de
-\qty{0,01}{\mole\per\litre}.
+Um café expresso de \qty{30}{\milli\litre} tem cerca de \qty{60}{\milli\gram}
+de cafeína (massa molar \qty{194,19}{\gram\per\mole}), ou seja,
+\qty{2}{\gram\per\litre}, cerca de \qty{0,01}{\mole\per\litre}.
 %%END:quimicagrandezas
 
 \end{document}
