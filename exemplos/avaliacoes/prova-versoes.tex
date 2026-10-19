@@ -17,9 +17,9 @@
 \renewcommand{\choicelabel}{\thechoice)}
 
 %%BEGIN:versoespreambulo
-\usepackage{exam-randomizechoices}   % randomizechoices: embaralha alternativas
-\providecommand{\versao}{1}          % versão padrão, se nenhuma for informada
-\setrandomizerseed{\versao}          % semente: mesma versão, mesma ordem
+\usepackage{exam-randomizechoices}  % randomizechoices: embaralha alternativas
+\providecommand{\versao}{1}         % versão padrão, se nenhuma for informada
+\setrandomizerseed{\versao}         % semente: mesma versão, mesma ordem
 \ifdefined\gabarito \printanswers \fi
 %%END:versoespreambulo
 \keylistquestionname{Questão}\keylistkeyname{Resposta}
@@ -104,7 +104,8 @@
 
 %%BEGIN:versoeschave
 \ifprintanswers
-  \bigskip\noindent\textbf{Chave de respostas --- versão \versao}\par\smallskip
+  \bigskip\noindent\textbf{Chave de respostas --- versão \versao}\par
+  \smallskip
   \printkeytable[1-3]
 \fi
 %%END:versoeschave

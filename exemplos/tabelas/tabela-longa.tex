@@ -1,7 +1,8 @@
 % Exemplo: tabela longa (mais de uma página) com longtable: cabeçalho repetido e "Continua"
 % Compilar: latexmk -pdf tabela-longa.tex         Testado com: abntex2, TeX Live 2024 ou mais recente
 % O longtable não é um float: o título é o \caption da primeira linha e o rodapé vem após a tabela.
-\documentclass[12pt, a4paper, brazilian]{abntex2}
+% papel A5: com poucas linhas, a tabela já passa para a página seguinte
+\documentclass[12pt, a5paper, brazilian]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -68,37 +69,11 @@ A \autoref{tab:longa} ocupa mais de uma página.
   Recomendações 2            &  6136 &  57,8 \\
   Avaliações 2               &  7509 &  60,7 \\
   Suporte 2                  &  8882 &  63,6 \\
-  Integração externa 2       & 10255 &  66,5 \\
-  Mensageria 2               & 11628 &  69,4 \\
-  Cache 2                    & 13001 &  72,3 \\
-  Configurações 2            & 14374 &  75,2 \\
-  Internacionalização 2      & 15747 &  78,1 \\
-  Utilitários 2              & 17120 &  81,0 \\
-  Autenticação 3             & 18493 &  83,9 \\
-  Cadastro 3                 &   866 &  86,8 \\
-  Catálogo 3                 &  2239 &  89,7 \\
-  Carrinho 3                 &  3612 &  92,6 \\
-  Pagamento 3                &  4985 &  95,5 \\
-  Frete 3                    &  6358 &  98,4 \\
-  Notificações 3             &  7731 &  56,3 \\
-  Relatórios 3               &  9104 &  59,2 \\
-  Administração 3            & 10477 &  62,1 \\
-  Auditoria 3                & 11850 &  65,0 \\
-  Busca 3                    & 13223 &  67,9 \\
-  Recomendações 3            & 14596 &  70,8 \\
-  Avaliações 3               & 15969 &  73,7 \\
-  Suporte 3                  & 17342 &  76,6 \\
-  Integração externa 3       & 18715 &  79,5 \\
-  Mensageria 3               &  1088 &  82,4 \\
-  Cache 3                    &  2461 &  85,3 \\
-  Configurações 3            &  3834 &  88,2 \\
-  Internacionalização 3      &  5207 &  91,1 \\
-  Utilitários 3              &  6580 &  94,0 \\
 \end{longtable}
 }
 \nopagebreak
 \fonte{Elaborado pelo próprio autor. Dados fictícios.}
-\nota{Tabela com 60 linhas, para mostrar a quebra de página e a repetição
+\nota{Tabela com 34 linhas, para mostrar a quebra de página e a repetição
   do cabeçalho.}
 %%END:tabelalonga
 

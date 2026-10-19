@@ -1,5 +1,13 @@
 # Changes
 
+## 0.7.3 (2026-10-19)
+
+- Linhas de código com até 78 colunas nos trechos marcados (eram 79), para a moldura das
+  listagens caber dentro da largura do texto no livro: comentários com um espaço a menos antes
+  (com os vizinhos realinhados) e linhas de texto requebradas. O resultado compilado não muda.
+- `tabelas/tabela-longa.tex`: 34 linhas de dados (eram 60) e papel A5, para a tabela continuar
+  passando de uma página com um código mais curto.
+
 ## 0.7.2 (2026-10-19)
 
 - `diversao/palavras-cruzadas.tex`: grade com as barras alinhadas em colunas (até 79 colunas) e

@@ -14,11 +14,11 @@ A \autoref{fig:gantt} apresenta o cronograma como um diagrama de Gantt.
   \caption{Diagrama de Gantt do cronograma do projeto}\label{fig:gantt}
   \centering
   \begin{tikzpicture}[font=\footnotesize, line width=0.4pt]
-    \def\gntn{6}                              % número de atividades
-    \pgfmathsetlengthmacro{\gntlc}{3.6cm}     % largura da coluna de atividades
+    \def\gntn{6}                             % número de atividades
+    \pgfmathsetlengthmacro{\gntlc}{3.6cm}    % largura da coluna de atividades
     \pgfmathsetlengthmacro{\gntxu}{(\linewidth-\gntlc)/12} % largura de um mês
-    \pgfmathsetlengthmacro{\gnthh}{1.1cm}     % altura do cabeçalho (2 linhas)
-    \pgfmathsetlengthmacro{\gntrh}{0.62cm}    % altura de cada atividade
+    \pgfmathsetlengthmacro{\gnthh}{1.1cm}    % altura do cabeçalho (2 linhas)
+    \pgfmathsetlengthmacro{\gntrh}{0.62cm}   % altura de cada atividade
     \pgfmathsetlengthmacro{\gntht}{\gnthh+\gntn*\gntrh} % altura total
     % cabeçalho sombreado, moldura e linhas
     \fill[black!8] (0,0) rectangle (\linewidth,-\gnthh);
