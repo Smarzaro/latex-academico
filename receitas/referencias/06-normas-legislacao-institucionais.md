@@ -9,12 +9,12 @@
   subtitle     = {informação e documentação: trabalhos acadêmicos: apresentação},
   location     = {Rio de Janeiro},
   publisher    = {ABNT},
-  year         = {2011},
+  year         = {2024},
 }
 ```
 
 > ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 14724**: informação e documentação:
-> trabalhos acadêmicos: apresentação. Rio de Janeiro: ABNT, 2011.
+> trabalhos acadêmicos: apresentação. Rio de Janeiro: ABNT, 2024.
 
 ## Legislação disponível *online*
 

@@ -26,33 +26,30 @@ CC BY 4.0 and code examples under CC0 1.0.
 
 ### Receitas disponíveis
 
+Todos os temas têm receitas e exemplos compiláveis.
+
 | Tema | Receitas |
 |---|---|
+| [Primeiros passos](receitas/basico/) | estrutura do documento, preâmbulo em português, espaços e parágrafos, divisões, alinhamento, hifenização, notas e links, comandos próprios |
+| [Documentos longos](receitas/organizacao/) | um arquivo por capítulo, `\include` × `\input`, `\includeonly` |
+| [Referência cruzada](receitas/referencia-cruzada/) | `\label`, `\ref`, `\pageref`, `\autoref`, `\cref` em português |
 | [Tabelas e quadros](receitas/tabelas/) | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro |
 | [Figuras e gráficos](receitas/figuras/) | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots |
+| [Matemática](receitas/matematica/) | fórmulas no texto e em destaque, `equation`, `align`, `\eqref`, matrizes, `cases`, operadores, teoremas, `siunitx` |
 | [Código-fonte](receitas/codigo/) | configuração do `listings`, uso básico, opções, linguagens e acentos, preto e branco e `minted`, dicas |
 | [Referências e citações](receitas/referencias/) | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação |
 | [Siglas, abreviaturas e glossário](receitas/siglas-glossario/) | `acro`, lista de siglas, lista de abreviaturas, glossário |
+| [abnTeX2](receitas/abntex2/) | preâmbulo e dados do trabalho, ordem dos elementos (pré-textuais, textuais, pós-textuais), vários autores |
+| [Classe abntex2-ufv](receitas/abntex2-ufv/) | ambiente `tabela` × `\IBGEtab`, figura com `ilustracao`, código-fonte como ilustração (float `codigo`), comparados com a abntex2 |
+| [Escrita acadêmica](receitas/escrita/) | o que escrever em cada seção: introdução, objetivos, referencial, metodologia, resultados, conclusão |
 | [Cronograma](receitas/cronograma/) | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
-| [Escrita acadêmica](receitas/escrita/) | o que escrever em cada seção do trabalho |
+| [Apresentações e pôsteres](receitas/apresentacoes/) | beamer básico, sobreposições, modelo de defesa (metropolis), pôster (tikzposter), slides de uma disciplina com `subfiles`, identidade visual e transições, código, tabelas e diagramas nos slides |
+| [Provas e listas de exercícios](receitas/avaliacoes/) | classe `exam`: prova, gabarito do mesmo arquivo, lista de exercícios, versões embaralhadas com `exam-randomizechoices`, scripts `gerar-versoes` |
+| [Recursos por área do conhecimento](receitas/areas/) | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett) |
+| [Diversão com LaTeX](receitas/diversao/) | xadrez, sudoku e dados, `tikzducks`/`tikzlings`, fractais, calendário, QR code, palavras cruzadas com [solução](exemplos/diversao/solucao-palavras-cruzadas.md) |
+| [Versionamento](receitas/versionamento/) | comparar duas versões com o `latexdiff` |
 
 Veja o [índice completo](receitas/README.md).
-
-### Exemplos sem receita (ainda)
-
-| Tema | Exemplos |
-|---|---|
-| [Primeiros passos](exemplos/basico/) | olá mundo, estrutura mínima, espaços e comentários, divisões, português, hifenização, alinhamento, espaçamentos, notas e links, comandos próprios |
-| [Documentos longos](exemplos/organizacao/) | documento dividido em arquivos com `\include` |
-| [Referência cruzada](exemplos/referencia-cruzada/) | `\label`/`\ref`/`\pageref`, `\autoref` e `cleveref` |
-| [Matemática](exemplos/matematica/) | modos inline e destaque, `equation`, `align`, matrizes, casos, teoremas, unidades |
-| [Apresentações e pôster](exemplos/apresentacoes/) | beamer básico, sobreposições, modelo de apresentação (metropolis), pôster (tikzposter), slides de uma disciplina organizados com `subfiles` (`curso/`: aulas compiláveis separadamente, slides de transição automáticos, versão para impressão) |
-| [abnTeX2](exemplos/abntex2/) | esqueleto de TCC: elementos pré-textuais, textuais e pós-textuais; vários autores |
-| [abntex2-ufv](exemplos/abntex2-ufv/) | ambientes `tabela` e `ilustracao` e float `codigo` da classe [abntex2-ufv](https://ctan.org/pkg/abntex2-ufv), comparados com a abntex2 |
-| [Provas e listas](exemplos/avaliacoes/) | prova com pontuação e gabarito do mesmo arquivo, lista de exercícios (classe `exam`), prova com várias versões embaralhadas e scripts que geram as versões e os gabaritos (`gerar-versoes.sh`, `gerar-versoes.ps1`) |
-| [Versionamento](exemplos/versionamento/) | duas versões de um texto comparadas com o `latexdiff` |
-| [Recursos por área](exemplos/areas/) | química (`mhchem`, `chemfig`, `siunitx`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, álgebra relacional, SQL), programação (fluxograma, `algorithm2e`), biologia (heredograma com `genealogytree`, quadro de Punnett) |
-| [Diversão com LaTeX](exemplos/diversao/) | xadrez (`xskak`), sudoku e dados, patos e bichinhos (`tikzducks`, `tikzlings`), fractais (`lindenmayersystems`), calendário (TikZ), QR codes (`qrcode`), palavras cruzadas sobre LaTeX (`cwpuzzle`) com a [solução](exemplos/diversao/solucao-palavras-cruzadas.md) |
 
 
 ## Licenças

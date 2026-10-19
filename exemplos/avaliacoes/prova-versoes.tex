@@ -1,8 +1,9 @@
 % Exemplo: prova com várias versões. As alternativas são embaralhadas pelo pacote
 % exam-randomizechoices, com o número da versão como semente; o gabarito sai do mesmo arquivo.
 % Compilar a versão 1 (padrão):  latexmk -pdf prova-versoes.tex
-% Versão 3:          latexmk -pdf -jobname=prova-v3 -usepretex="\def\versao{3}" prova-versoes.tex
-% Gabarito da 3:     latexmk -pdf -jobname=gabarito-v3 -usepretex="\def\versao{3}\def\gabarito{1}" prova-versoes.tex
+% Versão 3:          latexmk -pdf -jobname=prova-v3 -usepretex="\def\versao{3} " prova-versoes.tex
+% Gabarito da 3:     latexmk -pdf -jobname=gabarito-v3 -usepretex="\def\versao{3}\def\gabarito{1} " prova-versoes.tex
+% (o espaço antes das aspas finais é necessário no Git Bash; no Linux e no macOS não atrapalha)
 % Várias versões de uma vez: scripts gerar-versoes.sh (Linux/macOS) e gerar-versoes.ps1 (Windows).
 % Testado com: exam 2.7, exam-randomizechoices, TeX Live 2024 ou mais recente
 \documentclass[12pt, a4paper, addpoints]{exam}

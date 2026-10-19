@@ -14,7 +14,7 @@ Fonte, legenda e nota formam o **rodapé**: ficam abaixo, em linhas seguidas, em
 tamanho 10 e alinhadas à esquerda do objeto.
 
 **Cabeçalho centralizado, rodapé à esquerda.** Para figuras, diagramas, gráficos, quadros e
-códigos, a NBR 14724/2025 recomenda **centralizar o cabeçalho** (tipo, número e título) e
+códigos, a NBR 14724:2024 recomenda **centralizar o cabeçalho** (tipo, número e título) e
 **alinhar à esquerda o rodapé**, respeitando as margens da ilustração. Nas tabelas, o título
 costuma ficar à esquerda (padrão do IBGE).
 

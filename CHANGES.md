@@ -1,5 +1,23 @@
 # Changes
 
+## 0.6.0 (2026-10-18)
+
+- **Receitas para todos os temas**: primeiros passos, documentos longos, referência cruzada,
+  matemática, abnTeX2, classe abntex2-ufv, apresentações e pôsteres, provas e listas de
+  exercícios, recursos por área do conhecimento, diversão com LaTeX e versionamento. O README
+  passa a ter uma tabela única de receitas.
+- NBR 14724 com o ano de 2024 no catálogo de referências (`catalogo.bib`, que trazia 2011) e nas
+  receitas de referências e de tabelas.
+- `basico/comandos-proprios.tex`: nome de sistema fictício neutro.
+- `abntex2/tcc-esqueleto.tex`: `\cleardoublepage` depois de cada lista e do sumário (cada um em
+  página própria, e a página do sumário sem número).
+- `apresentacoes/curso/curso.tex`: títulos dos slides na cor primária e frames de referências
+  sem "I", "II".
+- `abntex2-ufv/figura-abntex2.tex` e `tabela-abntex2.tex`: fonte Latin Modern (`lmodern`).
+- `diversao/xadrez.tex`: molduras vermelhas (a cor antes das casas marcadas);
+  `diversao/palavras-cruzadas-solucao.tex` entra nos testes; `avaliacoes/prova-versoes.tex`:
+  comandos do cabeçalho com o espaço que o Git Bash exige.
+
 ## 0.5.0 (2026-10-18)
 
 - `areas/`: recursos por área do conhecimento, com README e convite a pedidos: química (`mhchem`,
