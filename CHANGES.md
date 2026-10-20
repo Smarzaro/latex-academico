@@ -1,5 +1,11 @@
 # Changes
 
+## 0.8.2 (2026-10-19)
+
+- `avaliacoes/prova-versoes.tex`: o trecho `versoesquestoes` (todas as questões) dá lugar a
+  `versoesprimeira`, só com a primeira questão, que já mostra `randomizechoices`,
+  `\correctchoice`, `\altcorreta` e o rótulo da folha de respostas. O resultado compilado não muda.
+
 ## 0.8.1 (2026-10-19)
 
 - `apresentacoes/modelo-apresentacao.tex`: trecho do preâmbulo mais curto (comentário do
