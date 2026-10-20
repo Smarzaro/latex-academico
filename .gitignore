@@ -17,6 +17,7 @@ _minted*/
 *.bak
 *.sav
 *.tmp
+a0header.ps
 .vscode/
 .DS_Store
 

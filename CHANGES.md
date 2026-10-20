@@ -1,5 +1,16 @@
 # Changes
 
+## 0.8.0 (2026-10-19)
+
+- `apresentacoes/poster-evento/`: o mesmo pôster de evento acadêmico (painel de 90 × 120 cm) feito
+  com os quatro pacotes de pôster mais usados: `beamerposter`, `tikzposter`, `a0poster` e a
+  biblioteca `poster` do `tcolorbox`. Arte desenhada com TikZ e figuras geradas no próprio
+  documento, sem imagens de terceiros; tamanhos de letra de evento (36 pt no texto); legendas
+  acima com "Fonte:" abaixo; referências com o `biblatex-abnt` em 24 pt, com tamanho, entrelinha e
+  espaço entre as referências configuráveis; apoio financeiro opcional.
+- Receita 08 de apresentações: o pôster de evento nos quatro pacotes e a comparação entre eles.
+- `.gitignore`: `a0header.ps`, gravado pela classe `a0poster`.
+
 ## 0.7.4 (2026-10-19)
 
 - *S. l.* e *s. n.* deixam de ser escritos no `.bib`: a NBR 6023:2018 não os exige mais, e o

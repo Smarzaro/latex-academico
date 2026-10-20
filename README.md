@@ -43,7 +43,7 @@ Todos os temas têm receitas e exemplos compiláveis.
 | [Classe abntex2-ufv](receitas/abntex2-ufv/) | ambiente `tabela` × `\IBGEtab`, figura com `ilustracao`, código-fonte como ilustração (float `codigo`), comparados com a abntex2 |
 | [Escrita acadêmica](receitas/escrita/) | o que escrever em cada seção: introdução, objetivos, referencial, metodologia, resultados, conclusão |
 | [Cronograma](receitas/cronograma/) | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
-| [Apresentações e pôsteres](receitas/apresentacoes/) | beamer básico, sobreposições, modelo de defesa (metropolis), pôster (tikzposter), slides de uma disciplina com `subfiles`, identidade visual e transições, código, tabelas e diagramas nos slides |
+| [Apresentações e pôsteres](receitas/apresentacoes/) | beamer básico, sobreposições, modelo de defesa (metropolis), pôster (tikzposter), pôster de evento em quatro pacotes (beamerposter, tikzposter, a0poster, tcbposter), slides de uma disciplina com `subfiles`, identidade visual e transições, código, tabelas e diagramas nos slides |
 | [Provas e listas de exercícios](receitas/avaliacoes/) | classe `exam`: prova, gabarito do mesmo arquivo, lista de exercícios, versões embaralhadas com `exam-randomizechoices`, scripts `gerar-versoes` |
 | [Recursos por área do conhecimento](receitas/areas/) | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett) |
 | [Diversão com LaTeX](receitas/diversao/) | xadrez, sudoku e dados, `tikzducks`/`tikzlings`, fractais, calendário, QR code, palavras cruzadas com [solução](exemplos/diversao/solucao-palavras-cruzadas.md) |

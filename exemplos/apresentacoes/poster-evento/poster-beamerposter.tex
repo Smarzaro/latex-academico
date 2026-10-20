@@ -1,0 +1,338 @@
+% Exemplo: pôster (painel) de evento acadêmico, 90 x 120 cm, com
+% beamerposter. Segue o formato comum dos modelos de congressos e simpósios:
+% faixa com o nome do evento, título, autor e seções em duas colunas. Toda
+% a arte (faixas, ondas, ícone) é desenhada com TikZ e as figuras são
+% geradas no próprio documento: não há imagens de terceiros. Os blocos se
+% acomodam sozinhos: basta escrever o texto de cada seção.
+% Compilar: latexmk -pdf poster-beamerposter.tex (biber para as referências)
+% Testado com: beamerposter 1.13, biblatex-abnt 3.4, TeX Live 2024 ou mais
+% recente
+%%BEGIN:beamerposterpreambulo
+\documentclass[final]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{helvet}    % sem serifa, com as medidas da Arial
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[varqu,varl,scaled=0.95]{inconsolata}  % fonte de máquina do livro
+% tamanho do painel em cm (o evento define); scale=1: tamanhos reais em pt
+\usepackage[orientation=portrait, size=custom, width=90, height=120,
+            scale=1]{beamerposter}
+\usepackage{tikz}      % arte do painel, caixas e diagramas
+\usetikzlibrary{positioning, calc}
+\usepackage{pgfplots}  % gráfico de barras
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{multicol}  % referências em duas colunas
+\usepackage{xurl}      % endereços longos quebram em qualquer ponto
+\usepackage{ragged2e}  % texto justificado (\justifying)
+\usepackage{csquotes}
+% noslsn: sem [S. l.] e [s. n.]
+\usepackage[backend=biber, style=abnt, noslsn]{biblatex}
+\addbibresource{poster-evento.bib}
+% Referências: tamanho da letra, entrelinha e espaço entre uma referência
+% e a seguinte. Para mudar a aparência da lista, altere só estes três
+% valores.
+% tamanho da letra (o texto do pôster tem 36 pt)
+\newcommand{\refletra}{24pt}
+% distância entre as linhas de uma mesma referência
+\newcommand{\refentrelinha}{29pt}
+% espaço entre as referências; a NBR 6023 pede uma linha em branco
+% (\baselineskip), que num pôster ocupa muito espaço
+\newcommand{\refespaco}{0pt}
+% O biblatex compõe a lista com \bibfont (e não com o tamanho em vigor); o
+% biblatex-abnt usa \normalfont no subtítulo, que aqui voltaria ao tamanho
+% do texto: na lista, ele só tira o negrito e o itálico. O espaço entre as
+% referências vai no início do documento, porque o estilo abnt o define
+% (com a linha em branco) no fim do preâmbulo.
+\renewcommand*{\bibfont}{\fontsize{\refletra}{\refentrelinha}\selectfont
+  \renewcommand*{\normalfont}{\mdseries\upshape}}
+\AtBeginDocument{\appto{\bibsetup}{\setlength{\bibitemsep}{\refespaco}}}
+%%END:beamerposterpreambulo
+
+%%BEGIN:beamerposterestilo
+% Tamanhos de letra pedidos pelo evento: texto com 36 pt (legível a 1 m),
+% títulos das seções com 40 pt, título do trabalho com 50 pt
+\renewcommand{\normalsize}{\fontsize{36}{44}\selectfont}
+\renewcommand{\small}{\fontsize{30}{36}\selectfont}
+\renewcommand{\large}{\fontsize{40}{48}\selectfont}
+\renewcommand{\Large}{\fontsize{50}{60}\selectfont}
+
+% Cores do painel
+\definecolor{eventoescuro}{HTML}{0B3C5D}
+\definecolor{eventomedio}{HTML}{1D7A8C}
+\definecolor{eventodestaque}{HTML}{E07A1F}
+\definecolor{eventotexto}{HTML}{4A4A4A}
+\setbeamercolor{normal text}{fg=eventotexto}
+\setbeamercolor{structure}{fg=eventoescuro}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=6cm, text margin right=6cm}
+
+% Arte do painel, desenhada com TikZ: faixa do alto com o nome do evento,
+% ícone de livro aberto e círculos; ondas no pé. \topo é a distância do
+% alto da página até o título do trabalho.
+\newcommand{\nomeevento}{SIMPÓSIO DE EXEMPLO 2026}
+\newcommand{\lemaevento}{Ensino, pesquisa e extensão}
+\newlength{\topo}
+\setlength{\topo}{17.5cm}
+\setbeamertemplate{background}{%
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \useasboundingbox (0,0) rectangle (90,120);
+    % faixa do alto, com a borda de baixo em onda
+    \shade[left color=eventoescuro, right color=eventomedio]
+      (0,120) -- (90,120) -- (90,106.5)
+      .. controls (65,102.5) and (35,109) .. (0,104.5) -- cycle;
+    % círculos translúcidos
+    \foreach \x/\y/\r in {80/114/9, 69/119/5, 86/104/4, 8/118/4, 58/108/2.5}
+      \fill[white, opacity=.07] (\x,\y) circle (\r);
+    % ícone: livro aberto
+    \begin{scope}[shift={(13.5,112.3)}, line width=4pt, white]
+      \draw[fill=white, fill opacity=.15] (0,0)
+        .. controls (-2.5,1) and (-5,1) .. (-7,0.2)
+        -- (-7,-6.8) .. controls (-5,-6) and (-2.5,-6) .. (0,-7) -- cycle;
+      \draw[fill=white, fill opacity=.15] (0,0)
+        .. controls (2.5,1) and (5,1) .. (7,0.2)
+        -- (7,-6.8) .. controls (5,-6) and (2.5,-6) .. (0,-7) -- cycle;
+      \foreach \k in {1,2,3} {
+        \draw[line width=2.5pt] (-5.8,-1.2*\k)
+          .. controls (-4,-1.2*\k+.4) .. (-1.2,-1.2*\k-.2);
+        \draw[line width=2.5pt] (5.8,-1.2*\k)
+          .. controls (4,-1.2*\k+.4) .. (1.2,-1.2*\k-.2);
+      }
+    \end{scope}
+    \node[anchor=west, text=white, font=\fontsize{80}{90}\selectfont\bfseries]
+      at (25,113.2) {\nomeevento};
+    \node[anchor=west, text=white, font=\fontsize{40}{48}\selectfont]
+      at (25.3,108.6) {\lemaevento};
+    % fio de destaque abaixo da faixa
+    \draw[eventodestaque, line width=6pt] (6,101.5) -- (84,101.5);
+    % ondas do pé
+    \fill[eventomedio, opacity=.85] (0,0) -- (0,4.5)
+      .. controls (25,8.5) and (55,1) .. (90,5.5) -- (90,0) -- cycle;
+    \fill[eventodestaque, opacity=.9] (0,0) -- (0,2.2)
+      .. controls (30,0.2) and (60,5.5) .. (90,2.5) -- (90,0) -- cycle;
+  \end{tikzpicture}}
+
+% Título de seção: caixa arredondada com contorno na cor do evento
+\setbeamertemplate{block begin}{%
+  \par\vspace{.9cm}\noindent
+  \tikz\node[draw=eventomedio, line width=2.25pt, rounded corners=.65cm,
+    minimum width=\linewidth-2.25pt, minimum height=3.3cm, align=center,
+    text=eventoescuro, font=\large\bfseries]%
+    {\MakeUppercase{\insertblocktitle}};
+  \par\vspace{.7cm}\justifying}       % texto justificado, com hifenização
+\setbeamertemplate{block end}{\par}
+
+% Legendas numeradas acima da figura e da tabela (como pede a ABNT), com
+% espaço para o texto antes e depois; \fonte escreve a fonte abaixo
+\setbeamertemplate{caption}[numbered]
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamercolor{caption name}{fg=eventotexto}
+\addtobeamertemplate{caption}{\vspace{1.2cm}}{\vspace{.5cm}}
+\newcommand{\fonte}[1]{\par\vspace{.4cm}{\small Fonte: #1\par}\vspace{1cm}}
+\setbeamertemplate{itemize item}{\textcolor{eventodestaque}{\textbullet}}
+% \cmd{nome}: comando do LaTeX destacado no código da Figura 2
+\newcommand{\cmd}[1]{\textcolor{eventomedio}{\bfseries\textbackslash #1}}
+% \marca{n}: marcador numerado, como os do livro (círculo laranja)
+\newcommand{\marca}[1]{\tikz[baseline=(m.base)]\node[circle,
+  fill=eventodestaque, text=white, inner sep=.12cm,
+  font=\small\bfseries] (m) {#1};}
+\addtobeamertemplate{itemize/enumerate body begin}{}{\justifying}
+% referências na cor do texto e sem o ícone da beamer
+\setbeamertemplate{bibliography item}{}
+\setbeamercolor{bibliography entry author}{fg=eventotexto}
+\setbeamercolor{bibliography entry title}{fg=eventotexto}
+\setbeamercolor{bibliography entry location}{fg=eventotexto}
+\setbeamercolor{bibliography entry note}{fg=eventotexto}
+% o beamer troca a fonte em cada parte da referência: todas no tamanho
+% da lista
+\setbeamerfont{bibliography item}{size=\bibfont}
+\setbeamerfont{bibliography entry author}{size=\bibfont}
+\setbeamerfont{bibliography entry title}{size=\bibfont}
+\setbeamerfont{bibliography entry location}{size=\bibfont}
+\setbeamerfont{bibliography entry note}{size=\bibfont}
+%%END:beamerposterestilo
+
+%%BEGIN:beamerposterdados
+% título em duas linhas (72 pt): \\ marca onde a linha quebra
+\title{LaTeX para documentos acadêmicos:\\ um livro e um guia aberto de
+  exemplos testados}
+\author{Rodrigo Smarzaro}
+\institute{Departamento de Exemplo, Universidade Exemplo
+  (autor@exemplo.edu.br)}
+% Apoio financeiro, centralizado no pé em coluna única: troque as imagens
+% de exemplo (pacote mwe) pelos logotipos dos financiadores; \apoiofalse
+% retira a seção
+\newif\ifapoio
+\apoiotrue
+\newcommand{\apoiofinanceiro}{%
+  \vspace{-.8cm}
+  \begin{columns}[t]
+  \begin{column}{.45\linewidth}
+    \begin{block}{Apoio financeiro}
+      \centering
+      \includegraphics[height=3cm]{example-image-a}\hspace{2cm}%
+      \includegraphics[height=3cm]{example-image-b}\hspace{2cm}%
+      \includegraphics[height=3cm]{example-image-c}
+    \end{block}
+  \end{column}
+  \end{columns}}
+%%END:beamerposterdados
+
+\begin{document}
+\begin{frame}[t]
+%%BEGIN:beamerpostertitulo
+\begin{center}
+  \vspace{\topo}
+  {\fontsize{72}{84}\selectfont\bfseries\color{eventoescuro}\inserttitle\par}
+  \vspace{1.5cm}
+  {\large\insertauthor\par\insertinstitute\par}
+\end{center}
+%%END:beamerpostertitulo
+
+%%BEGIN:beamerpostercolunas
+\begin{columns}[t, totalwidth=\linewidth]
+\begin{column}{.47\linewidth}
+  \begin{block}{Introdução}
+    Trabalhos acadêmicos seguem normas detalhadas de formatação. O \LaTeX,
+    criado por Lamport sobre o \TeX\ de Knuth, separa o conteúdo da forma:
+    o autor escreve o texto e marca a estrutura, e o programa cuida da
+    numeração, das referências cruzadas, das citações e da lista de
+    referências \parencite{Lamport1994}. Mesmo assim, quem começa encontra
+    material em português disperso, muitas vezes desatualizado, e exemplos
+    que não compilam mais.
+  \end{block}
+
+  \begin{block}{Objetivos}
+    \begin{itemize}
+      \item Oferecer um livro em português sobre \LaTeX\ para trabalhos
+        acadêmicos, artigos, apresentações e material didático.
+      \item Manter um guia público, com licença aberta, em que todos os
+        exemplos do livro compilam \parencite{latexacademico}.
+      \item Mostrar o uso das normas da ABNT do início ao fim.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Metodologia}
+    Cada exemplo nasce no guia e é compilado por testes automáticos a cada
+    versão, com o \TeX\ Live mais recente. O livro não copia o código:
+    inclui o trecho do próprio arquivo do guia, delimitado por marcadores, e
+    a figura do resultado gerada a partir dele (Figura~\ref{fig:fluxo}).
+    \begin{figure}
+      \caption{Do guia público ao livro}\label{fig:fluxo}
+      \begin{tikzpicture}[caixa/.style={draw=eventomedio, line width=2pt,
+          rounded corners=.5cm, minimum width=13cm, minimum height=4.5cm,
+          align=center}]
+        \node[caixa] (guia) {\textbf{Guia público}\\exemplos testados};
+        \node[caixa, right=7cm of guia] (livro) {\textbf{Livro}\\texto e
+          figuras};
+        \draw[-latex, line width=4pt, eventodestaque] (guia) -- (livro)
+          node[midway, above=.3cm, font=\small] {trechos e}
+          node[midway, below=.3cm, font=\small] {resultados};
+      \end{tikzpicture}
+      \fonte{elaborado pelo autor.}
+    \end{figure}
+    No livro, cada exemplo forma uma unidade com o código e o resultado lado
+    a lado, e marcadores numerados ligam o texto às linhas do código: a
+    seção \marca{1} é numerada sozinha, e a fórmula \marca{2} sai em
+    destaque, centralizada (Figura~\ref{fig:unidade}).
+    \begin{figure}
+      \caption{Uma unidade Exemplo: código e resultado}\label{fig:unidade}
+      \begin{minipage}[c]{.56\linewidth}
+        \begin{tikzpicture}
+          \node[fill=black!5, draw=black!25, line width=1.5pt, inner sep=.8cm,
+                font=\ttfamily\small, align=left] {%
+            \begin{tabular}{@{}r@{\hspace{.5cm}}l@{}}
+              \smash{\marca{1}} & \cmd{section}\{Introdução\} \\
+                                & A média de \$n\$ valores é \\
+              \smash{\marca{2}} & \cmd{[} \cmd{bar}\{x\} =
+                                    \cmd{frac}\{1\}\{n\} \\
+                                & \hspace*{1.5em}\cmd{sum}\_\{i=1\}%
+                                    \textasciicircum\{n\} x\_i \cmd{]}
+            \end{tabular}};
+        \end{tikzpicture}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}
+          \node[fill=white, draw=black!25, line width=1.5pt, inner sep=.8cm,
+                align=left, text width=12.3cm, font=\rmfamily\small] {%
+            {\bfseries 1\quad Introdução}\par\medskip
+            A média de $n$ valores é
+            \[ \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \]};
+        \end{tikzpicture}
+      \end{minipage}
+      \fonte{elaborado pelo autor.}
+    \end{figure}
+  \end{block}
+
+\end{column}
+
+\begin{column}{.47\linewidth}
+  \begin{block}{Resultados}
+    O livro e o guia cobrem os principais tipos de documento acadêmico
+    (Tabela~\ref{tab:numeros}), e os exemplos de trabalhos acadêmicos
+    seguem a NBR 14724 \parencite{NBR14724}, com a classe abnTeX2
+    \parencite{abntex2}. A Figura~\ref{fig:temas} mostra os temas com mais
+    arquivos de exemplo no guia.
+    \begin{columns}[t, totalwidth=\linewidth]
+    \begin{column}{.46\linewidth}
+      \begin{table}
+        \caption{Livro e guia em números}\label{tab:numeros}
+        \begin{tabular}{@{}lr@{}}
+          \toprule
+          \textbf{Item}          & \textbf{Total} \\
+          \midrule
+          Capítulos              & 17 \\
+          Apêndices              & 4 \\
+          Exemplos comentados    & 81 \\
+          Trechos de código      & 164 \\
+          Exemplos no guia       & 88 \\
+          Receitas no guia       & 81 \\
+          \bottomrule
+        \end{tabular}
+        \fonte{elaborado pelo autor.}
+      \end{table}
+    \end{column}
+    \begin{column}{.52\linewidth}
+      \begin{figure}
+        \caption{Exemplos por tema no guia}\label{fig:temas}
+        \begin{tikzpicture}
+          \begin{axis}[xbar, width=12cm, height=15.5cm, xmin=0, xmax=12,
+              bar width=.9cm, symbolic y coords={Áreas, Figuras, Tabelas,
+                Apresentações, Diversão, Referências, Básico, Código},
+              ytick=data, axis x line=none, axis y line*=left,
+              nodes near coords, every node near coord/.style={font=\small},
+              tick label style={font=\small}]
+            \addplot[fill=eventomedio!75, draw=none] coordinates {(5,Áreas)
+              (6,Figuras) (6,Tabelas) (8,Apresentações) (8,Diversão)
+              (8,Referências) (10,Básico) (10,Código)};
+          \end{axis}
+        \end{tikzpicture}
+        \fonte{elaborado pelo autor.}
+      \end{figure}
+    \end{column}
+    \end{columns}
+  \end{block}
+
+  \begin{block}{Conclusões}
+    Com os exemplos testados a cada versão, o código do livro continua
+    compilando quando os pacotes mudam \parencite{Mittelbach2023}. O guia
+    está aberto a pedidos de exemplos e correções, e o leitor encontra nele
+    o arquivo completo de cada exemplo, pronto para compilar.
+  \end{block}
+
+  % referências no fim da segunda coluna (só o apoio financeiro ocupa a
+  % largura toda)
+  \begin{block}{Referências}
+    \printbibliography[heading=none]
+  \end{block}
+\end{column}
+\end{columns}
+%%END:beamerpostercolunas
+
+%%BEGIN:beamerposterapoio
+\ifapoio\apoiofinanceiro\fi
+%%END:beamerposterapoio
+
+\end{frame}
+\end{document}

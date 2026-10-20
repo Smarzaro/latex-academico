@@ -1,0 +1,367 @@
+% Exemplo: pôster (painel) de evento acadêmico, 90 x 120 cm, com tikzposter.
+% É o mesmo pôster do exemplo com beamerposter, refeito com a classe
+% tikzposter: faixa com o nome do evento, título, autor e seções em duas
+% colunas. No tikzposter a página inteira é uma figura TikZ: o fundo é um
+% "background style", cada seção é um \block (caixa medida e desenhada pela
+% classe) e as colunas são lado a lado, sem quebra automática de uma coluna
+% para a outra. Toda a arte é desenhada com TikZ e as figuras são geradas no
+% próprio documento: não há imagens de terceiros.
+% Compilar: latexmk -pdf poster-tikzposter.tex (biber para as referências)
+% Testado com: tikzposter 2.0, biblatex-abnt 3.4,
+% TeX Live 2024 ou mais recente
+%%BEGIN:tikzposterpreambulo
+% 25pt: tamanhos grandes da classe (trocados abaixo); margin=0mm: a arte
+% vai até a borda; innermargin: margem do conteúdo; colspace: espaço entre
+% colunas
+\documentclass[25pt, portrait, margin=0mm, innermargin=6cm, colspace=4.68cm,
+  blockverticalspace=1.05cm]{tikzposter}
+% tamanho do painel em cm (o evento define): a classe só conhece A0 a A2
+\geometry{paperwidth=90cm, paperheight=120cm}
+% a classe mede a largura útil antes do \geometry: refaz a conta
+\makeatletter
+\setlength{\TP@visibletextwidth}{\textwidth-2\TP@innermargin}
+\setlength{\TP@visibletextheight}{\textheight-2\TP@innermargin}
+\makeatother
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{helvet}         % sem serifa, com as medidas da Arial
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[helvet]{sfmath} % matemática sem serifa, como a da beamer
+\usepackage[varqu,varl,scaled=0.95]{inconsolata}  % fonte de máquina do livro
+% o inconsolata carrega o upquote no \begin{document}, mas o tikzposter
+% abre ali a figura da página, antes (erro "Loading a class or package
+% in a group"): a regra põe o código do tikzposter depois do código do
+% inconsolata
+\DeclareHookRule{begindocument}{tikzposter}{after}{inconsolata}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}       % gráfico de barras
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{xurl}           % endereços longos quebram em qualquer ponto
+\usepackage{ragged2e}       % texto justificado (\justifying)
+\usepackage{enumitem}       % recuo e marcador das listas
+\usepackage{caption}        % \captionof: legendas fora de flutuantes
+\usepackage{csquotes}
+% noslsn: sem [S. l.] e [s. n.]
+\usepackage[backend=biber, style=abnt, noslsn]{biblatex}
+\addbibresource{poster-evento.bib}
+% Referências: tamanho da letra, entrelinha e espaço entre uma referência
+% e a seguinte. Para mudar a aparência da lista, altere só estes três
+% valores.
+% tamanho da letra (o texto do pôster tem 36 pt)
+\newcommand{\refletra}{24pt}
+% distância entre as linhas de uma mesma referência
+\newcommand{\refentrelinha}{29pt}
+% espaço entre as referências; a NBR 6023 pede uma linha em branco
+% (\baselineskip), que num pôster ocupa muito espaço
+\newcommand{\refespaco}{0pt}
+% O biblatex compõe a lista com \bibfont (e não com o tamanho em vigor); o
+% biblatex-abnt usa \normalfont no subtítulo, que aqui voltaria ao tamanho
+% do texto: na lista, ele só tira o negrito e o itálico. O espaço entre as
+% referências vai no início do documento, porque o estilo abnt o define
+% (com a linha em branco) no fim do preâmbulo.
+\renewcommand*{\bibfont}{\fontsize{\refletra}{\refentrelinha}\selectfont
+  \renewcommand*{\normalfont}{\mdseries\upshape}}
+\AtBeginDocument{\appto{\bibsetup}{\setlength{\bibitemsep}{\refespaco}}}
+%%END:tikzposterpreambulo
+
+%%BEGIN:tikzposterestilo
+% Tamanhos de letra pedidos pelo evento: texto com 36 pt (legível a 1 m),
+% títulos das seções com 40 pt. A classe compõe o texto dos blocos com
+% \large e o título dos blocos com \LARGE: os dois são redefinidos aqui.
+\renewcommand{\normalsize}{\fontsize{36}{44}\selectfont}
+\renewcommand{\small}{\fontsize{30}{36}\selectfont}
+\renewcommand{\large}{\fontsize{36}{44}\selectfont}
+\renewcommand{\LARGE}{\fontsize{40}{48}\selectfont}
+\normalsize
+% parágrafos sem recuo, como na beamer (\justifying usa \JustifyingParindent)
+\setlength{\parindent}{0pt}
+\setlength{\JustifyingParindent}{0pt}
+
+% Cores do painel
+\definecolor{eventoescuro}{HTML}{0B3C5D}
+\definecolor{eventomedio}{HTML}{1D7A8C}
+\definecolor{eventodestaque}{HTML}{E07A1F}
+\definecolor{eventotexto}{HTML}{4A4A4A}
+\colorlet{titlefgcolor}{eventoescuro}
+\colorlet{blocktitlefgcolor}{eventoescuro}
+\colorlet{blockbodyfgcolor}{eventotexto}
+\tikzposterlatexaffectionproofoff   % sem a marca "LaTeX TikZposter" no canto
+
+% Arte do painel, desenhada com TikZ: faixa do alto com o nome do evento,
+% ícone de livro aberto e círculos; ondas no pé. No tikzposter a origem
+% fica no centro da página: o scope leva a origem ao canto de baixo, à
+% esquerda.
+\newcommand{\nomeevento}{SIMPÓSIO DE EXEMPLO 2026}
+\newcommand{\lemaevento}{Ensino, pesquisa e extensão}
+\definebackgroundstyle{evento}{%
+  \begin{scope}[shift={(bottomleft)}, x=1cm, y=1cm]
+    \fill[white] (0,0) rectangle (90,120);
+    % faixa do alto, com a borda de baixo em onda
+    \shade[left color=eventoescuro, right color=eventomedio]
+      (0,120) -- (90,120) -- (90,106.5)
+      .. controls (65,102.5) and (35,109) .. (0,104.5) -- cycle;
+    % círculos translúcidos
+    \foreach \x/\y/\r in {80/114/9, 69/119/5, 86/104/4, 8/118/4, 58/108/2.5}
+      \fill[white, opacity=.07] (\x,\y) circle (\r);
+    % ícone: livro aberto
+    \begin{scope}[shift={(13.5,112.3)}, line width=4pt, white]
+      \draw[fill=white, fill opacity=.15]
+        (0,0) .. controls (-2.5,1) and (-5,1) .. (-7,0.2)
+        -- (-7,-6.8) .. controls (-5,-6) and (-2.5,-6) .. (0,-7) -- cycle;
+      \draw[fill=white, fill opacity=.15]
+        (0,0) .. controls (2.5,1) and (5,1) .. (7,0.2)
+        -- (7,-6.8) .. controls (5,-6) and (2.5,-6) .. (0,-7) -- cycle;
+      \foreach \k in {1,2,3} {
+        \draw[line width=2.5pt] (-5.8,-1.2*\k)
+          .. controls (-4,-1.2*\k+.4) .. (-1.2,-1.2*\k-.2);
+        \draw[line width=2.5pt] (5.8,-1.2*\k)
+          .. controls (4,-1.2*\k+.4) .. (1.2,-1.2*\k-.2);
+      }
+    \end{scope}
+    \node[anchor=west, text=white, font=\fontsize{80}{90}\selectfont\bfseries]
+      at (25,113.2) {\nomeevento};
+    \node[anchor=west, text=white, font=\fontsize{40}{48}\selectfont]
+      at (25.3,108.6) {\lemaevento};
+    % fio de destaque abaixo da faixa
+    \draw[eventodestaque, line width=6pt] (6,101.5) -- (84,101.5);
+    % ondas do pé
+    \fill[eventomedio, opacity=.85] (0,0) -- (0,4.5)
+      .. controls (25,8.5) and (55,1) .. (90,5.5) -- (90,0) -- cycle;
+    \fill[eventodestaque, opacity=.9] (0,0) -- (0,2.2)
+      .. controls (30,0.2) and (60,5.5) .. (90,2.5) -- (90,0) -- cycle;
+  \end{scope}}
+\usebackgroundstyle{evento}
+
+% Título do trabalho, autor e instituição, sem caixa em volta (o estilo do
+% título não desenha nada; as chaves dão a largura e as distâncias). A
+% classe guarda o título numa \scalebox, onde \\ não quebra a linha: \title
+% é redefinido para guardar o texto como está.
+\makeatletter
+\renewcommand{\title}[1]{\gdef\@title{#1}}
+% a chave titletextscale da classe escreve "1=1" na página (sai invisível,
+% mas o log acusa "Missing character"): a chave passa a guardar só o valor
+\define@key{title}{titletextscale}{\def\TP@titletextscale{#1}}
+\definetitlestyle{evento}{width=78cm, innersep=0pt, linewidth=0pt,
+  titletotopverticalspace=19.05cm, titletoblockverticalspace=2.5cm}{}
+\usetitlestyle{evento}
+% composição do título (o ambiente settitle da classe faz o mesmo, mas a
+% definição fica presa no grupo do ambiente)
+\renewcommand{\TP@maketitle}{%
+  \centering
+  {\fontsize{72}{84}\selectfont\bfseries\color{eventoescuro}\@title\par}
+  \vspace{1.5cm}
+  {\LARGE\color{eventotexto}\@author\par\@institute\par}}
+\makeatother
+
+% Título de seção: caixa arredondada com contorno na cor do evento. A
+% classe mede o título e o texto e passa os nós blocktitle e blockbody ao
+% estilo, que só desenha a moldura do título (o texto não tem caixa).
+\defineblockstyle{evento}{titlewidthscale=1, bodywidthscale=1, titlecenter,
+  titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0pt, bodyoffsety=0pt,
+  bodyverticalshift=.7cm, roundedcorners=0, linewidth=0pt,
+  titleinnersep=0pt, bodyinnersep=0pt}{%
+  \ifBlockHasTitle
+    \draw[eventomedio, line width=2.25pt, rounded corners=.65cm]
+      ([shift={(1.125pt,-1.125pt)}]blocktitle.north west) rectangle
+      ([shift={(-1.125pt,1.125pt)}]blocktitle.south east);
+  \fi}
+\useblockstyle{evento}
+% \secao[chaves]{título}{texto}: bloco com o título em maiúsculas, numa
+% caixa de 3,3 cm de altura (a régua invisível fixa a altura e centra as
+% maiúsculas), e o texto justificado, com hifenização. A caixa vazia
+% (\null) no começo do texto faz a primeira linha ficar a uma entrelinha
+% dela, como as seguintes (sem ela, a distância até o título mudaria com o
+% tamanho da letra)
+\newcommand{\secao}[3][]{%
+  \block[#1]{\rule[-1.14cm]{0pt}{3.3cm}\MakeUppercase{#2}}%
+    {\null\justifying #3}}
+
+% Legendas numeradas acima da figura e da tabela (como pede a ABNT); o
+% tikzposter não tem flutuantes (o bloco é uma caixa dentro da figura TikZ
+% da página): o ambiente ilustracao centraliza e \captionof numera a legenda.
+% \fonte escreve a fonte abaixo
+\captionsetup{font=small, labelfont=bf, labelsep=colon, skip=0pt}
+% [#1] espaço depois (0pt na última linha de um bloco), #2 figure ou table,
+% #3 título, #4 rótulo
+\newenvironment{ilustracao}[4][.4cm]{%
+  \def\depoisdailustracao{#1}%
+  \par\vspace{.9cm}\begingroup\centering
+  \captionof{#2}{#3}\label{#4}\par\vspace{.1cm}}%
+  {\par\endgroup\vspace{\depoisdailustracao}}
+\newcommand{\fonte}[1]{\par\vspace{.4cm}{\small Fonte: #1\par}\vspace{1cm}}
+% listas (no bloco, o topsep é ignorado)
+\setlist[itemize]{label=\textcolor{eventodestaque}{\textbullet},
+  leftmargin=1.5cm, labelsep=.5cm, topsep=0pt, itemsep=.1cm, parsep=0pt,
+  before=\vspace{.1cm}, after=\vspace{.1cm}}
+% a lista de referências começa logo abaixo do título da seção
+\AtBeginBibliography{\setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}}
+% \cmd{nome}: comando do LaTeX destacado no código da Figura 2
+\newcommand{\cmd}[1]{\textcolor{eventomedio}{\bfseries\textbackslash #1}}
+% \marca{n}: marcador numerado, como os do livro (círculo laranja)
+\newcommand{\marca}[1]{\tikz[baseline=(m.base)]%
+  \node[circle, fill=eventodestaque,
+  text=white, inner sep=.12cm, font=\small\bfseries] (m) {#1};}
+%%END:tikzposterestilo
+
+%%BEGIN:tikzposterdados
+% título em duas linhas (72 pt): \\ marca onde a linha quebra
+\title{LaTeX para documentos acadêmicos:\\ um livro e um guia aberto de
+  exemplos testados}
+\author{Rodrigo Smarzaro}
+\institute{Departamento de Exemplo, Universidade Exemplo
+  (autor@exemplo.edu.br)}
+% Apoio financeiro, centralizado no pé em coluna única: troque as imagens
+% de exemplo (pacote mwe) pelos logotipos dos financiadores; \apoiofalse
+% retira a seção
+\newif\ifapoio
+\apoiotrue
+\newcommand{\apoiofinanceiro}{%
+  % .45 da largura útil; offsets: sobe o bloco, mais perto das colunas
+  \secao[titlewidthscale=.45, bodywidthscale=.45,
+    titleoffsety=.9cm, bodyoffsety=.9cm]{Apoio financeiro}{%
+    \centering
+    \includegraphics[height=3cm]{example-image-a}\hspace{2cm}%
+    \includegraphics[height=3cm]{example-image-b}\hspace{2cm}%
+    \includegraphics[height=3cm]{example-image-c}}}
+%%END:tikzposterdados
+
+\begin{document}
+%%BEGIN:tikzpostertitulo
+\maketitle
+%%END:tikzpostertitulo
+
+%%BEGIN:tikzpostercolunas
+% \column{.5}: duas colunas iguais; cada \block fica abaixo do anterior
+\begin{columns}
+\column{.5}
+  \secao{Introdução}{%
+    Trabalhos acadêmicos seguem normas detalhadas de formatação. O \LaTeX,
+    criado por Lamport sobre o \TeX\ de Knuth, separa o conteúdo da forma:
+    o autor escreve o texto e marca a estrutura, e o programa cuida da
+    numeração, das referências cruzadas, das citações e da lista de
+    referências \parencite{Lamport1994}. Mesmo assim, quem começa encontra
+    material em português disperso, muitas vezes desatualizado, e exemplos
+    que não compilam mais.}
+
+  \secao{Objetivos}{%
+    \begin{itemize}
+      \item Oferecer um livro em português sobre \LaTeX\ para trabalhos
+        acadêmicos, artigos, apresentações e material didático.
+      \item Manter um guia público, com licença aberta, em que todos os
+        exemplos do livro compilam \parencite{latexacademico}.
+      \item Mostrar o uso das normas da ABNT do início ao fim.
+    \end{itemize}}
+
+  \secao{Metodologia}{%
+    Cada exemplo nasce no guia e é compilado por testes automáticos a cada
+    versão, com o \TeX\ Live mais recente. O livro não copia o código:
+    inclui o trecho do próprio arquivo do guia, delimitado por marcadores, e
+    a figura do resultado gerada a partir dele (Figura~\ref{fig:fluxo}).
+    \begin{ilustracao}{figure}{Do guia público ao livro}{fig:fluxo}
+      \begin{tikzpicture}[caixa/.style={draw=eventomedio, line width=2pt,
+          rounded corners=.5cm, minimum width=13cm, minimum height=4.5cm,
+          align=center}]
+        \node[caixa] (guia) {\textbf{Guia público}\\exemplos testados};
+        \node[caixa, right=7cm of guia] (livro) {\textbf{Livro}\\texto e
+          figuras};
+        \draw[-latex, line width=4pt, eventodestaque] (guia) -- (livro)
+          node[midway, above=.3cm, font=\small] {trechos e}
+          node[midway, below=.3cm, font=\small] {resultados};
+      \end{tikzpicture}
+      \fonte{elaborado pelo autor.}
+    \end{ilustracao}
+    No livro, cada exemplo forma uma unidade com o código e o resultado lado
+    a lado, e marcadores numerados ligam o texto às linhas do código: a
+    seção \marca{1} é numerada sozinha, e a fórmula \marca{2} sai em
+    destaque, centralizada (Figura~\ref{fig:unidade}).
+    \begin{ilustracao}[0pt]{figure}
+      {Uma unidade Exemplo: código e resultado}{fig:unidade}
+      \begin{minipage}[c]{.56\linewidth}
+        \begin{tikzpicture}
+          \node[fill=black!5, draw=black!25, line width=1.5pt, inner sep=.8cm,
+                font=\ttfamily\small, align=left] {%
+            \begin{tabular}{@{}r@{\hspace{.5cm}}l@{}}
+              \smash{\marca{1}} & \cmd{section}\{Introdução\} \\
+                                & A média de \$n\$ valores é \\
+              \smash{\marca{2}} & \cmd{[} \cmd{bar}\{x\} =
+                \cmd{frac}\{1\}\{n\} \\
+                                & \hspace*{1.5em}\cmd{sum}\_\{i=1\}%
+                                  \textasciicircum\{n\} x\_i \cmd{]}
+            \end{tabular}};
+        \end{tikzpicture}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}
+          \node[fill=white, draw=black!25, line width=1.5pt, inner sep=.8cm,
+                align=left, text width=12.3cm, font=\rmfamily\small] {%
+            {\bfseries 1\quad Introdução}\par\medskip
+            A média de $n$ valores é
+            \[ \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \]};
+        \end{tikzpicture}
+      \end{minipage}
+      \fonte{elaborado pelo autor.}
+    \end{ilustracao}}
+
+\column{.5}
+  \secao{Resultados}{%
+    O livro e o guia cobrem os principais tipos de documento acadêmico
+    (Tabela~\ref{tab:numeros}), e os exemplos de trabalhos acadêmicos
+    seguem a NBR 14724 \parencite{NBR14724}, com a classe abnTeX2
+    \parencite{abntex2}. A Figura~\ref{fig:temas} mostra os temas com mais
+    arquivos de exemplo no guia.\par\vspace{.3cm}
+    % tabela e figura lado a lado, alinhadas pela primeira linha da legenda
+    \begin{minipage}[t]{.46\linewidth}
+      \begin{ilustracao}[0pt]{table}{Livro e guia em números}{tab:numeros}
+        \begin{tabular}{@{}lr@{}}
+          \toprule
+          \textbf{Item}          & \textbf{Total} \\
+          \midrule
+          Capítulos              & 17 \\
+          Apêndices              & 4 \\
+          Exemplos comentados    & 81 \\
+          Trechos de código      & 164 \\
+          Exemplos no guia       & 88 \\
+          Receitas no guia       & 81 \\
+          \bottomrule
+        \end{tabular}
+        \fonte{elaborado pelo autor.}
+      \end{ilustracao}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.52\linewidth}
+      \begin{ilustracao}[0pt]{figure}{Exemplos por tema no guia}{fig:temas}
+        \begin{tikzpicture}
+          \begin{axis}[xbar, width=12cm, height=15.5cm, xmin=0, xmax=12,
+              bar width=.9cm, symbolic y coords={Áreas, Figuras, Tabelas,
+                Apresentações, Diversão, Referências, Básico, Código},
+              ytick=data, axis x line=none, axis y line*=left,
+              nodes near coords={\pgfmathprintnumber[assume math mode=true]%
+                {\pgfplotspointmeta}}, % números sem $...$: na fonte do texto
+              every node near coord/.style={font=\small},
+              tick label style={font=\small}]
+            \addplot[fill=eventomedio!75, draw=none] coordinates {(5,Áreas)
+              (6,Figuras) (6,Tabelas) (8,Apresentações) (8,Diversão)
+              (8,Referências) (10,Básico) (10,Código)};
+          \end{axis}
+        \end{tikzpicture}
+        \fonte{elaborado pelo autor.}
+      \end{ilustracao}
+    \end{minipage}}
+
+  \secao{Conclusões}{%
+    Com os exemplos testados a cada versão, o código do livro continua
+    compilando quando os pacotes mudam \parencite{Mittelbach2023}. O guia
+    está aberto a pedidos de exemplos e correções, e o leitor encontra nele
+    o arquivo completo de cada exemplo, pronto para compilar.}
+
+  % referências no fim da segunda coluna (só o apoio financeiro ocupa a
+  % largura toda)
+  \secao{Referências}{\printbibliography[heading=none]}
+\end{columns}
+%%END:tikzpostercolunas
+
+%%BEGIN:tikzposterapoio
+\ifapoio\apoiofinanceiro\fi
+%%END:tikzposterapoio
+
+\end{document}

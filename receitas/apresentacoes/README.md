@@ -2,13 +2,15 @@
 
 Slides de defesa, de seminário ou de aula se fazem com a classe `beamer`: cada `frame` vira uma
 página do PDF (ou várias, quando o conteúdo é revelado aos poucos), e o PDF é projetado em tela
-cheia em qualquer leitor. Pôsteres para eventos se fazem com a classe `tikzposter`, em uma única
-página A0. Nos dois casos, citações, referências, tabelas, figuras e fórmulas funcionam como no
+cheia em qualquer leitor. Pôsteres para eventos se fazem em uma única página grande, com a classe
+`tikzposter` ou com os pacotes comparados na receita 08. Nos dois casos, citações, referências, tabelas, figuras e fórmulas funcionam como no
 texto do trabalho.
 
 Os exemplos compiláveis estão em [`exemplos/apresentacoes/`](../../exemplos/apresentacoes/); a
 subpasta [`curso/`](../../exemplos/apresentacoes/curso/) mostra os slides de uma disciplina
-inteira, com uma aula por arquivo.
+inteira, com uma aula por arquivo, e a subpasta
+[`poster-evento/`](../../exemplos/apresentacoes/poster-evento/), o mesmo pôster de evento em
+quatro pacotes.
 
 | Receita | O que resolve |
 |---|---|
@@ -19,6 +21,7 @@ inteira, com uma aula por arquivo.
 | [05 – Slides de uma disciplina com `subfiles`](05-curso-com-subfiles.md) | Uma aula por arquivo, cada aula compilável sozinha, curso completo e versão para impressão |
 | [06 – Identidade visual e slides de transição](06-identidade-visual.md) | Cores próprias, blocos com significado, abertura automática de aulas e seções |
 | [07 – Código, tabelas e diagramas nos slides](07-codigo-tabelas-diagramas.md) | `lstlisting` com destaques, tabela com linhas alternadas, diagrama revelado em passos |
+| [08 – Pôster de evento em quatro pacotes](08-poster-de-evento.md) | O mesmo pôster de 90 × 120 cm com `beamerposter`, `tikzposter`, `a0poster` e `tcbposter`, e a comparação entre eles |
 
 ## Antes de começar
 
