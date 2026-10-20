@@ -5,11 +5,11 @@
 | [Primeiros passos](basico/) | disponível | estrutura do documento, preâmbulo em português, espaços e parágrafos, divisões, alinhamento, hifenização, notas e links, comandos próprios |
 | [Documentos longos](organizacao/) | disponível | um arquivo por capítulo, `\include` × `\input`, `\includeonly` |
 | [Referência cruzada](referencia-cruzada/) | disponível | `\label`, `\ref`, `\pageref`, `\autoref`, `\cref` em português |
-| [Tabelas e quadros](tabelas/) | disponível | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro |
-| [Figuras e gráficos](figuras/) | disponível | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots |
+| [Tabelas e quadros](tabelas/) | disponível | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro, `tabular` passo a passo |
+| [Figuras e gráficos](figuras/) | disponível | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots, ambientes flutuantes |
 | [Matemática](matematica/) | disponível | fórmulas no texto e em destaque, `equation`, `align`, `\eqref`, matrizes, `cases`, operadores, teoremas, `siunitx` |
 | [Código-fonte](codigo/) | disponível | configuração do `listings`, uso básico, opções, linguagens e acentos, preto e branco e `minted`, dicas |
-| [Referências e citações](referencias/) | disponível | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação |
+| [Referências e citações](referencias/) | disponível | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação, estilos do `biblatex`, BibTeX com `natbib` e `thebibliography` |
 | [Siglas, abreviaturas e glossário](siglas-glossario/) | disponível | `acro`, lista de siglas, lista de abreviaturas, glossário |
 | [abnTeX2](abntex2/) | disponível | preâmbulo e dados do trabalho, ordem dos elementos (pré-textuais, textuais, pós-textuais), vários autores |
 | [Classe abntex2-ufv](abntex2-ufv/) | disponível | ambiente `tabela` × `\IBGEtab`, figura com `ilustracao`, código-fonte como ilustração (float `codigo`), comparados com a abntex2 |

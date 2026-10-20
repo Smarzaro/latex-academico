@@ -33,11 +33,11 @@ Todos os temas têm receitas e exemplos compiláveis.
 | [Primeiros passos](receitas/basico/) | estrutura do documento, preâmbulo em português, espaços e parágrafos, divisões, alinhamento, hifenização, notas e links, comandos próprios |
 | [Documentos longos](receitas/organizacao/) | um arquivo por capítulo, `\include` × `\input`, `\includeonly` |
 | [Referência cruzada](receitas/referencia-cruzada/) | `\label`, `\ref`, `\pageref`, `\autoref`, `\cref` em português |
-| [Tabelas e quadros](receitas/tabelas/) | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro |
-| [Figuras e gráficos](receitas/figuras/) | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots |
+| [Tabelas e quadros](receitas/tabelas/) | tabela ou quadro, título/fonte/legenda/nota, tabela IBGE, células mescladas, tabela longa, quadro, `tabular` passo a passo |
+| [Figuras e gráficos](receitas/figuras/) | inserir imagem, subfiguras, diagramas com TikZ, gráficos com PGFPlots, ambientes flutuantes |
 | [Matemática](receitas/matematica/) | fórmulas no texto e em destaque, `equation`, `align`, `\eqref`, matrizes, `cases`, operadores, teoremas, `siunitx` |
 | [Código-fonte](receitas/codigo/) | configuração do `listings`, uso básico, opções, linguagens e acentos, preto e branco e `minted`, dicas |
-| [Referências e citações](receitas/referencias/) | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação |
+| [Referências e citações](receitas/referencias/) | catálogo de entradas do `biblatex-abnt`, ajustes finos, comandos de citação, estilos do `biblatex`, BibTeX com `natbib` e `thebibliography` |
 | [Siglas, abreviaturas e glossário](receitas/siglas-glossario/) | `acro`, lista de siglas, lista de abreviaturas, glossário |
 | [abnTeX2](receitas/abntex2/) | preâmbulo e dados do trabalho, ordem dos elementos (pré-textuais, textuais, pós-textuais), vários autores |
 | [Classe abntex2-ufv](receitas/abntex2-ufv/) | ambiente `tabela` × `\IBGEtab`, figura com `ilustracao`, código-fonte como ilustração (float `codigo`), comparados com a abntex2 |

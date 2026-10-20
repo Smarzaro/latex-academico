@@ -12,6 +12,7 @@ Receitas para apresentar dados e informações em linhas e colunas em documentos
 | [04 – Células mescladas](04-celulas-mescladas.md) | Cabeçalhos agrupados com `multicolumn`, `multirow` e `cmidrule` |
 | [05 – Tabela longa](05-tabela-longa.md) | `longtable`: várias páginas, cabeçalho repetido e "Continua" |
 | [06 – Quadro bem formatado](06-quadro.md) | Bordas fechadas, `tabularx` e colunas de largura fixa |
+| [07 – O ambiente `tabular` passo a passo](07-tabular-passo-a-passo.md) | Colunas, linhas, células com texto longo, `tabularx`, `tabulary`, `booktabs` e cores |
 
 ## Lista de conferência
 

@@ -22,6 +22,8 @@ citação.
 | [08 – Obras sem autoria](08-sem-autoria.md) | Título como entrada e `shorttitle` |
 | [09 – Citações no texto](09-citacoes-no-texto.md) | `\cite`, `\textcite`, páginas, várias obras, apud, supressões |
 | [10 – Dicas do arquivo `.bib`](10-dicas-do-bib.md) | Chaves, UTF-8, maiúsculas, gerenciadores e compilação |
+| [11 – Estilos e comandos do `biblatex`](11-estilos-do-biblatex.md) | Numérico, autor-data e `abnt` com os mesmos comandos de citação |
+| [12 – BibTeX, `natbib` e `thebibliography`](12-bibtex-natbib-e-thebibliography.md) | Formas clássicas, ainda usadas em modelos de periódicos |
 
 Pressupõe a classe `abntex2` e o `biblatex` com o estilo `abnt`:
 

@@ -1,5 +1,13 @@
 # Changes
 
+## Não publicado
+
+- Receitas para os seis exemplos que ainda não tinham uma: `figuras/05-ambientes-flutuantes.md`
+  (`ambientes-flutuantes.tex`), `tabelas/07-tabular-passo-a-passo.md` (`tabular-basico.tex`),
+  `referencias/11-estilos-do-biblatex.md` (`biblatex-comandos.tex` e `biblatex-autordata.tex`) e
+  `referencias/12-bibtex-natbib-e-thebibliography.md` (`bibtex-natbib.tex` e
+  `thebibliography.tex`). Todos os exemplos do guia agora têm receita.
+
 ## 0.8.4 (2026-10-20)
 
 - `codigo/comparacao-listings.tex`, `comparacao-listings-estilo.tex` e `comparacao-minted.tex`:
