@@ -11,6 +11,10 @@
 % gráficos (memoir)
 \newfloat{grafico}{lgr}{Gráfico}
 \newlistof{listofgraficos}{lgr}{Lista de gráficos}
+\newlistentry{grafico}{lgr}{0}       % linha da lista, com pontilhado e página
+\providecommand{\graficoautorefname}{Gráfico}  % nome usado pelo \autoref
+% números com vírgula decimal nos eixos e nos rótulos (o padrão é o ponto)
+\pgfplotsset{/pgf/number format/use comma}
 %%END:graficopreambulo
 
 \begin{document}
@@ -26,7 +30,7 @@ do tempo de resposta.
     \begin{axis}[ybar, width=0.7\linewidth, height=5.5cm, bar width=18pt,
         symbolic x coords={A, B}, xtick=data, ymin=0, ymax=140,
         ylabel={Tempo (ms)}, nodes near coords, enlarge x limits=0.4]
-      \addplot[fill=black!35] coordinates {(A,120) (B,98)};
+      \addplot[fill=black!35] coordinates {(A,120.5) (B,98.2)};
     \end{axis}
   \end{tikzpicture}
   \fonte{Elaborado pelo próprio autor.}

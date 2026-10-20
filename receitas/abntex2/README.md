@@ -15,6 +15,7 @@ curto (só capítulos e referências), use o modelo
 | [01 – Preâmbulo e dados do trabalho](01-preambulo-e-dados.md) | Opções da classe, pacotes essenciais e os dados que vão para a capa e a folha de rosto |
 | [02 – Ordem dos elementos do trabalho](02-ordem-dos-elementos.md) | Pré-textuais, textuais e pós-textuais: resumos, listas, sumário, alíneas, citação longa, apêndices e anexos |
 | [03 – Trabalho com mais de um autor](03-varios-autores.md) | Vários nomes na capa, na mesma linha ou um por linha |
+| [04 – Trabalho completo](04-trabalho-completo.md) | O modelo de TCC com um arquivo por capítulo, listas, siglas, quadro e código, e as dúvidas mais comuns |
 
 Assuntos ligados, em outras receitas:
 

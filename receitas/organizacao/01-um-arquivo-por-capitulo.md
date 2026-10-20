@@ -52,6 +52,9 @@ porque todos são compilados juntos pelo arquivo principal.
 No resultado, o `\autoref` escreve "Capítulo 2", com o número do capítulo definido no outro
 arquivo, e o sumário lista os dois capítulos.
 
+Um trabalho completo organizado assim, com a `abntex2`, está em
+[`modelos/tcc-abntex2/`](../../modelos/tcc-abntex2/).
+
 ## `\include` ou `\input`?
 
 | | `\include{arquivo}` | `\input{arquivo}` |

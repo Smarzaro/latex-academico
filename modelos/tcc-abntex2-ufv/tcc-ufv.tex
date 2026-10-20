@@ -1,0 +1,105 @@
+% !requer: abntex2-ufv.cls
+% Modelo: TCC completo com a classe abntex2-ufv (variante de ../tcc-abntex2/tcc.tex)
+% Compilar: latexmk -pdf tcc-ufv.tex   Testado com: abntex2-ufv 1.7, biblatex-abnt, TeX Live 2024+
+% A classe (CTAN: abntex2-ufv) já define o que o modelo com a abntex2 declara à mão: os floats
+% quadro, grafico e codigo com listas próprias, as listas de siglas e de abreviaturas (acro), a
+% folha de aprovação e os ambientes ilustracao e tabela, que medem o conteúdo e alinham o título,
+% a fonte e a nota na largura dele. Estrutura da pasta igual à do modelo com a abntex2.
+%%BEGIN:ufvclasse
+\documentclass{abntex2-ufv}   % 12pt, A4, frente apenas, português
+%%END:ufvclasse
+
+%%BEGIN:ufvpacotes
+% 1. PACOTES: a classe carrega só o que ela precisa; estes são do trabalho
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields]{biblatex}
+\usepackage{ragged2e}
+\usepackage{xurl}
+\addbibresource{referencias.bib}
+\appto{\bibsetup}{\RaggedRight}   % referências à esquerda (NBR 6023)
+\urlstyle{same}
+\lstset{basicstyle=\ttfamily\small, columns=flexible, keepspaces=true,
+  numbers=left, numberstyle=\tiny, frame=single, breaklines=true,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {ã}{{\~a}}1 {õ}{{\~o}}1 {ç}{{\c c}}1 {ê}{{\^e}}1 {â}{{\^a}}1}
+%%END:ufvpacotes
+
+%%BEGIN:ufvsiglas
+% 2. SIGLAS E ABREVIATURAS (o acro já vem com a classe)
+\DeclareAcronym{abnt}{short = ABNT,
+  long = Associação Brasileira de Normas Técnicas}
+\DeclareAcronym{api}{short = API,
+  long = Interface de Programação de Aplicações,
+  long-plural-form = Interfaces de Programação de Aplicações}
+\DeclareAcronym{csv}{short = CSV,
+  long = \textit{Comma-Separated Values}}
+\DeclareAcronym{ed}{short = ed., long = edição, tag = abreviatura}
+%%END:ufvsiglas
+
+%%BEGIN:ufvdados
+% 3. DADOS DO TRABALHO (capa, folha de rosto e folha de aprovação)
+\titulo{Título do trabalho}
+\autor{Nome do Autor}
+\local{Cidade}
+\data{\the\year}
+\instituicao{Nome da Instituição}
+\curso{Nome do Curso}
+\siglainstituicaopadrao{SIGLA}    % instituição da banca, se não informada
+\orientador{Nome do Orientador}
+\membrobanca{Dr. Nome do Membro da Banca}
+\membrobanca[OUTRA]{Dra. Nome do Membro da Banca}
+\preambulo{Trabalho apresentado à Nome da Instituição como parte das
+exigências para a obtenção do título de Bacharel em Nome do Curso.}
+%%END:ufvdados
+
+\begin{document}
+
+%%BEGIN:ufvpre
+\pretextual
+\imprimircapa
+\imprimirfolhaderosto
+
+\imprimirfolhadeaprovacao
+\input{pretextuais/resumos}
+
+\listoffigures*
+\cleardoublepage
+\listofquadros*
+\cleardoublepage
+\listofcodigos*
+\cleardoublepage
+\listoftables*
+\cleardoublepage
+\listadesiglas         % só as siglas usadas no texto
+\listadeabreviaturas
+\tableofcontents*
+\cleardoublepage
+%%END:ufvpre
+
+\textual
+\include{capitulos/introducao}
+\include{capitulos/referencial}
+\include{capitulos/metodologia}
+\include{capitulos/resultados}
+\include{capitulos/conclusao}
+
+\postextual
+\printbibliography
+
+\begin{apendicesenv}
+\partapendices
+\include{capitulos/apendice-questionario}
+\end{apendicesenv}
+
+\begin{anexosenv}
+\partanexos
+\include{capitulos/anexo-regulamento}
+\end{anexosenv}
+
+\end{document}

@@ -4,7 +4,8 @@
 e citável separadamente.
 
 **Solução.** Com a classe `abntex2` (que é baseada no `memoir`), use o `\subbottom` do próprio
-`memoir`. **Não** carregue `subfig` nem `subcaption`: são incompatíveis com o `memoir`.
+`memoir`. O pacote `subcaption` também funciona com o `memoir` (o manual da classe o
+recomenda); evite o `subfig`, que não é atualizado desde 2005.
 Exemplo completo: [`figura-subfiguras.tex`](../../exemplos/figuras/figura-subfiguras.tex).
 
 ```latex
@@ -26,6 +27,7 @@ Exemplo completo: [`figura-subfiguras.tex`](../../exemplos/figuras/figura-subfig
 - Sem `\newsubfloat{figure}`, o LaTeX acusa `No counter 'subfigure' defined`.
 - `\subbottom[legenda]{conteúdo}` põe a legenda abaixo; `\subtop` a põe acima.
 - Cite a figura toda com `\autoref{fig:sub}` ("Figura 1") e uma parte com `\ref{fig:sub-a}`
-  ("1(a)"). O `\autoref` de uma subfigura escreve "Subfigura 1(a)"; para "Figura 1(a)", escreva
+  ("1(a)"). O `\autoref` de uma subfigura escreve "Subfigure 1(a)", em inglês (o `hyperref` não
+  tem nome em português para ela); para "Figura 1(a)", escreva
   `Figura~\ref{fig:sub-a}`.
 - Dê `width` menor que `.5\linewidth` para duas imagens lado a lado (aqui, `.45`).

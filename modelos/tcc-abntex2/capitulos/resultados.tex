@@ -1,0 +1,24 @@
+% Capítulo incluído por tcc.tex com \include: sem preâmbulo e sem \begin{document}.
+\chapter{Resultados e discussão}\label{cap:resultados}
+
+A \autoref{tab:avaliacao} resume a avaliação, e a nota média $\bar{x}$ foi
+calculada pela \autoref{eq:media}:
+\begin{equation}\label{eq:media}
+  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\end{equation}
+
+% Tabela no padrão IBGE: título, fonte e nota na largura da tabela
+\begin{table}[htbp]
+\IBGEtab{\caption{Avaliação do protótipo por grupo de usuários}%
+         \label{tab:avaliacao}}{%
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Grupo} & \textbf{Participantes} & \textbf{Nota média} \\
+    \midrule
+    Estudantes  & 18 & 8,4 \\
+    Professores &  6 & 7,9 \\
+    \bottomrule
+  \end{tabular}%
+}{\fonte{Elaborado pelo próprio autor.}%
+  \nota{Dados fictícios, apenas para exemplo.}}
+\end{table}

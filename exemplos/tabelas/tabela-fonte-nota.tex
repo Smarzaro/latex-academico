@@ -1,0 +1,60 @@
+% Exemplo: título, fonte e nota na largura da tabela, com \IBGEtab (abntex2) ou threeparttable
+% Compilar: latexmk -pdf tabela-fonte-nota.tex     Testado com: abntex2, threeparttable, TeX Live 2024+
+% Cada trecho fica em uma página. As duas formas usam só a abntex2 e pacotes do CTAN; a classe
+% abntex2-ufv faz o mesmo com o ambiente tabela (exemplos/abntex2-ufv/tabela-ufv.tex).
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%%BEGIN:tabelafontepreambulo
+\usepackage{booktabs}                 % \toprule, \midrule, \bottomrule
+\usepackage{threeparttable}           % título e notas na largura da tabela
+%%END:tabelafontepreambulo
+
+\begin{document}
+
+A \autoref{tab:ibgetab} usa o \texttt{\textbackslash IBGEtab} da abntex2.
+
+%%BEGIN:tabelaibgetab
+\begin{table}[htbp]
+\IBGEtab{\caption{Usuários ativos e tempo médio de sessão por plataforma}%
+         \label{tab:ibgetab}}{%
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Plataforma} & \textbf{Usuários (un.)} & \textbf{Sessão (min)} \\
+    \midrule
+    Web     & 12.840 &  8,4 \\
+    Android &  9.317 & 11,9 \\
+    iOS     &  4.102 & 12,3 \\
+    \bottomrule
+  \end{tabular}%
+}{\fonte{Elaborado pelo próprio autor.}%
+  \nota{Dados fictícios, apenas para exemplo.}}
+\end{table}
+%%END:tabelaibgetab
+
+\clearpage
+
+A \autoref{tab:tpt} usa o ambiente \texttt{threeparttable}.
+
+%%BEGIN:tabelatpt
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}
+    \caption{Usuários ativos e tempo médio de sessão por plataforma}%
+    \label{tab:tpt}
+    \begin{tabular}{lrr}
+      \toprule
+      \textbf{Plataforma} & \textbf{Usuários (un.)} & \textbf{Sessão (min)} \\
+      \midrule
+      Web     & 12.840 &  8,4 \\
+      Android &  9.317 & 11,9 \\
+      iOS     &  4.102 & 12,3 \\
+      \bottomrule
+    \end{tabular}
+    \fonte{Elaborado pelo próprio autor.}
+    \nota{Dados fictícios, apenas para exemplo.}
+  \end{threeparttable}
+\end{table}
+%%END:tabelatpt
+
+\end{document}

@@ -20,7 +20,8 @@ CC BY 4.0 and code examples under CC0 1.0.
   os cuidados.
 - **[`exemplos/`](exemplos/)**: arquivos `.tex` completos e compiláveis que as receitas usam. O
   código dos exemplos é a fonte da verdade; o texto das receitas aponta para eles.
-- **[`modelos/`](modelos/)**: preâmbulos mínimos para começar um documento.
+- **[`modelos/`](modelos/)**: um preâmbulo mínimo e um TCC completo (com a `abntex2` e com a
+  `abntex2-ufv`) para começar um documento.
 - **[`scripts/`](scripts/)** e **[`tests/`](tests/)**: compilam todos os exemplos e conferem os
   marcadores de inclusão.
 

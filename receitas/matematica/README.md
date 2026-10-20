@@ -6,6 +6,7 @@ afins; os exemplos compiláveis estão em [`exemplos/matematica/`](../../exemplo
 
 | Receita | O que resolve |
 |---|---|
+| [04 – Elementos básicos](04-elementos-basicos.md) (comece por aqui) | `^`, `_`, chaves, `\frac`, `\sqrt`, `\sum`, `\int` e letras gregas |
 | [01 – Fórmulas no texto, em destaque e numeradas](01-modos-e-equacoes.md) | `$...$`, `\[...\]`, `equation`, `\eqref`, `align`, `\notag` e `\tag` |
 | [02 – Matrizes e delimitadores](02-matrizes.md) | `array` com `\left`/`\right` e os ambientes `pmatrix`, `bmatrix` e `vmatrix` |
 | [03 – Casos, operadores, teoremas e unidades](03-recursos.md) | `cases` e `\text`, `\mathbb`, `\DeclareMathOperator`, `amsthm` e `siunitx` |

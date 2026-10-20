@@ -1,0 +1,24 @@
+% Capítulo incluído por tcc-ufv.tex com \include: sem preâmbulo e sem \begin{document}.
+\chapter{Resultados e discussão}\label{cap:resultados}
+
+A \autoref{tab:avaliacao} resume a avaliação, e a nota média $\bar{x}$ foi
+calculada pela \autoref{eq:media}:
+\begin{equation}\label{eq:media}
+  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\end{equation}
+
+% tabela: título à esquerda e conteúdo em tamanho menor (padrão IBGE), na largura da tabela
+\begin{table}[htbp]
+\begin{tabela}{\caption{Avaliação do protótipo por grupo de usuários}%
+               \label{tab:avaliacao}}%
+              {\elaboracaopropria\nota{Dados fictícios, apenas para exemplo.}}
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Grupo} & \textbf{Participantes} & \textbf{Nota média} \\
+    \midrule
+    Estudantes  & 18 & 8,4 \\
+    Professores &  6 & 7,9 \\
+    \bottomrule
+  \end{tabular}
+\end{tabela}
+\end{table}

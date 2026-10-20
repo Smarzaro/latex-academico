@@ -1,5 +1,5 @@
 % !shell-escape
-% Exemplo: listagem com o pacote minted (usa o Pygments; exige Python e -shell-escape)
+% Exemplo: listagem com o pacote minted 3 (Pygments embutido; exige Python 3.8+)
 % Compilar: latexmk -pdf -shell-escape minted-basico.tex   Testado com: abntex2, minted 3, TeX Live 2024+
 \documentclass[12pt, a4paper, brazilian]{abntex2}
 \usepackage[T1]{fontenc}
@@ -10,11 +10,11 @@
 
 \begin{document}
 
-O Código~\ref{cod:minted} usa o \emph{minted}.
+O Código~\ref{lst:minted} usa o \emph{minted}.
 
 %%BEGIN:mintedbasico
 \begin{listing}[htbp]
-  \caption{Função em Python, colorida com o minted}\label{cod:minted}
+  \caption{Função em Python, colorida com o minted}\label{lst:minted}
 \begin{minted}{python}
 def media(valores):
     """Calcula a média aritmética de uma lista."""

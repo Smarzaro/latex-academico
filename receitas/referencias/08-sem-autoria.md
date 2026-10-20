@@ -33,10 +33,10 @@ usado na citação:
 }
 ```
 
-> OS GRANDES clássicos das poesias líricas. Ex Libris, 1981. 60 p.
+> OS GRANDES clássicos das poesias líricas. [S. l.]: Ex Libris, 1981. 60 p.
 
-O local não é identificado, e o campo `location` fica de fora: com a opção `noslsn`, nada é
-impresso no lugar (sem ela, o estilo imprime "[S. l.]: Ex Libris").
+O local não é identificado, e o campo `location` fica de fora: o estilo imprime "[S. l.]",
+como pede a NBR 6023:2025.
 
 Na citação: `\cite{ex-sem-autor-artigo}` → (Os grandes [...], 1981).
 

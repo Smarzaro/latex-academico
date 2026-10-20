@@ -1,0 +1,43 @@
+% Exemplo: estilo mínimo do listings (fonte, cores, numeração, quebra de linha e acentos)
+% Compilar: latexmk -pdf estilo-minimo.tex         Testado com: abntex2, listings, TeX Live 2024+
+% É o ponto de partida; o estilo completo dos exemplos do guia está em estilo-codigo.tex.
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+%%BEGIN:estilominimo
+\usepackage{xcolor}
+\usepackage{listings}
+\lstdefinestyle{minimo}{
+  basicstyle=\ttfamily\small,              % fonte de largura fixa
+  columns=flexible, keepspaces=true,       % espaçamento natural das letras
+  keywordstyle=\bfseries\color{blue!60!black},
+  commentstyle=\color{green!40!black},
+  stringstyle=\color{red!60!black},
+  numbers=left, numberstyle=\tiny,         % numeração das linhas
+  frame=single, breaklines=true,           % moldura e quebra de linhas
+  showstringspaces=false,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {ã}{{\~a}}1 {õ}{{\~o}}1 {ç}{{\c c}}1 {ê}{{\^e}}1 {â}{{\^a}}1,
+}
+\lstset{style=minimo}
+\renewcommand{\lstlistingname}{Código}     % "Código 1" na legenda
+%%END:estilominimo
+
+\begin{document}
+
+O \autoref{lst:minimo} usa o estilo mínimo.
+
+%%BEGIN:usominimo
+\begin{lstlisting}[language=Python, caption={Média com o estilo mínimo},
+    label={lst:minimo}]
+def media(valores):
+    """Calcula a média; devolve 0 para a lista vazia."""
+    if not valores:
+        return 0.0
+    return sum(valores) / len(valores)  # divisão real
+\end{lstlisting}
+\fonte{Elaborado pelo próprio autor.}
+%%END:usominimo
+
+\end{document}

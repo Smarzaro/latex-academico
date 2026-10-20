@@ -2,7 +2,8 @@
 
 ## Página *web*
 
-Se o local não é identificado, omita o campo `location` ([receita 01](01-regras-e-campos.md)).
+Se o local e a editora não são identificados, omita `location` e `publisher`: o estilo imprime
+`[S. l.: s. n.]`, como pede a NBR 6023:2025 ([receita 01](01-regras-e-campos.md)).
 
 ```bibtex
 @misc{ex-site,
@@ -14,10 +15,8 @@ Se o local não é identificado, omita o campo `location` ([receita 01](01-regra
 }
 ```
 
-> PYTHON SOFTWARE FOUNDATION. **Python 3 documentation**. 2025. Disponível em:
+> PYTHON SOFTWARE FOUNDATION. **Python 3 documentation**. [S. l.: s. n.], 2025. Disponível em:
 > https://docs.python.org/3/. Acesso em: 28 jan. 2025.
-
-Sem a opção `noslsn`, o estilo imprime "[S. l.: s. n.], 2025".
 
 ## Repositório de código
 
@@ -32,7 +31,7 @@ Sem a opção `noslsn`, o estilo imprime "[S. l.: s. n.], 2025".
 }
 ```
 
-> TORVALDS, L. **Linux kernel source tree**. 2025. Repositório GitHub. Disponível em:
+> TORVALDS, L. **Linux kernel source tree**. [S. l.: s. n.], 2025. Repositório GitHub. Disponível em:
 > https://github.com/torvalds/linux. Acesso em: 28 jan. 2025.
 
 ## Programa de computador

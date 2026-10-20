@@ -14,7 +14,7 @@ Exemplo completo: [`listings-basico.tex`](../../exemplos/codigo/listings-basico.
 ```latex
 \begin{lstlisting}[language=Python,
     caption={Função em Python, com numeração de linhas e sintaxe colorida},
-    label={cod:python}]
+    label={lst:python}]
 def media(valores):
     """Calcula a média aritmética de uma lista."""
     if not valores:
@@ -27,7 +27,7 @@ def media(valores):
 \fonte{Elaborado pelo próprio autor.}
 ```
 
-Cite no texto com `Código~\ref{cod:python}` e explique o que o código faz. O `\fonte{...}` (da
+Cite no texto com `Código~\ref{lst:python}` e explique o que o código faz. O `\fonte{...}` (da
 `abntex2`) coloca a fonte logo abaixo; é obrigatória, mesmo para código do próprio autor.
 
 ## Parte de um arquivo
@@ -39,7 +39,7 @@ o código do texto nunca fica diferente do arquivo. Exemplo:
 ```latex
 \lstinputlisting[language=Python, firstline=4, lastline=11, numbers=none,
     caption={Trecho de um arquivo (linhas 4 a 11), sem numeração de linhas},
-    label={cod:arquivo}]{assets/exemplo.py}
+    label={lst:arquivo}]{assets/exemplo.py}
 \fonte{Arquivo \texttt{exemplo.py}, do autor.}
 ```
 

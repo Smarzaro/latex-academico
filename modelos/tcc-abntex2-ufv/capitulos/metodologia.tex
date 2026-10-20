@@ -1,0 +1,34 @@
+% Capítulo incluído por tcc-ufv.tex com \include: sem preâmbulo e sem \begin{document}.
+\chapter{Metodologia}\label{cap:metodologia}
+
+Os requisitos estão no \autoref{qua:requisitos}, e o \autoref{lst:media}
+mostra a função que calcula a média das avaliações.
+
+% quadro e codigo são floats da classe, com listas próprias
+\begin{quadro}[htbp]
+\begin{ilustracao}[\linewidth]{\caption{Requisitos funcionais do protótipo}%
+                               \label{qua:requisitos}}%
+                              {\elaboracaopropria}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\linewidth}{|c|X|c|}
+    \hline
+    \textbf{ID} & \textbf{Descrição} & \textbf{Prioridade} \\
+    \hline
+    RF01 & Cadastrar usuário com nome, \emph{e-mail} e senha. & Alta \\
+    \hline
+    RF02 & Exportar as avaliações em \acs{csv}. & Média \\
+    \hline
+  \end{tabularx}
+\end{ilustracao}
+\end{quadro}
+
+\begin{codigo}[htbp]
+\begin{ilustracao}[\linewidth]{\caption{Média das avaliações}\label{lst:media}}%
+                              {\elaboracaopropria}
+\begin{lstlisting}[language=Python]
+def media(notas):
+    """Devolve a média; 0 para a lista vazia."""
+    return sum(notas) / len(notas) if notas else 0.0
+\end{lstlisting}
+\end{ilustracao}
+\end{codigo}

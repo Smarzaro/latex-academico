@@ -6,17 +6,11 @@
 \usepackage[brazilian]{babel}
 %%BEGIN:cleverefpreambulo
 \usepackage[hidelinks]{hyperref}   % links e \autoref
-\usepackage{cleveref}              % depois do hyperref
-% nomes usados pelo \cref/\Cref (singular, plural)
-\crefname{section}{seção}{seções}
-\Crefname{section}{Seção}{Seções}
-\crefname{table}{tabela}{tabelas}
-\Crefname{table}{Tabela}{Tabelas}
-% o cleveref não traduz as conjunções para o português
-\newcommand{\crefpairconjunction}{ e }
-\newcommand{\crefmiddleconjunction}{, }
-\newcommand{\creflastconjunction}{ e }
-\newcommand{\crefrangeconjunction}{ a }
+\usepackage[brazilian]{cleveref}   % depois do hyperref; nomes e conjunções em português
+% só para elementos que o pacote não conhece (ex.: um flutuante "quadro"),
+% ou para trocar um nome: \crefname{tipo}{singular}{plural}
+\crefname{quadro}{quadro}{quadros}
+\Crefname{quadro}{Quadro}{Quadros}
 %%END:cleverefpreambulo
 
 \begin{document}
@@ -25,7 +19,14 @@
 \section{Introdução}\label{sec:intro}
 Com \verb|\autoref|: veja a \autoref{sec:metodo}. Com \verb|\cref|: veja a
 \cref{sec:metodo}; no início da frase, \verb|\Cref|: \Cref{sec:metodo}
-descreve o método. Vários rótulos de uma vez: \cref{sec:intro,sec:metodo}.
+descreve o método. Vários rótulos de uma vez: \cref{sec:intro,sec:metodo};
+uma tabela: \cref{tab:dados}.
+
+\begin{table}[h]
+  \centering
+  \caption{Dados}\label{tab:dados}
+  \begin{tabular}{cc} 1 & 2 \\ \end{tabular}
+\end{table}
 
 \section{Método}\label{sec:metodo}
 %%END:cleverefuso

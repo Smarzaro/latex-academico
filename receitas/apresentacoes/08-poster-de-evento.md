@@ -26,7 +26,7 @@ pacote `mwe` ficam no lugar dos logotipos dos financiadores.
 - **Tamanhos de letra pedidos pelo evento**: texto com 36 pt, títulos das seções com 40 pt,
   título do trabalho com 72 pt em duas linhas, legendas e fonte com 30 pt, referências com 24 pt.
 - **Legendas acima** de figuras e tabelas, numeradas, e "Fonte:" abaixo, como pede a ABNT.
-- **Referências** com o `biblatex-abnt`, sem *S. l.* e *s. n.* (opção `noslsn`), em coluna única
+- **Referências** com o `biblatex-abnt`, em coluna única
   no fim da segunda coluna. Três valores no preâmbulo controlam a lista:
 
   ```latex

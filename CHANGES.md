@@ -1,5 +1,50 @@
 # Changes
 
+## 0.10.0 (2026-10-20)
+
+Revisão técnica dos exemplos (normas, pacotes e saída em português) e exemplos novos.
+
+**Novos**
+
+- `modelos/tcc-abntex2/`: TCC completo com a `abntex2` (arquivo principal, um arquivo por
+  capítulo, folha de aprovação, resumos, listas de figuras, quadros, códigos e tabelas, siglas com
+  `acro`, figura, quadro, código, tabela, equação, apêndice e anexo). `modelos/tcc-abntex2-ufv/`:
+  o mesmo trabalho com a classe `abntex2-ufv` (`ilustracao`, `tabela`, floats `quadro` e
+  `codigo`, `\listadesiglas`, `\imprimirfolhadeaprovacao`). Receita
+  `abntex2/04-trabalho-completo.md`, com as dúvidas mais comuns.
+- `matematica/elementos.tex` e receita `matematica/04-elementos-basicos.md`: `^`, `_`, chaves,
+  `\frac`, `\sqrt`, `\sum`, `\int` e letras gregas.
+- `codigo/estilo-minimo.tex`: estilo mínimo do `listings` (fonte, cores, numeração, moldura,
+  quebra de linhas e acentos), citado na receita `codigo/01`.
+- `tabelas/tabela-fonte-nota.tex` (`\IBGEtab` e `threeparttable`) e
+  `figuras/figura-fonte-nota.tex` (`minipage` da largura da imagem): título, fonte e nota na
+  largura do objeto só com a `abntex2` e pacotes do CTAN. Receitas `tabelas/02` e `figuras/01`.
+
+**Correções**
+
+- Referências: sem a opção `noslsn` em todos os exemplos, modelos e receitas. A NBR 6023:2025
+  (itens 8.4.4, 8.5.5 e 8.5.6) pede "[S. l.]", "[s. n.]" e "[S. l.: s. n.]" quando faltam o local
+  e a editora; as receitas mostram a saída real.
+- `referencia-cruzada/autoref-cleveref.tex`: `cleveref` com a opção `brazilian`, que já traduz
+  os nomes; fica um `\crefname` de exemplo para o quadro.
+- `\autoref` de quadros e gráficos escrevia só o número ("no 1"): `\quadroautorefname` e
+  `\graficoautorefname` nos preâmbulos.
+- Listas de quadros e de gráficos sem pontilhado e com o número da página colado ao título:
+  `\newlistentry` depois do `\newlistof`.
+- `figuras/grafico-pgfplots.tex`: vírgula decimal nos eixos e rótulos (`use comma`).
+- `tabelas/tabela-simples.tex`: trecho `tabelapreambulo`, com `booktabs`, `siunitx` e `\sisetup`.
+- `codigo/minted-basico.tex` e receita `codigo/05`: o minted 3 traz o Pygments; o
+  `-shell-escape` só é preciso no MiKTeX e no TeX Live anterior a 2024.
+- `figuras/figura-subfiguras.tex` e receita `figuras/02`: o `subcaption` funciona com o
+  `memoir`; a subfigura é citada com `Figura~\ref` (o `\autoref` escreve "Subfigure").
+- Pôsteres: comentário do `\bibitemsep` corrigido. `basico/comandos-proprios.tex`:
+  `\estrangeiro` com `\emph`. `codigo/listings-opcoes.tex`: título antes da imagem no trecho
+  `destaque`. `basico/hifenizacao.tex`: comentário sobre o `\hyphenation` no preâmbulo.
+  `diversao/sudoku-dados.tex`: algarismos em `\Large`.
+- Rótulos de código com o prefixo `lst:` (antes `cod:`), como na receita
+  `referencia-cruzada/01`, que agora lista também `gra:` e lembra que os prefixos são uma
+  convenção, não uma regra do LaTeX.
+
 ## 0.9.1 (2026-10-20)
 
 - `areas/06-matematica.md`, `exemplos/areas/README.md` e `run-tests.sh`: o LaTeX Workshop (VS

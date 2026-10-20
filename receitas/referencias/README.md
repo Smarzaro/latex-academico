@@ -30,7 +30,7 @@ Pressupõe a classe `abntex2` e o `biblatex` com o estilo `abnt`:
 ```latex
 \usepackage{csquotes}
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
-            repeatfields, noslsn]{biblatex}
+            repeatfields]{biblatex}
 \usepackage{ragged2e}       % referências à esquerda com hifenização (receita 02)
 \usepackage{xurl}           % quebra de URLs longas
 \addbibresource{referencias.bib}

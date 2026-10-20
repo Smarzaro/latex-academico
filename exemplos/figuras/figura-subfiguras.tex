@@ -1,6 +1,6 @@
 % Exemplo: figura composta por subfiguras (\subbottom, do memoir, base da classe abntex2)
 % Compilar: latexmk -pdf figura-subfiguras.tex    Testado com: abntex2, mwe, TeX Live 2024 ou mais recente
-% Não carregue os pacotes subfig nem subcaption: eles são incompatíveis com o memoir.
+% O pacote subcaption também funciona com o memoir; evite o subfig, sem atualização desde 2005.
 \documentclass[12pt, a4paper, brazilian]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -8,7 +8,8 @@
 
 \begin{document}
 
-A \autoref{fig:sub} reúne duas imagens; a \autoref{fig:sub-a} mostra a primeira.
+A \autoref{fig:sub} reúne duas imagens; a Figura~\ref{fig:sub-a} mostra a primeira
+(o \verb|\autoref| não tem nome em português para subfiguras).
 
 %%BEGIN:figurasubfiguras
 \begin{figure}[htbp]

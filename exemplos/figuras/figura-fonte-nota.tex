@@ -1,0 +1,26 @@
+% Exemplo: título, fonte e nota na largura da figura, com uma minipage da largura da imagem
+% Compilar: latexmk -pdf figura-fonte-nota.tex     Testado com: abntex2, mwe, TeX Live 2024 ou mais recente
+% Sem a minipage, \fonte e \nota ocupam a largura do texto. A classe abntex2-ufv faz a mesma
+% medida sozinha com o ambiente ilustracao (exemplos/abntex2-ufv/figura-ufv.tex).
+\documentclass[12pt, a4paper, brazilian]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+
+\begin{document}
+
+Na \autoref{fig:fontenota}, o título, a fonte e a nota têm a largura da imagem.
+
+%%BEGIN:figurafontenota
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{.5\linewidth}       % a largura da imagem
+    \caption{Imagem de exemplo com fonte e nota}\label{fig:fontenota}
+    \includegraphics[width=\linewidth]{example-image-a}
+    \fonte{Elaborado pelo próprio autor.}
+    \nota{O título e o rodapé ficam na largura da minipage.}
+  \end{minipage}
+\end{figure}
+%%END:figurafontenota
+
+\end{document}

@@ -17,6 +17,6 @@ Para as equações (`\eqref`), veja a
 - Toda figura, tabela e quadro é citado no texto antes de aparecer (ou logo depois)?
 - O `\label` de cada flutuante está depois do `\caption`?
 - Nenhuma referência sai como "??" e o log não tem *There were undefined references*?
-- Os rótulos seguem um padrão de prefixos (`cap:`, `sec:`, `fig:`, `tab:`, `eq:`)?
+- Os rótulos seguem um padrão de prefixos (`cap:`, `sec:`, `fig:`, `tab:`, `qua:`, `lst:`, `eq:`)?
 - O tipo do elemento ("Figura", "Seção") é escrito sempre do mesmo jeito: à mão com `~\ref` ou
   sempre por `\autoref`/`\cref`, sem misturar?

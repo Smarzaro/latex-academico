@@ -12,7 +12,7 @@
 
 ```latex
 \begin{codigo}[htbp]
-\begin{ilustracao}[\linewidth]{\caption{Função em Python}\label{cod:ufv}}%
+\begin{ilustracao}[\linewidth]{\caption{Função em Python}\label{lst:ufv}}%
                   {\elaboracaopropria}
 \begin{lstlisting}[language=Python]
 def media(valores):
@@ -25,7 +25,7 @@ def media(valores):
 \end{codigo}
 ```
 
-No texto, `\autoref{cod:ufv}` imprime "Código 1". A "Lista de códigos" sai com
+No texto, `\autoref{lst:ufv}` imprime "Código 1". A "Lista de códigos" sai com
 `\listofcodigos`, junto das demais listas pré-textuais.
 
 ## Por que `[\linewidth]`
@@ -51,4 +51,5 @@ A `abntex2` não tem o float `codigo`. As alternativas são usar o próprio `lst
   `\listofgraficos`.
 - Uma listagem longa não quebra de página dentro de um float. Para códigos com mais de meia
   página, prefira um apêndice ou um trecho menor no texto.
-- Rótulos com o prefixo `cod:` deixam claro, no texto-fonte, o tipo do objeto citado.
+- Rótulos com o prefixo `lst:` (o mesmo das listagens do `listings`) deixam claro, no
+  texto-fonte, o tipo do objeto citado.

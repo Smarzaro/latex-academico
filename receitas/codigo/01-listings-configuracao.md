@@ -5,6 +5,10 @@ quebra de linhas. Para um trabalho acadêmico, vale configurar uma vez, no preâ
 aplicar a todas as listagens.
 
 **Solução.** Escolher a fonte, definir as cores e criar um estilo aplicado com `\lstset`.
+Para começar, um estilo de dez linhas basta: fonte, cores, numeração, moldura, quebra de linhas
+e acentos ([`estilo-minimo.tex`](../../exemplos/codigo/estilo-minimo.tex), trecho `estilominimo`).
+O estilo completo abaixo acrescenta a fonte Inconsolata, o destaque de comandos do LaTeX e a
+versão em preto e branco.
 O arquivo [`estilo-codigo.tex`](../../exemplos/codigo/estilo-codigo.tex) reúne tudo; os exemplos
 o incluem com `\input{estilo-codigo}`.
 

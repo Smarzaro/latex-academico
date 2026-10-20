@@ -2,8 +2,8 @@
 % !BIB program = biber
 % Modelo mínimo ABNT: classe abntex2, referências com biblatex-abnt e um capítulo.
 % Compilar: latexmk -pdf abnt-minimo.tex       Testado com: abntex2, biblatex-abnt, TeX Live 2024+
-% Para um modelo completo de TCC (capa, folhas, resumo, listas), veja a classe abntex2-ufv ou o
-% modelo da sua instituição.
+% Para um TCC completo (capa, folhas, resumo, listas, um arquivo por capítulo), veja
+% tcc-abntex2/ nesta pasta ou o modelo da sua instituição.
 \documentclass[12pt, a4paper, oneside, brazilian]{abntex2}
 
 %%BEGIN:abntpreambulo
@@ -13,7 +13,7 @@
 \graphicspath{{imagens/}}             % imagens na pasta imagens/
 \usepackage{csquotes}                 % exigido pelo biblatex
 \usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
-            repeatfields, noslsn]{biblatex}
+            repeatfields]{biblatex}
 \usepackage{ragged2e}                 % \RaggedRight: à esquerda, com hifenização
 \usepackage{xurl}                     % quebra de URLs longas
 \addbibresource{referencias-minimo.bib}

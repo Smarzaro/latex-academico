@@ -1,0 +1,24 @@
+% Capítulo incluído por tcc.tex com \include: sem preâmbulo e sem \begin{document}.
+\chapter{Referencial teórico}\label{cap:referencial}
+
+Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas)
+fica recuada:
+\begin{citacao}
+Texto citado literalmente, com mais de três linhas, que a classe abntex2
+formata com recuo de 4\,cm, fonte menor e espaçamento simples, como pede a
+NBR 10520. A referência vem ao final da citação, entre parênteses
+\cite[p.~35]{ex-livro}.
+\end{citacao}
+
+Uma \ac{api} define como dois sistemas trocam dados; as \acp{api} da
+\autoref{fig:arquitetura} usam arquivos \ac{csv} \cite{ex-artigo}.
+
+% Título acima, fonte e nota abaixo, na largura da imagem (minipage)
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{.6\linewidth}
+    \caption{Arquitetura do protótipo}\label{fig:arquitetura}
+    \includegraphics[width=\linewidth]{example-image-a}
+    \fonte{Elaborado pelo próprio autor.}
+  \end{minipage}
+\end{figure}

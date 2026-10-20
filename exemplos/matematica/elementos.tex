@@ -1,0 +1,39 @@
+% Exemplo: elementos básicos das fórmulas (^, _, chaves, \frac, \sqrt, \sum, \int, letras gregas)
+% Compilar: latexmk -pdf elementos.tex             Testado com: TeX Live 2024 ou mais recente
+% Cada trecho fica em uma página. É o ponto de partida antes de modos.tex (destaque e numeração).
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+
+\begin{document}
+
+%%BEGIN:elementosbasicos
+Expoente com \verb|^| e índice com \verb|_|: $x^2$, $x_i$ e $x_i^2$. Mais
+de um caractere vai entre chaves: $e^{-x}$ e $a_{ij}$, mas $e^-x$ e
+$a_ij$ mostram o que acontece sem elas.
+
+Frações e raízes: $\frac{a}{b}$, $\frac{1}{1+x^2}$, $\sqrt{2}$ e
+$\sqrt[3]{x}$. Em destaque, a fração fica em tamanho normal:
+\[
+  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+  \qquad
+  \int_{0}^{1} x^2 \, dx = \frac{1}{3}
+\]
+No somatório e na integral, \verb|_| e \verb|^| dão os limites; no
+texto eles vão ao lado: $\sum_{i=1}^{n} x_i$.
+%%END:elementosbasicos
+
+\clearpage
+
+%%BEGIN:letrasgregas
+Letras gregas são comandos com o nome da letra: $\alpha$, $\beta$,
+$\gamma$, $\delta$, $\varepsilon$, $\lambda$, $\mu$, $\pi$, $\sigma$ e
+$\omega$. A inicial maiúscula dá a letra maiúscula, quando ela difere da
+latina: $\Gamma$, $\Delta$, $\Sigma$ e $\Omega$. Assim, a média e o
+desvio-padrão de uma população são $\mu$ e $\sigma$, e a variância é
+$\sigma^2$.
+%%END:letrasgregas
+
+\end{document}

@@ -24,6 +24,27 @@ texto e manter as imagens organizadas.
 
 No texto, cite com `\autoref{fig:imagem}`, que escreve "Figura 1" sozinho.
 
+## Título e rodapé na largura da imagem
+
+No `figure`, o título e o rodapé ocupam a largura do texto, mais larga que uma imagem estreita.
+Para que fiquem na largura da imagem, ponha tudo numa `minipage` dessa largura e use
+`width=\linewidth` na imagem ([`figura-fonte-nota.tex`](../../exemplos/figuras/figura-fonte-nota.tex)):
+
+```latex
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{.5\linewidth}       % a largura da imagem
+    \caption{Imagem de exemplo com fonte e nota}\label{fig:fontenota}
+    \includegraphics[width=\linewidth]{example-image-a}
+    \fonte{Elaborado pelo próprio autor.}
+    \nota{O título e o rodapé ficam na largura da minipage.}
+  \end{minipage}
+\end{figure}
+```
+
+A classe `abntex2-ufv` faz essa medida sozinha com o ambiente `ilustracao`
+([receita](../abntex2-ufv/02-figura-ilustracao.md)).
+
 ## Cuidados
 
 - **Formato.** Prefira PDF (ou SVG convertido para PDF) para diagramas e gráficos, porque são

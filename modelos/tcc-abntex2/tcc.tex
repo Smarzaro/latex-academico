@@ -1,0 +1,146 @@
+% !TeX program = pdflatex
+% !BIB program = biber
+% Modelo: TCC completo com a classe abntex2 (arquivo principal e um arquivo por capítulo)
+% Compilar: latexmk -pdf tcc.tex   Testado com: abntex2, biblatex-abnt, acro 3, TeX Live 2024+
+% Compile sempre este arquivo, nunca um capítulo. Estrutura da pasta:
+%   tcc.tex            preâmbulo, dados do trabalho e ordem dos elementos (NBR 14724)
+%   pretextuais/       folha de aprovação e resumos (incluídos com \input)
+%   capitulos/         um arquivo por capítulo, apêndice e anexo (incluídos com \include)
+%   referencias.bib    base de referências (biblatex-abnt)
+% A variante com a classe abntex2-ufv está em ../tcc-abntex2-ufv/.
+%%BEGIN:modeloclasse
+\documentclass[12pt, a4paper, oneside, english, brazilian,
+  sumario=tradicional]{abntex2}
+%%END:modeloclasse
+
+%%BEGIN:modelopacotes
+% 1. PACOTES. Primeiro a codificação e a fonte; o biblatex perto do fim.
+% O hyperref já vem com a abntex2: não o carregue de novo.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{indentfirst}          % recua o primeiro parágrafo da seção
+\usepackage{graphicx}             % figuras
+\usepackage{booktabs}             % filetes das tabelas
+\usepackage{tabularx}             % colunas X nos quadros
+\usepackage{xcolor}
+\usepackage{listings}             % código-fonte
+\usepackage{acro}                 % siglas e abreviaturas
+\usepackage{csquotes}             % exigido pelo biblatex
+\usepackage[backend=biber, style=abnt, uniquename=init, giveninits,
+            repeatfields]{biblatex}
+\usepackage{ragged2e}             % \RaggedRight com hifenização
+\usepackage{xurl}                 % quebra URLs longas
+\addbibresource{referencias.bib}
+\appto{\bibsetup}{\RaggedRight}   % referências à esquerda (NBR 6023)
+\urlstyle{same}
+\hypersetup{hidelinks}            % links sem moldura (para imprimir)
+%%END:modelopacotes
+
+%%BEGIN:modeloflutuantes
+% 2. QUADRO E CÓDIGO. A abntex2 não define o quadro: o float e a lista
+% vêm do memoir, e a linha da lista imita a da lista de figuras.
+\newfloat{quadro}{loq}{Quadro}
+\newlistof{listofquadros}{loq}{Lista de quadros}
+\newlistentry{quadro}{loq}{0}
+\renewcommand{\cftquadroname}{Quadro\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
+\setlength{\cftquadronumwidth}{\cftfigurenumwidth}
+\providecommand{\quadroautorefname}{Quadro}
+% uma lista por tipo: "Lista de figuras" (a abntex2 a chama de ilustrações)
+\AtBeginDocument{\renewcommand{\listfigurename}{Lista de figuras}}
+% O código usa a legenda do próprio listings, numerada sem o capítulo.
+\lstset{basicstyle=\ttfamily\small, columns=flexible, keepspaces=true,
+  numbers=left, numberstyle=\tiny, frame=single, breaklines=true,
+  numberbychapter=false,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {ã}{{\~a}}1 {õ}{{\~o}}1 {ç}{{\c c}}1 {ê}{{\^e}}1 {â}{{\^a}}1}
+\renewcommand{\lstlistingname}{Código}
+\providecommand{\lstlistingautorefname}{Código}
+\newlistof{listofcodigos}{lol}{Lista de códigos}  % \listofcodigos*
+%%END:modeloflutuantes
+
+%%BEGIN:modelosiglas
+% 3. SIGLAS (acro): declare aqui e use \ac{chave} no texto. A lista sai
+% com o título no padrão dos elementos pré-textuais.
+\NewAcroTemplate[heading]{abnt}{\pretextualchapter{\acrolistname}}
+\acsetup{list/name = {Lista de siglas}, list/heading = abnt,
+  list/template = tabular,
+  templates/colspec = {@{}l@{\hspace{1.5em}}p{.8\linewidth}@{}}}
+\DeclareAcronym{abnt}{short = ABNT,
+  long = Associação Brasileira de Normas Técnicas}
+\DeclareAcronym{api}{short = API,
+  long = Interface de Programação de Aplicações,
+  long-plural-form = Interfaces de Programação de Aplicações}
+\DeclareAcronym{csv}{short = CSV,
+  long = \textit{Comma-Separated Values}}
+%%END:modelosiglas
+
+%%BEGIN:modelodados
+% 4. DADOS DO TRABALHO (capa, folha de rosto e folha de aprovação)
+\titulo{Título do trabalho}
+\autor{Nome do Autor}
+\local{Cidade}
+\instituicao{Nome da Instituição \par Nome do curso}
+\data{\the\year}
+\orientador{Prof. Dr. Nome do Orientador}
+\tipotrabalho{Trabalho de Conclusão de Curso (Graduação)}
+\preambulo{Trabalho apresentado à Nome da Instituição como parte das
+exigências para a obtenção do título de Bacharel em Nome do Curso.}
+
+% Para compilar só os capítulos em que está trabalhando, descomente:
+% \includeonly{capitulos/metodologia}
+%%END:modelodados
+
+\begin{document}
+
+%%BEGIN:modelopre
+% ELEMENTOS PRÉ-TEXTUAIS, na ordem da NBR 14724
+\pretextual
+\imprimircapa
+\imprimirfolhaderosto  % a linha seguinte fica em branco (ele lê um argumento)
+
+\input{pretextuais/folha-aprovacao}   % \input: sem quebra de página
+\input{pretextuais/resumos}
+
+\listoffigures*        % o * deixa a lista fora do sumário
+\cleardoublepage
+\listofquadros*
+\cleardoublepage
+\listofcodigos*
+\cleardoublepage
+\listoftables*
+\cleardoublepage
+\printacronyms         % só as siglas usadas no texto
+\cleardoublepage
+\tableofcontents*
+\cleardoublepage
+%%END:modelopre
+
+%%BEGIN:modelotexto
+% ELEMENTOS TEXTUAIS: \textual antes do primeiro capítulo (numeração
+% arábica e cabeçalhos). Cada \include começa em página nova.
+\textual
+\include{capitulos/introducao}        % sem a extensão .tex
+\include{capitulos/referencial}
+\include{capitulos/metodologia}
+\include{capitulos/resultados}
+\include{capitulos/conclusao}
+%%END:modelotexto
+
+%%BEGIN:modelopos
+% ELEMENTOS PÓS-TEXTUAIS
+\postextual
+\printbibliography[title=Referências]
+
+\begin{apendicesenv}                  % "APÊNDICE A – ..."
+\partapendices
+\include{capitulos/apendice-questionario}
+\end{apendicesenv}
+
+\begin{anexosenv}                     % "ANEXO A – ..."
+\partanexos
+\include{capitulos/anexo-regulamento}
+\end{anexosenv}
+%%END:modelopos
+
+\end{document}

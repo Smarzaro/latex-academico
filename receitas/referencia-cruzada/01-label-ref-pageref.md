@@ -75,9 +75,11 @@ undefined references*. O `latexmk` repete a compilação até as referências se
 
 ## Convenções
 
-- **Prefixos:** `cap:` (capítulo), `sec:` (seção), `fig:`, `tab:`, `qua:` (quadro), `eq:`,
-  `it:` (item), `lst:` (código). O prefixo evita conflitos (`fig:resultados` e
-  `tab:resultados`) e lembra o tipo ao escrever o texto.
+- **Prefixos:** `cap:` (capítulo), `sec:` (seção), `fig:`, `tab:`, `qua:` (quadro), `gra:`
+  (gráfico), `eq:`, `it:` (item), `lst:` (código). O prefixo evita conflitos (`fig:resultados`
+  e `tab:resultados`) e lembra o tipo ao escrever o texto. Não é regra do LaTeX, que aceita
+  qualquer rótulo: é uma convenção, e cada um pode criar a sua, desde que a siga no trabalho
+  inteiro.
 - **Rótulos descritivos e estáveis:** `fig:arquitetura`, e não `fig:3` ou `fig:nova`, porque o
   rótulo não muda quando a figura muda de lugar.
 - **Espaço inseparável:** `Figura~\ref{...}` e `página~\pageref{...}` com `~` impedem que o número

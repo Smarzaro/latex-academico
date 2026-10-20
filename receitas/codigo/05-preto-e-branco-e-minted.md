@@ -28,7 +28,7 @@ muitas linguagens. Exemplo: [`minted-basico.tex`](../../exemplos/codigo/minted-b
 
 ```latex
 \begin{listing}[htbp]
-  \caption{Função em Python, colorida com o minted}\label{cod:minted}
+  \caption{Função em Python, colorida com o minted}\label{lst:minted}
 \begin{minted}{python}
 def media(valores):
     return sum(valores) / len(valores)
@@ -37,7 +37,9 @@ def media(valores):
 \end{listing}
 ```
 
-Compile com `-shell-escape`:
+No TeX Live 2024 ou mais recente, compile normalmente: o programa `latexminted`, que vem com o
+`minted` 3, está na lista de programas que o TeX pode executar sem autorização. No MiKTeX e em
+versões mais antigas do TeX Live, compile com `-shell-escape`:
 
 ```bash
 latexmk -pdf -shell-escape documento.tex
@@ -45,10 +47,10 @@ latexmk -pdf -shell-escape documento.tex
 
 **Cuidados.**
 
-- É preciso ter o Python e o Pygments instalados (`pip install Pygments`).
-- `-shell-escape` permite que o documento execute programas externos: use só com documentos de
-  confiança. Em máquinas locais e em integração contínua, isso complica a instalação e a
-  segurança. O Overleaf suporta o `minted`.
+- O `minted` 3 traz o Pygments embutido: basta ter o Python 3.8 ou mais recente instalado.
+  Versões anteriores do pacote exigiam instalar o Pygments à parte (`pip install Pygments`).
+- Quando for preciso, `-shell-escape` permite que o documento execute programas externos: use
+  só com documentos de confiança. O Overleaf suporta o `minted`.
 - Com `cache=false`, o `minted` não cria a pasta `_minted-*`, o que simplifica o repositório.
 - O `listings` dispensa tudo isso e é a escolha mais simples para trabalhos acadêmicos.
 
@@ -59,11 +61,11 @@ latexmk -pdf -shell-escape documento.tex
 
 | | `listings` | `minted` |
 |---|---|---|
-| Instalação | Só o pacote | Python, Pygments e `-shell-escape` |
+| Instalação | Só o pacote | Python 3.8+; `-shell-escape` no MiKTeX e no TeX Live anterior a 2024 |
 | Análise do código | Lista de palavras-chave por linguagem | Analisador léxico completo (Pygments) |
 | Linguagens | Cerca de 100, novas com `\lstdefinelanguage` | Mais de 500, todas as do Pygments |
 | Destaque | Palavras-chave, comentários e cadeias | Também números, operadores, funções, decoradores |
 | Acentos (pdfLaTeX) | Exige `literate` | Funcionam sem configuração |
 | Personalização | Total, por chaves do pacote | Por estilos do Pygments e opções do `fancyvrb` |
 | Velocidade | Rápido | Mais lento (chama um programa externo) |
-| Overleaf e CI | Funciona sem ajustes | Overleaf sim; CI precisa do Pygments |
+| Overleaf e CI | Funciona sem ajustes | Overleaf sim; CI precisa do Python |

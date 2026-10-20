@@ -50,8 +50,8 @@
 % \justifying não recua os parágrafos
 \setlength{\JustifyingParindent}{0pt}
 \usepackage{csquotes}
-% noslsn: referências sem [S. l.] e [s. n.]
-\usepackage[backend=biber, style=abnt, noslsn]{biblatex}
+% [S. l.] e [s. n.] saem quando faltam local ou editora (NBR 6023:2025)
+\usepackage[backend=biber, style=abnt]{biblatex}
 \addbibresource{poster-evento.bib}
 % Referências: tamanho da letra, entrelinha e espaço entre uma referência
 % e a seguinte. Para mudar a aparência da lista, altere só estes três
@@ -66,8 +66,8 @@
 % O biblatex compõe a lista com \bibfont (e não com o tamanho em vigor);
 % o biblatex-abnt usa \normalfont no subtítulo, que aqui voltaria ao
 % tamanho do texto: na lista, ele só tira o negrito e o itálico. O espaço
-% entre as referências vai no início do documento, porque o estilo abnt o
-% define (com a linha em branco) no fim do preâmbulo.
+% entre as referências entra no \bibsetup: o estilo abnt o redefine ali, ao
+% imprimir a lista, e um \setlength comum no preâmbulo seria desfeito.
 \renewcommand*{\bibfont}{\fontsize{\refletra}{\refentrelinha}\selectfont
   \renewcommand*{\normalfont}{\mdseries\upshape}}
 \AtBeginDocument{\appto{\bibsetup}{\setlength{\bibitemsep}{\refespaco}}}

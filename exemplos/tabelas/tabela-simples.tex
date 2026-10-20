@@ -3,9 +3,12 @@
 % O trecho marcado com o id "tabelasimples" é o que as receitas e o livro exibem.
 \documentclass[12pt, a4paper, brazilian]{abntex2}
 \usepackage[T1]{fontenc}
+%%BEGIN:tabelapreambulo
 \usepackage{booktabs}                 % \toprule, \midrule, \bottomrule
 \usepackage{siunitx}                  % colunas S: alinhamento decimal
+% vírgula decimal e ponto nos milhares (o padrão do siunitx é o ponto decimal)
 \sisetup{output-decimal-marker = {,}, group-separator = {.}, group-minimum-digits = 4}
+%%END:tabelapreambulo
 
 \begin{document}
 

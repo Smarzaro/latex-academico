@@ -34,6 +34,25 @@ nessa ordem, e dá à tabela o espaçamento correto (veja a [receita 03](03-tabe
 \end{table}
 ```
 
+**Fora do `\IBGEtab`, use o `threeparttable`.** O ambiente do pacote `threeparttable` mede a
+tabela e dá ao título, à fonte e à nota a largura dela, com o `tabular` comum:
+
+```latex
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}
+    \caption{Título}\label{tab:exemplo}
+    \begin{tabular}{...} ... \end{tabular}
+    \fonte{Elaborado pelo próprio autor.}
+    \nota{Observação.}
+  \end{threeparttable}
+\end{table}
+```
+
+As duas formas, lado a lado: [`tabela-fonte-nota.tex`](../../exemplos/tabelas/tabela-fonte-nota.tex).
+Em figuras, o mesmo efeito vem de uma `minipage` com a largura da imagem (receita
+[figuras/01](../figuras/01-incluir-imagem.md)).
+
 > **Nota para quem usa a classe `abntex2-ufv`.** A classe traz os ambientes `ilustracao` e
 > `tabela`, que medem o conteúdo e dão ao título e ao rodapé a largura dele, aceitam `\legenda`
 > e deixam fonte, legenda e nota em espaço simples. A documentação da classe os descreve.
