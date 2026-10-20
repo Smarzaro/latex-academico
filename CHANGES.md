@@ -1,5 +1,10 @@
 # Changes
 
+## Não publicado
+
+- `release.yml`: a release (e o DOI de versão no Zenodo) sai sozinha só nas versões principais
+  (`vX.0.0`); as outras tags ganham release manualmente, pelo *Run workflow*, quando for preciso.
+
 ## 0.8.2 (2026-10-19)
 
 - `avaliacoes/prova-versoes.tex`: o trecho `versoesquestoes` (todas as questões) dá lugar a

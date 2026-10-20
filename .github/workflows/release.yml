@@ -1,14 +1,15 @@
 name: release
 
-# Cria uma GitHub Release a cada tag de versão (v0.4.1, v1.0.0...). A integração com o Zenodo
-# só arquiva o repositório e atribui um DOI quando uma release é publicada; o push da tag,
-# sozinho, não basta. As notas da release são a seção da versão no CHANGES.md.
-# Para criar a release de uma tag que já existe: Actions > release > Run workflow, informando
-# a tag (ex.: v0.4.1).
+# Cria uma GitHub Release. A integração com o Zenodo arquiva o repositório e atribui um DOI a
+# cada release publicada (o push da tag, sozinho, não basta), e cada versão arquivada é
+# permanente. Por isso, só as versões principais (v1.0.0, v2.0.0...) geram a release sozinhas;
+# as demais tags (v1.2.0, v1.2.3...) servem para fixar a versão no livro e ganham release só
+# quando for preciso: Actions > release > Run workflow, informando a tag (ex.: v0.8.2).
+# As notas da release são a seção da versão no CHANGES.md.
 on:
   push:
     tags:
-      - 'v[0-9]*'
+      - 'v[0-9]+.0.0'
   workflow_dispatch:
     inputs:
       tag:
