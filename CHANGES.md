@@ -1,7 +1,9 @@
 # Changes
 
-## Não publicado
+## 0.8.3 (2026-10-20)
 
+- `tabelas/tabular-basico.tex`: uma linha a mais nas tabelas dos trechos `colunap` e `tabularx`,
+  com outra célula de texto longo quebrada na largura da coluna.
 - `release.yml`: a release (e o DOI de versão no Zenodo) sai sozinha só nas versões principais
   (`vX.0.0`); as outras tags ganham release manualmente, pelo *Run workflow*, quando for preciso.
 
