@@ -1,5 +1,11 @@
 # Changes
 
+## 0.8.4 (2026-10-20)
+
+- `codigo/comparacao-listings.tex`, `comparacao-listings-estilo.tex` e `comparacao-minted.tex`:
+  código com linhas de até 44 caracteres. Com o documento em 12 pt, o `listings` sem configuração
+  cabe na largura do texto, e as três versões saem na mesma escala, sem linhas além da margem.
+
 ## 0.8.3 (2026-10-20)
 
 - `tabelas/tabular-basico.tex`: uma linha a mais nas tabelas dos trechos `colunap` e `tabularx`,

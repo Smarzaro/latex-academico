@@ -12,11 +12,13 @@
 from statistics import mean
 
 def situacao(notas, minimo=6.0):
-    """Retorna a media e a situacao do aluno."""
-    m = mean(notas) if notas else 0.0  # media aritmetica
-    return m, ("Aprovado" if m >= minimo else "Reprovado")
+    """Retorna a media e a situacao."""
+    m = mean(notas) if notas else 0  # media
+    if m >= minimo:
+        return m, "Aprovado"
+    return m, "Reprovado"
 
-print(f"{situacao([7.5, 5.0, 8.25])}")
+print(situacao([7.5, 5.0, 8.25]))
 \end{minted}
 %%END:compaminted
 
