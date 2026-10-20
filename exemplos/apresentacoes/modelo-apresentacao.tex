@@ -3,25 +3,24 @@
 % Compilar: latexmk -pdf modelo-apresentacao.tex   Testado com: beamer, metropolis, biblatex-abnt, TeX Live 2024+
 % Ponto de partida para defesas e seminários: troque os dados, o conteúdo e, se quiser, o logo
 % da sua instituição (\titlegraphic). A imagem "example-image" vem do pacote mwe.
+% "frametitle continuation" vazio: sem "I", "II" nos slides divididos.
 %%BEGIN:modelopreambulo
 \documentclass[aspectratio=169]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
 \usetheme[progressbar=frametitle]{metropolis}
-% sem "I", "II" nos slides divididos
 \setbeamertemplate{frametitle continuation}{}
 \usepackage{booktabs}
 \usepackage{csquotes}
 \usepackage[backend=biber, style=abnt]{biblatex}
 \addbibresource{../referencias/catalogo.bib}
-
 \title{Título do trabalho}
 \subtitle{Defesa de Trabalho de Conclusão de Curso}
 \author{Nome do Autor \\ \small Orientador: Prof. Dr. Fulano de Tal}
 \institute{Nome da Instituição}
 \date{\today}
-% \titlegraphic{\hfill\includegraphics[height=1cm]{logo}}
 %%END:modelopreambulo
+% \titlegraphic{\hfill\includegraphics[height=1cm]{logo}}
 
 \begin{document}
 

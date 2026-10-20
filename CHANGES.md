@@ -1,5 +1,14 @@
 # Changes
 
+## 0.8.1 (2026-10-19)
+
+- `apresentacoes/modelo-apresentacao.tex`: trecho do preâmbulo mais curto (comentário do
+  `frametitle continuation` no cabeçalho, sem a linha em branco, e o `\titlegraphic` comentado fora
+  do trecho). O resultado compilado não muda.
+- `apresentacoes/poster-evento/poster-beamerposter.tex`: o preâmbulo passa a ter dois trechos,
+  `beamerposterpacotes` (pacotes) e `beamerposterreferencias` (ajustes da lista de referências), no
+  lugar de `beamerposterpreambulo`.
+
 ## 0.8.0 (2026-10-19)
 
 - `apresentacoes/poster-evento/`: o mesmo pôster de evento acadêmico (painel de 90 × 120 cm) feito

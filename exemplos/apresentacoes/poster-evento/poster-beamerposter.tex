@@ -7,7 +7,7 @@
 % Compilar: latexmk -pdf poster-beamerposter.tex (biber para as referências)
 % Testado com: beamerposter 1.13, biblatex-abnt 3.4, TeX Live 2024 ou mais
 % recente
-%%BEGIN:beamerposterpreambulo
+%%BEGIN:beamerposterpacotes
 \documentclass[final]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
@@ -29,6 +29,9 @@
 % noslsn: sem [S. l.] e [s. n.]
 \usepackage[backend=biber, style=abnt, noslsn]{biblatex}
 \addbibresource{poster-evento.bib}
+%%END:beamerposterpacotes
+
+%%BEGIN:beamerposterreferencias
 % Referências: tamanho da letra, entrelinha e espaço entre uma referência
 % e a seguinte. Para mudar a aparência da lista, altere só estes três
 % valores.
@@ -47,7 +50,7 @@
 \renewcommand*{\bibfont}{\fontsize{\refletra}{\refentrelinha}\selectfont
   \renewcommand*{\normalfont}{\mdseries\upshape}}
 \AtBeginDocument{\appto{\bibsetup}{\setlength{\bibitemsep}{\refespaco}}}
-%%END:beamerposterpreambulo
+%%END:beamerposterreferencias
 
 %%BEGIN:beamerposterestilo
 % Tamanhos de letra pedidos pelo evento: texto com 36 pt (legível a 1 m),
