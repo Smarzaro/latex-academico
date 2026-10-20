@@ -16,8 +16,9 @@ deles.
 | Física | [`fisica.tex`](fisica.tex) | `circuitikz` (circuito RC), TikZ (corpo livre no plano inclinado), `derivative`, `braket` e `siunitx` (notação) |
 
 O `logica-truthtable.tex` só compila com LuaLaTeX: a primeira linha, `% !TEX program = lualatex`,
-avisa o editor (TeXstudio, LaTeX Workshop) e os testes do repositório. No Overleaf, escolha o
-compilador em *Menu > Compiler*.
+avisa o TeXstudio e os testes do repositório. No VS Code, use a receita *latexmk (lualatex)* do
+LaTeX Workshop, que por padrão ignora o comentário; no Overleaf, escolha o compilador em
+*Menu > Compiler*.
 
 ## Sua área não está aqui?
 

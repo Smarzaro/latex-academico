@@ -196,9 +196,10 @@ Ele faz as contas em Lua e, por isso, **só funciona com LuaLaTeX**. Exemplo com
 \end{center}
 ```
 
-- **Como compilar.** A primeira linha, `% !TEX program = lualatex`, faz o TeXstudio e o LaTeX
-  Workshop (VS Code) usarem o LuaLaTeX. No Overleaf, escolha em *Menu > Compiler > LuaLaTeX*;
-  na linha de comando, `latexmk -lualatex logica-truthtable.tex`. Com pdfLaTeX, a compilação
+- **Como compilar.** A primeira linha, `% !TEX program = lualatex`, faz o TeXstudio usar o
+  LuaLaTeX. No VS Code, escolha a receita *latexmk (lualatex)* do LaTeX Workshop (por padrão,
+  ele ignora o comentário). No Overleaf, escolha em *Menu > Compiler > LuaLaTeX*; na linha de
+  comando, `latexmk -lualatex logica-truthtable.tex`. Com pdfLaTeX, a compilação
   para com erro.
 - O comando vai **dentro** de um `tabular` com uma coluna por variável e por fórmula; ele escreve
   o cabeçalho, o `\hline` e as linhas.

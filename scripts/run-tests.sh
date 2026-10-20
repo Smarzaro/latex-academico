@@ -7,7 +7,7 @@
 # Exemplos com "% !requer: arquivo.cls" nas três primeiras linhas são ignorados se o kpsewhich não
 # achar o arquivo (ex.: a classe abntex2-ufv fora da distribuição; use TEXINPUTS para apontá-la).
 # Exemplos com "% !TEX program = lualatex" (ou xelatex) nas três primeiras linhas são compilados com
-# esse motor; os demais, com pdfLaTeX. É o mesmo comentário que o TeXstudio e o LaTeX Workshop leem.
+# esse motor; os demais, com pdfLaTeX. É o mesmo comentário que o TeXstudio lê.
 # Em exemplos/versionamento, se houver latexdiff, as versões 1 e 2 geram diferencas.pdf.
 set -u
 raiz="$(cd "$(dirname "$0")/.." && pwd)"

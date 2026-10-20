@@ -1,5 +1,13 @@
 # Changes
 
+## 0.9.1 (2026-10-20)
+
+- `areas/06-matematica.md`, `exemplos/areas/README.md` e `run-tests.sh`: o LaTeX Workshop (VS
+  Code) ignora o comentário `% !TEX program` por padrão; o texto passa a indicar a receita
+  *latexmk (lualatex)*.
+- Entrada da versão 0.9.0 reescrita sem colchete seguido de parênteses, que o `check-links.sh`
+  lia como link quebrado.
+
 ## 0.9.0 (2026-10-20)
 
 - `areas/matematica.tex` e receita `areas/06-matematica.md`: geometria com `tkz-euclide`
@@ -13,8 +21,8 @@
   `\sen` em português.
 - `run-tests.sh`: exemplos com `% !TEX program = lualatex` (ou `xelatex`) nas três primeiras
   linhas são compilados com esse motor.
-- `check-links.sh`: ignora os blocos de código dos `.md`, onde `](...)` é código (ex.:
-  `\tkzLabelPoints[left](B)`), não link.
+- `check-links.sh`: ignora os blocos de código dos `.md`, onde os pontos entre parênteses do
+  `tkz-euclide` (como no `\tkzLabelPoints`) pareciam links.
 
 ## 0.8.5 (2026-10-20)
 
