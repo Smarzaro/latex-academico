@@ -10,24 +10,22 @@ Exemplo completo: [`autoref-cleveref.tex`](../../exemplos/referencia-cruzada/aut
 
 ```latex
 \usepackage[hidelinks]{hyperref}   % links e \autoref
-\usepackage{cleveref}              % depois do hyperref
-% nomes usados pelo \cref/\Cref (singular, plural)
-\crefname{section}{seção}{seções}
-\Crefname{section}{Seção}{Seções}
-\crefname{table}{tabela}{tabelas}
-\Crefname{table}{Tabela}{Tabelas}
-% o cleveref não traduz as conjunções para o português
-\newcommand{\crefpairconjunction}{ e }
-\newcommand{\crefmiddleconjunction}{, }
-\newcommand{\creflastconjunction}{ e }
-\newcommand{\crefrangeconjunction}{ a }
+\usepackage[brazilian]{cleveref}   % depois do hyperref; nomes em português
+% só para elementos que o pacote não conhece (ex.: um flutuante "quadro"),
+% ou para trocar um nome: \crefname{tipo}{singular}{plural}
+\crefname{quadro}{quadro}{quadros}
+\Crefname{quadro}{Quadro}{Quadros}
 ```
+
+A opção `brazilian` traz os nomes (seção, tabela, figura, capítulo, apêndice, item...) e as
+conjunções ("seções 1 e 2", "seções 1 a 3"). Ela vai no próprio `cleveref` (ou nas opções da classe):
+a opção dada só ao `babel` não chega até ele.
 
 ```latex
 \section{Introdução}\label{sec:intro}
 Com \verb|\autoref|: veja a \autoref{sec:metodo}. Com \verb|\cref|: veja a \cref{sec:metodo};
 no início da frase, \verb|\Cref|: \Cref{sec:metodo} descreve o método. Vários rótulos de uma
-vez: \cref{sec:intro,sec:metodo}.
+vez: \cref{sec:intro,sec:metodo}; uma tabela: \cref{tab:dados}.
 
 \section{Método}\label{sec:metodo}
 ```
@@ -40,26 +38,26 @@ No resultado:
 | `\cref{sec:metodo}` | seção 2 |
 | `\Cref{sec:metodo}` | Seção 2 |
 | `\cref{sec:intro,sec:metodo}` | seções 1 e 2 |
+| `\cref{tab:dados}` | tabela 1 |
 
 ## Qual usar
 
 - **Só `hyperref`:** `\autoref` basta na maioria dos trabalhos. Com o `babel` em português, os
   nomes já saem traduzidos ("Capítulo", "Seção", "Figura", "Tabela") e sempre com maiúscula.
 - **`cleveref`:** quando se quer o nome em minúscula no meio da frase, plurais e listas de rótulos
-  (`\cref{fig:a,fig:b,fig:c}`). Ele exige definir os nomes em português, como no exemplo.
+  (`\cref{fig:a,fig:b,fig:c}`). Carregue-o com a opção `brazilian`, como no exemplo.
 
 Escolha um dos dois e use-o no documento todo.
 
 ## Ajustes comuns
 
-- **Outros tipos no `cleveref`:** acrescente um par `\crefname`/`\Crefname` para cada tipo usado
-  (`chapter`, `figure`, `equation`, `enumi` para itens de lista...). Sem isso, os tipos comuns saem
-  com a abreviação em inglês ("fig. 1", "eq. (1)") e os ambientes próprios, como teoremas, com
-  `??` no lugar do nome.
+- **Tipos novos no `cleveref`:** um flutuante criado no preâmbulo (`quadro`, `grafico`) precisa
+  de um par `\crefname`/`\Crefname`, como no exemplo; sem ele, sai `??` no lugar do nome.
+- **Abreviações:** com a opção `brazilian`, figuras e equações saem abreviadas no meio da frase
+  ("fig. 1", "eq. (1)"). Para o nome inteiro, use `\usepackage[brazilian, noabbrev]{cleveref}`.
 - **Ambientes novos no `\autoref`** (como um flutuante `quadro`): o nome vem do comando
   `\<contador>autorefname`, por exemplo `\newcommand{\quadroautorefname}{Quadro}`.
-- **Intervalos:** `\crefrange{fig:a}{fig:d}` produz "figuras 1 a 4", desde que o nome `figure`
-  esteja definido e com a conjunção `\crefrangeconjunction` do exemplo (o padrão é "to").
+- **Intervalos:** `\crefrange{fig:a}{fig:d}` produz "figs. 1 a 4" (ou "figuras 1 a 4", com `noabbrev`).
 
 ## Armadilhas
 

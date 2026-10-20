@@ -1,5 +1,14 @@
 # Changes
 
+## 0.10.1 (2026-10-20)
+
+- `referencia-cruzada/02-autoref-cleveref.md`: a receita mostrava a configuração antiga do
+  `cleveref` (nomes e conjunções definidos à mão); agora usa a opção `brazilian`, como o exemplo,
+  e avisa que figuras e equações saem abreviadas ("fig. 1"), salvo com `noabbrev`.
+- Linhas dos trechos com até 78 colunas, como pede o livro: comentários em `hifenizacao.tex`,
+  `autoref-cleveref.tex` e no `\newlistentry` dos quadros e gráficos; `\sisetup` do
+  `tabela-simples.tex` em duas linhas.
+
 ## 0.10.0 (2026-10-20)
 
 Revisão técnica dos exemplos (normas, pacotes e saída em português) e exemplos novos.

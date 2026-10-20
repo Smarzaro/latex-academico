@@ -12,7 +12,7 @@ A `abntex2` não define o ambiente `quadro`. Declare-o no preâmbulo (o `\newflo
 ```latex
 \newfloat{quadro}{loq}{Quadro}
 \newlistof{listofquadros}{loq}{Lista de quadros}   % \listofquadros imprime a lista
-\newlistentry{quadro}{loq}{0}   % linha da lista, com pontilhado e página
+\newlistentry{quadro}{loq}{0}   % linha da lista, com pontilhado
 ```
 
 Exemplo completo: [`quadro-requisitos.tex`](../../exemplos/tabelas/quadro-requisitos.tex).
