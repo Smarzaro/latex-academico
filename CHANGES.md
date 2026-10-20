@@ -1,6 +1,6 @@
 # Changes
 
-## Não publicado
+## 0.8.5 (2026-10-20)
 
 - Receitas para os seis exemplos que ainda não tinham uma: `figuras/05-ambientes-flutuantes.md`
   (`ambientes-flutuantes.tex`), `tabelas/07-tabular-passo-a-passo.md` (`tabular-basico.tex`),
