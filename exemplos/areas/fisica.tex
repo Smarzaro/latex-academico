@@ -1,0 +1,73 @@
+% Exemplo: física com circuitikz (circuito RC), TikZ (diagrama de corpo livre no plano inclinado)
+% e notação: vetores, derivative (derivadas), braket (Dirac) e siunitx (grandezas com unidade).
+% Compilar: latexmk -pdf fisica.tex               Testado com: circuitikz 1.6, derivative 1.4, TeX Live 2024 ou mais recente
+%%BEGIN:fisicapreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath, esint}  % esint: \oint e outras integrais
+\usepackage{circuitikz}      % circuitos elétricos (carrega o TikZ)
+\usetikzlibrary{angles, quotes, babel}  % babel: aspas do TikZ em português
+\usepackage{derivative}      % \odv e \pdv: derivadas
+\usepackage{braket}          % \bra, \ket e \braket: notação de Dirac
+\usepackage{siunitx}         % \qty{valor}{unidade}
+\sisetup{output-decimal-marker = {,}}
+\DeclareMathOperator{\sen}{sen}  % seno em português
+%%END:fisicapreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:fisicacircuito
+Circuito RC: ao fechar a chave $S$, o capacitor carrega e
+\[ v_C(t) = \varepsilon \left(1 - e^{-t/RC}\right). \]
+\begin{center}
+\begin{circuitikz}
+  \draw (0,0) to[battery1, l=$\varepsilon$] (0,3)
+        to[switch, l=$S$] (3,3)
+        to[R, l=$R$, i>^=$i$] (6,3)
+        to[C, l_=$C$, v^>=$v_C$] (6,0) -- (0,0);
+\end{circuitikz}
+\end{center}
+%%END:fisicacircuito
+
+%%BEGIN:fisicacorpolivre
+Bloco no plano inclinado com atrito: forças e decomposição do peso.
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1.2]
+  \coordinate (O) at (0,0); \coordinate (X) at (6,0);
+  \coordinate (T) at (6,{6*tan(30)});
+  \draw[fill=gray!15] (O) -- (X) -- (T) -- cycle;
+  \pic[draw, "$\theta$", angle eccentricity=1.4] {angle=X--O--T};
+  % eixo x ao longo do plano: o bloco e as componentes giram 30 graus
+  \begin{scope}[shift={(3.2,{3.2*tan(30)})}, rotate=30]
+    \draw[fill=white] (-0.6,0) rectangle (0.6,0.8);
+    \coordinate (G) at (0,0.4);
+    \draw[->, thick] (G) -- ++(0,1.4) node[above] {$\vec{N}$};
+    \draw[->, thick] (0.6,0.1) -- ++(1,0)
+      node[above right] {$\vec{f}_{at}$};
+    \draw[->, dashed] (G) -- ++(-0.8,0)
+      node[above left] {$P \sen\theta$};
+    \draw[->, dashed] (G) -- ++(0,-1.39)
+      node[right] {$P \cos\theta$};
+  \end{scope}
+  \draw[->, thick] (G) -- ++(0,-1.6) node[below left] {$\vec{P}$};
+\end{tikzpicture}
+\end{center}
+%%END:fisicacorpolivre
+
+%%BEGIN:fisicanotacao
+\begin{gather*}
+  \vec{F} = m\vec{a} = m \odv[order=2]{\vec{r}}{t}, \qquad
+  \hat{\imath},\ \hat{\jmath},\ \hat{k} \\
+  \oint_S \vec{E} \cdot \mathrm{d}\vec{A} = \frac{Q}{\varepsilon_0},
+  \qquad
+  \pdv{u}{t} = \alpha \pdv[order=2]{u}{x} \\
+  i\hbar \pdv{}{t} \ket{\psi} = \hat{H} \ket{\psi}, \qquad
+  \braket{\phi | \psi}, \qquad \bra{\phi} \hat{A} \ket{\psi}
+\end{gather*}
+Gravidade: $g = \qty{9,81}{\metre\per\second\squared}$.
+Velocidade da luz: $c = \qty{2,998e8}{\metre\per\second}$.
+%%END:fisicanotacao
+
+\end{document}

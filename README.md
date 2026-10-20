@@ -45,7 +45,7 @@ Todos os temas têm receitas e exemplos compiláveis.
 | [Cronograma](receitas/cronograma/) | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
 | [Apresentações e pôsteres](receitas/apresentacoes/) | beamer básico, sobreposições, modelo de defesa (metropolis), pôster (tikzposter), pôster de evento em quatro pacotes (beamerposter, tikzposter, a0poster, tcbposter), slides de uma disciplina com `subfiles`, identidade visual e transições, código, tabelas e diagramas nos slides |
 | [Provas e listas de exercícios](receitas/avaliacoes/) | classe `exam`: prova, gabarito do mesmo arquivo, lista de exercícios, versões embaralhadas com `exam-randomizechoices`, scripts `gerar-versoes` |
-| [Recursos por área do conhecimento](receitas/areas/) | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett) |
+| [Recursos por área do conhecimento](receitas/areas/) | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett), matemática (`tkz-euclide`, `bussproofs`, tabela-verdade), física (`circuitikz`, corpo livre) |
 | [Diversão com LaTeX](receitas/diversao/) | xadrez, sudoku e dados, `tikzducks`/`tikzlings`, fractais, calendário, QR code, palavras cruzadas com [solução](exemplos/diversao/solucao-palavras-cruzadas.md) |
 | [Versionamento](receitas/versionamento/) | comparar duas versões com o `latexdiff` |
 
@@ -95,4 +95,6 @@ um exemplo `.tex` compilável em `exemplos/`; os ids dos marcadores `%%BEGIN`/`%
 letras e números; rode `sh scripts/run-tests.sh` antes de enviar. Exemplos que dependem de uma
 classe fora da distribuição levam `% !requer: arquivo.cls` nas primeiras linhas e são ignorados
 pelos testes quando ela não está instalada (os da `abntex2-ufv` podem ser testados com
-`TEXINPUTS` apontando para a classe).
+`TEXINPUTS` apontando para a classe). Os exemplos são compilados com pdfLaTeX; o que precisar de
+outro motor leva `% !TEX program = lualatex` (ou `xelatex`) nas primeiras linhas, e os testes o
+compilam com esse motor. Nesse caso, use só fontes que vêm com o TeX Live.

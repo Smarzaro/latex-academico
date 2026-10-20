@@ -1,5 +1,21 @@
 # Changes
 
+## 0.9.0 (2026-10-20)
+
+- `areas/matematica.tex` e receita `areas/06-matematica.md`: geometria com `tkz-euclide`
+  (triângulo retângulo e circunferência inscrita), área sob a curva com `pgfplots` e
+  `fillbetween`, simplificação passo a passo com `cancel` e `mathtools`, tabela-verdade e notação
+  de conjuntos, dedução natural com `bussproofs`.
+- `areas/logica-truthtable.tex`: tabela-verdade calculada pelo pacote `truthtable`, o primeiro
+  exemplo do guia que exige LuaLaTeX.
+- `areas/fisica.tex` e receita `areas/07-fisica.md`: circuito RC com `circuitikz`, diagrama de
+  corpo livre no plano inclinado com TikZ, notação com `derivative`, `braket` e `siunitx`, e
+  `\sen` em português.
+- `run-tests.sh`: exemplos com `% !TEX program = lualatex` (ou `xelatex`) nas três primeiras
+  linhas são compilados com esse motor.
+- `check-links.sh`: ignora os blocos de código dos `.md`, onde `](...)` é código (ex.:
+  `\tkzLabelPoints[left](B)`), não link.
+
 ## 0.8.5 (2026-10-20)
 
 - Receitas para os seis exemplos que ainda não tinham uma: `figuras/05-ambientes-flutuantes.md`

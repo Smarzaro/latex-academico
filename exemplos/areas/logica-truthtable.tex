@@ -1,0 +1,44 @@
+% !TEX program = lualatex
+% Exemplo: tabela-verdade gerada automaticamente pelo pacote truthtable, que calcula os valores
+% em Lua. Compilar com LuaLaTeX (no Overleaf: Menu > Compiler > LuaLaTeX).
+% Compilar: latexmk -lualatex logica-truthtable.tex  Testado com: truthtable 0.1.0, TeX Live 2024 ou mais recente
+%%BEGIN:truthtablepreambulo
+\documentclass[12pt, a4paper]{article}
+\usepackage[brazilian]{babel}   % LuaLaTeX: sem fontenc nem inputenc
+\usepackage{amssymb}
+\usepackage{truthtable}         % só funciona com LuaLaTeX
+%%END:truthtablepreambulo
+
+\begin{document}
+\pagestyle{empty}
+
+%%BEGIN:truthtableuso
+% {variáveis}{cabeçalho delas}{fórmulas}{cabeçalho delas}{V}{F}
+% & (e), | (ou), ! (não); >>(p;q) implica, <>(p;q) equivale,
+% ^(p;q) ou exclusivo: argumentos separados por ponto e vírgula
+\begin{center}
+\begin{tabular}{cc|cccc}
+  \truthtable{p,q}{$p$,$q$}
+    {p & q, p | q, >>(p;q), <>(p;q)}
+    {$p \land q$, $p \lor q$, $p \to q$, $p \leftrightarrow q$}
+    {V}{F}
+\end{tabular}
+\end{center}
+%%END:truthtableuso
+
+%%BEGIN:truthtabletautologia
+Com três variáveis, a tabela tem oito linhas. A última coluna,
+só com V, mostra que $(p \to q) \land (q \to r) \to (p \to r)$
+é uma tautologia:
+\begin{center}
+\begin{tabular}{ccc|ccc}
+  \truthtable{p,q,r}{$p$,$q$,$r$}
+    {>>(p;q), >>(q;r), >>(>>(p;q) & >>(q;r);>>(p;r))}
+    {$p \to q$, $q \to r$,
+     $(p \to q) \land (q \to r) \to (p \to r)$}
+    {V}{F}
+\end{tabular}
+\end{center}
+%%END:truthtabletautologia
+
+\end{document}

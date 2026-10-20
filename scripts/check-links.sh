@@ -1,13 +1,14 @@
 #!/bin/sh
 # Confere se os links relativos dos arquivos Markdown apontam para arquivos ou pastas que existem.
-# Ignora endereços http(s), mailto e âncoras (#...). Uso (na raiz do repositório): sh scripts/check-links.sh
+# Ignora endereços http(s), mailto, âncoras (#...) e blocos de código. Uso (na raiz do repositório): sh scripts/check-links.sh
 set -u
 raiz="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$raiz" || exit 1
 erros=0
 for md in $(find . -name '*.md' -not -path './.git/*' | sort); do
   dir="$(dirname "$md")"
-  grep -o ']([^)]*)' "$md" | sed 's/^](//; s/)$//' | while read -r alvo; do
+  # blocos de código (```) ficam de fora: neles, "](...)" é código, como \tkzLabelPoints[left](B)
+  awk '/^```/ { dentro = !dentro; next } !dentro' "$md" | grep -o ']([^)]*)' | sed 's/^](//; s/)$//' | while read -r alvo; do
     case "$alvo" in http*|mailto:*|\#*|"") continue ;; esac
     caminho="${alvo%%#*}"
     [ -z "$caminho" ] && continue

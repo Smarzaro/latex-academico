@@ -17,7 +17,7 @@
 | [Cronograma](cronograma/) | disponível | quadro com marcas, quadro com células sombreadas, diagrama de Gantt |
 | [Apresentações e pôsteres](apresentacoes/) | disponível | beamer básico, sobreposições, modelo de defesa (metropolis), pôster (tikzposter), slides de uma disciplina com `subfiles`, identidade visual e transições, código, tabelas e diagramas nos slides |
 | [Provas e listas de exercícios](avaliacoes/) | disponível | classe `exam`: prova, gabarito do mesmo arquivo, lista de exercícios, versões embaralhadas com `exam-randomizechoices`, scripts `gerar-versoes` |
-| [Recursos por área do conhecimento](areas/) | disponível | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett) |
+| [Recursos por área do conhecimento](areas/) | disponível | química (`mhchem`, `chemfig`), estruturas de dados (`forest`, `algpseudocodex`), bancos de dados (`fddiagram`, SQL), programação (fluxograma, `algorithm2e`), biologia (`genealogytree`, Punnett), matemática (`tkz-euclide`, `bussproofs`, tabela-verdade), física (`circuitikz`, corpo livre) |
 | [Diversão com LaTeX](diversao/) | disponível | xadrez, sudoku e dados, `tikzducks`/`tikzlings`, fractais, calendário, QR code, palavras cruzadas com [solução](../exemplos/diversao/solucao-palavras-cruzadas.md) |
 | [Versionamento](versionamento/) | disponível | comparar duas versões com o `latexdiff` |
 

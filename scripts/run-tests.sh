@@ -6,6 +6,8 @@
 # -shell-escape e ignorados se o Pygments não estiver instalado.
 # Exemplos com "% !requer: arquivo.cls" nas três primeiras linhas são ignorados se o kpsewhich não
 # achar o arquivo (ex.: a classe abntex2-ufv fora da distribuição; use TEXINPUTS para apontá-la).
+# Exemplos com "% !TEX program = lualatex" (ou xelatex) nas três primeiras linhas são compilados com
+# esse motor; os demais, com pdfLaTeX. É o mesmo comentário que o TeXstudio e o LaTeX Workshop leem.
 # Em exemplos/versionamento, se houver latexdiff, as versões 1 e 2 geram diferencas.pdf.
 set -u
 raiz="$(cd "$(dirname "$0")/.." && pwd)"
@@ -59,7 +61,8 @@ for t in $(find exemplos modelos tests -name '*.tex' | sort); do
   dir="$(dirname "$t")"; arq="$(basename "$t")"; nome="${arq%.tex}"
   # arquivos auxiliares não são documentos (começam com _ ou não têm \documentclass)
   grep -q '\\documentclass' "$t" || continue
-  opcoes="-pdf -interaction=nonstopmode -halt-on-error -outdir=build/$nome"
+  motor=$(head -n 3 "$t" | sed -n 's/.*!TEX program *= *\(lualatex\|xelatex\).*/\1/p')
+  opcoes="-${motor:-pdf} -interaction=nonstopmode -halt-on-error -outdir=build/$nome"
   if head -n 3 "$t" | grep -q '!shell-escape'; then
     if command -v pygmentize >/dev/null 2>&1 || python3 -c 'import pygments' >/dev/null 2>&1; then
       opcoes="$opcoes -shell-escape"
