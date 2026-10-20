@@ -1,5 +1,11 @@
 # Changes
 
+## 0.10.3 (2026-10-20)
+
+- Comentário da linha da lista nos preâmbulos com `quadro` e `grafico`: `--` no lugar do
+  travessão, que o `literate` do estilo de código não traduz (a listagem que mostra o trecho
+  parava com *Invalid UTF-8 byte sequence*).
+
 ## 0.10.2 (2026-10-20)
 
 Conferência com o texto da NBR 10520:2023, da NBR 14724:2024, da NBR 6027:2012 e da
