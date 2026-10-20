@@ -19,14 +19,14 @@ eles vão os elementos, na ordem da norma. Exemplo completo:
 \begin{resumo}
 Texto do resumo em português, em parágrafo único.
 
-\textbf{Palavras-chave}: LaTeX. abnTeX2. Trabalho acadêmico.
+\textbf{Palavras-chave}: LaTeX; abnTeX2; trabalho acadêmico.
 \end{resumo}
 
 \begin{resumo}[Abstract]
 \begin{otherlanguage*}{english}
 Abstract text in English.
 
-\textbf{Keywords}: LaTeX. abnTeX2. Academic writing.
+\textbf{Keywords}: LaTeX; abnTeX2; academic writing.
 \end{otherlanguage*}
 \end{resumo}
 
@@ -40,7 +40,8 @@ Abstract text in English.
 
 - O argumento opcional de `resumo` troca o título; `otherlanguage*` aplica a hifenização do
   inglês ao texto do *abstract*.
-- As palavras-chave são separadas e terminadas por ponto.
+- As palavras-chave vêm depois de "Palavras-chave:", separadas por ponto e vírgula, com inicial
+  minúscula (salvo nomes próprios e científicos) e terminadas por ponto (NBR 6028:2021, 4.1.7).
 - A ordem da norma inclui ainda, quando existem, errata, folha de aprovação, dedicatória,
   agradecimentos, epígrafe e as listas de abreviaturas, siglas e símbolos. A folha de aprovação
   assinada e a ficha catalográfica costumam entrar como PDF, com o `\includepdf` do pacote
@@ -62,7 +63,7 @@ Os objetivos do trabalho são:
 Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas) fica recuada:
 \begin{citacao}
 Texto citado literalmente, com mais de três linhas, que a classe abntex2 formata com recuo de
-4\,cm, fonte menor e espaçamento simples, como pede a NBR 10520. A referência vem ao final
+4\,cm, fonte menor e espaçamento simples, como orienta a NBR 10520. A referência vem ao final
 da citação, entre parênteses \cite[p.~35]{ex-livro}.
 \end{citacao}
 ```

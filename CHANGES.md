@@ -1,5 +1,27 @@
 # Changes
 
+## 0.10.2 (2026-10-20)
+
+Conferência com o texto da NBR 10520:2023, da NBR 14724:2024, da NBR 6027:2012 e da
+NBR 6028:2021.
+
+- Palavras-chave com ponto e vírgula, inicial minúscula e ponto final (NBR 6028:2021, 4.1.7) no
+  `abntex2/tcc-esqueleto.tex`, no modelo `tcc-abntex2` e na receita `abntex2/02`; antes, eram
+  separadas por ponto, como na edição de 2003.
+- Listas de quadros, gráficos e códigos no formato da NBR 14724 ("Quadro 1 – Título ..... 5"):
+  `\cftquadroname`, `\cftquadroaftersnum` e `\cftquadronumwidth` nos exemplos com `quadro` e
+  `grafico`; no modelo `tcc-abntex2`, o código passa a ser um flutuante `codigo` com lista própria.
+- Modelo `tcc-abntex2`: o `\autoref` escreve "Seção 2" (a NBR 14724 organiza o trabalho em seções, e
+  não em capítulos), e o sumário fica no padrão da classe (`abnt-6027-2012`), que alinha os títulos
+  como recomenda a NBR 6027; o esqueleto também deixa de usar `sumario=tradicional`.
+- Receita `tabelas/02`: a NBR 14724 pede que título e rodapé acompanhem as margens da ilustração,
+  em letra menor e uniforme; o "cabeçalho centralizado, rodapé à esquerda" não é da norma.
+- Receitas `abntex2/01` (fonte 12 recomendada, frente e verso recomendado, sumário),
+  `abntex2/04` (código como flutuante, seções, NBR 6027), `siglas-glossario` (listas separadas
+  recomendadas; símbolos na ordem do texto) e `referencias/09` (ano da norma, *et al.* opcional,
+  citação longa: recuo padronizado, 4 cm recomendado).
+- `referencias/citacoes.tex`: "Passos, Fonseca e Chaves (1995, p. 35) defendem".
+
 ## 0.10.1 (2026-10-20)
 
 - `referencia-cruzada/02-autoref-cleveref.md`: a receita mostrava a configuração antiga do

@@ -17,7 +17,11 @@
   \textcolor{white}{\scriptsize$\blacklozenge$}}
 \newfloat{quadro}{loq}{Quadro}           % a abntex2 não define o float Quadro
 \newlistof{listofquadros}{loq}{Lista de quadros}
-\newlistentry{quadro}{loq}{0}         % linha da lista, com pontilhado
+% linha da lista no formato da NBR 14724: "Quadro 1 – Título ..... 5"
+\newlistentry{quadro}{loq}{0}
+\renewcommand{\cftquadroname}{Quadro\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
+\setlength{\cftquadronumwidth}{\cftfigurenumwidth}
 \newcommand{\quadroautorefname}{Quadro}  % nome usado pelo \autoref
 %%END:entregaspreambulo
 

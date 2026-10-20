@@ -10,13 +10,14 @@ elementos, e a ordem importa (ABNT NBR 14724).
 | **Legenda** | Explica símbolos, siglas, cores ou partes da ilustração; só quando há algo a explicar | texto da própria ilustração ou, em classes que o definem, `\legenda{...}` |
 | **Nota** | Observações e informações complementares (data da coleta, ressalvas, método) | `\nota{...}` |
 
-Fonte, legenda e nota formam o **rodapé**: ficam abaixo, em linhas seguidas, em espaço simples,
-tamanho 10 e alinhadas à esquerda do objeto.
+Fonte, legenda e nota formam o **rodapé**: vêm logo abaixo, nessa ordem, em espaço simples e em
+letra menor que a do texto, de tamanho uniforme (NBR 14724:2024, 5.1, 5.2 e 5.8).
 
-**Cabeçalho centralizado, rodapé à esquerda.** Para figuras, diagramas, gráficos, quadros e
-códigos, a NBR 14724:2024 recomenda **centralizar o cabeçalho** (tipo, número e título) e
-**alinhar à esquerda o rodapé**, respeitando as margens da ilustração. Nas tabelas, o título
-costuma ficar à esquerda (padrão do IBGE).
+**Na largura da ilustração.** A norma pede que tipo, número, título, fonte, legenda e notas
+**acompanhem as margens da ilustração** (5.8): numa imagem estreita, o título e o rodapé ficam na
+largura dela, e não na do texto. Ela não diz se centralizam ou alinham à esquerda; o "cabeçalho
+centralizado, rodapé à esquerda" é regra de manuais de instituições, como o da UFV (classe
+`abntex2-ufv`). Nas tabelas, o padrão do IBGE põe o título à esquerda.
 
 **Em tabelas, use `\IBGEtab`.** O comando do `abntex2` recebe o título, a tabela e o rodapé,
 nessa ordem, e dá à tabela o espaçamento correto (veja a [receita 03](03-tabela-simples.md)):

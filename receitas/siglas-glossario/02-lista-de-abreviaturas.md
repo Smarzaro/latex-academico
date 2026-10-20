@@ -1,7 +1,7 @@
 # 02 – Lista de abreviaturas
 
-**Problema.** Abreviaturas ("p.", "ed.", "art.") e siglas são coisas diferentes e, segundo a norma,
-têm listas separadas.
+**Problema.** Abreviaturas ("p.", "ed.", "art.") e siglas são coisas diferentes, e a NBR 14724
+recomenda listas separadas.
 
 **Solução.** Use o mesmo `acro`, com uma etiqueta (`tag = abreviatura`) nas abreviaturas, e duas
 listas: uma que **exclui** a etiqueta (siglas) e outra que **inclui** só ela (abreviaturas). Exemplo

@@ -20,11 +20,13 @@ mostra a função que calcula a média das avaliações.
   \fonte{Elaborado pelo próprio autor.}
 \end{quadro}
 
-% Código: a legenda vem do próprio listings (Lista de códigos em tcc.tex)
-\begin{lstlisting}[language=Python, caption={Média das avaliações},
-    label={lst:media}]
+% Código: float definido em tcc.tex, com título acima e fonte abaixo
+\begin{codigo}[htbp]
+  \caption{Média das avaliações}\label{lst:media}
+\begin{lstlisting}[language=Python]
 def media(notas):
     """Devolve a média; 0 para a lista vazia."""
     return sum(notas) / len(notas) if notas else 0.0
 \end{lstlisting}
-\fonte{Elaborado pelo próprio autor.}
+  \fonte{Elaborado pelo próprio autor.}
+\end{codigo}

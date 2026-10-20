@@ -13,7 +13,10 @@ coerentes com o texto, e uma lista própria de gráficos.
 \pgfplotsset{compat=newest}
 \newfloat{grafico}{lgr}{Gráfico}
 \newlistof{listofgraficos}{lgr}{Lista de gráficos}   % \listofgraficos imprime a lista
-\newlistentry{grafico}{lgr}{0}   % linha da lista, com pontilhado
+\newlistentry{grafico}{lgr}{0}   % linha da lista: "Gráfico 1 – Título ..... 5" (NBR 14724)
+\renewcommand{\cftgraficoname}{Gráfico\space}
+\renewcommand*{\cftgraficoaftersnum}{\hfill\textendash\hfill}
+\setlength{\cftgraficonumwidth}{\cftfigurenumwidth}
 ```
 
 ## Gráfico de barras

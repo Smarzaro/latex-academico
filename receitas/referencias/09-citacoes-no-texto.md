@@ -12,11 +12,11 @@ usado quando há notas. Exemplo completo e compilável:
 | `\cite[p.~35]{ex-livro}` | (Huberman, 1986, p. 35) — com página |
 | `\cite{ex-livro,ex-artigo}` | (Huberman, 1986; Hevner *et al.*, 2004) — várias obras, em ordem alfabética |
 | `\cite{ex-livro-3}` | (Passos; Fonseca; Chaves, 1995) — três autores |
-| `\cite{ex-livro-4}` | (Gamma *et al.*, 2000) — quatro ou mais autores |
+| `\cite{ex-livro-4}` | (Gamma *et al.*, 2000) — quatro ou mais autores (a norma permite também citar todos, sempre da mesma forma) |
 | `\textcite{ex-livro}` | Huberman (1986) — no fluxo da frase |
 | `\textcite[p.~35]{ex-livro-3}` | Passos, Fonseca e Chaves (1995, p. 35) |
 | `\cite{ex-entidade}` | (Universidade Federal de Viçosa, 1999) — autor institucional |
-| `\cite{ex-norma}` | (Associação Brasileira de Normas Técnicas, 2011) |
+| `\cite{ex-norma}` | (Associação Brasileira de Normas Técnicas, 2024) |
 | `\cite{ex-sem-autor}` | (Pequena [...], 2012) — sem autoria |
 | `\cite{ex-sem-autor-artigo}` | (Os grandes [...], 1981) — sem autoria, com `shorttitle` |
 | `\cite{ex-reeside-a,ex-reeside-b}` | (Reeside, 1927a,b) — mesmo autor e ano: letras a, b |
@@ -34,5 +34,5 @@ formato "[...]" dependem dos ajustes da [receita 02](02-ajustes-finos.md).
 - Citações diretas de documento **sem paginação** indicam a localização do trecho (`local.`,
   capítulo, artigo etc.).
 - O **ponto final** encerra a frase, não a citação.
-- **Citação direta longa** (mais de três linhas) vai em parágrafo próprio, recuado, em letra menor
-  e sem aspas; a classe `abntex2` oferece o ambiente `citacao`.
+- **Citação direta longa** (mais de três linhas) vai em parágrafo próprio, com recuo padronizado
+  (a norma recomenda 4 cm), em letra menor, espaço simples e sem aspas; a classe `abntex2` oferece o ambiente `citacao`.

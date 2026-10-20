@@ -11,17 +11,18 @@ alimentam a capa e a folha de rosto. Exemplo completo:
 ## Classe
 
 ```latex
-\documentclass[12pt, a4paper, oneside, english, brazilian, sumario=tradicional]{abntex2}
+\documentclass[12pt, a4paper, oneside, english, brazilian]{abntex2}
 ```
 
-- `12pt` e `a4paper`: letra e papel da NBR 14724.
-- `oneside`: impressão só na frente (anverso). Para frente e verso, `twoside`; as margens
-  interna e externa passam a alternar entre as páginas pares e ímpares.
+- `12pt` e `a4paper`: letra (recomendada) e papel da NBR 14724.
+- `oneside`: impressão só na frente (anverso). A NBR 14724 recomenda frente e verso para os
+  elementos textuais e pós-textuais: `twoside`, em que as margens interna e externa alternam e
+  cada seção primária começa em página ímpar, como a norma pede.
 - `english, brazilian`: os idiomas do documento; o **último** é o principal. O inglês é preciso
   para o *abstract*.
-- `sumario=tradicional`: sumário no estilo tradicional do LaTeX/`memoir`. Sem a opção, a classe
-  usa `sumario=abnt-6027-2012`, que segue a recomendação da NBR 6027; compile das duas formas e
-  escolha a que o seu manual de normalização pede.
+- Sumário: sem opção, a classe usa `sumario=abnt-6027-2012`, que alinha todos os títulos pela
+  mesma margem, como recomenda a NBR 6027 (5.2). Com `sumario=tradicional`, o sumário fica no
+  estilo do LaTeX/`memoir`, com recuo por nível; use-o só se o manual da instituição pedir.
 
 ## Pacotes
 

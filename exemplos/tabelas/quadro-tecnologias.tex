@@ -8,7 +8,11 @@
 % Float "Quadro" (a abntex2 não o define): numeração própria e lista de quadros (memoir)
 \newfloat{quadro}{loq}{Quadro}
 \newlistof{listofquadros}{loq}{Lista de quadros}
-\newlistentry{quadro}{loq}{0}         % linha da lista, com pontilhado
+% linha da lista no formato da NBR 14724: "Quadro 1 – Título ..... 5"
+\newlistentry{quadro}{loq}{0}
+\renewcommand{\cftquadroname}{Quadro\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
+\setlength{\cftquadronumwidth}{\cftfigurenumwidth}
 \providecommand{\quadroautorefname}{Quadro}  % nome usado pelo \autoref
 %%END:quadropreambulo
 

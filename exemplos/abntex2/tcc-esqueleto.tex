@@ -4,8 +4,7 @@
 % texto, referências, apêndices e anexos. A folha de aprovação assinada e a ficha catalográfica
 % costumam ser incluídas como PDF (\includepdf, pacote pdfpages).
 %%BEGIN:tccclasse
-\documentclass[12pt, a4paper, oneside, english, brazilian,
-  sumario=tradicional]{abntex2}
+\documentclass[12pt, a4paper, oneside, english, brazilian]{abntex2}
 %%END:tccclasse
 %%BEGIN:tccpacotes
 \usepackage[T1]{fontenc}
@@ -46,14 +45,14 @@ exigências para a obtenção do título de Bacharel em Nome do Curso.}
 \begin{resumo}
 Texto do resumo em português, em parágrafo único.
 
-\textbf{Palavras-chave}: LaTeX. abnTeX2. Trabalho acadêmico.
+\textbf{Palavras-chave}: LaTeX; abnTeX2; trabalho acadêmico.
 \end{resumo}
 
 \begin{resumo}[Abstract]
 \begin{otherlanguage*}{english}
 Abstract text in English.
 
-\textbf{Keywords}: LaTeX. abnTeX2. Academic writing.
+\textbf{Keywords}: LaTeX; abnTeX2; academic writing.
 \end{otherlanguage*}
 \end{resumo}
 
@@ -80,7 +79,7 @@ Segundo \textcite{ex-livro}, a citação direta longa (mais de três linhas)
 fica recuada:
 \begin{citacao}
 Texto citado literalmente, com mais de três linhas, que a classe abntex2
-formata com recuo de 4\,cm, fonte menor e espaçamento simples, como pede a
+formata com recuo de 4\,cm, fonte menor e espaçamento simples, como orienta a
 NBR 10520. A referência vem ao final da citação, entre parênteses
 \cite[p.~35]{ex-livro}.
 \end{citacao}

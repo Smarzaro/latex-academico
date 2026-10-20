@@ -9,8 +9,7 @@
 %   referencias.bib    base de referências (biblatex-abnt)
 % A variante com a classe abntex2-ufv está em ../tcc-abntex2-ufv/.
 %%BEGIN:modeloclasse
-\documentclass[12pt, a4paper, oneside, english, brazilian,
-  sumario=tradicional]{abntex2}
+\documentclass[12pt, a4paper, oneside, english, brazilian]{abntex2}
 %%END:modeloclasse
 
 %%BEGIN:modelopacotes
@@ -37,8 +36,8 @@
 %%END:modelopacotes
 
 %%BEGIN:modeloflutuantes
-% 2. QUADRO E CÓDIGO. A abntex2 não define o quadro: o float e a lista
-% vêm do memoir, e a linha da lista imita a da lista de figuras.
+% 2. QUADRO E CÓDIGO. A abntex2 não os define: o float e a lista vêm do
+% memoir, e a linha da lista segue a NBR 14724 ("Quadro 1 – Título ... 5").
 \newfloat{quadro}{loq}{Quadro}
 \newlistof{listofquadros}{loq}{Lista de quadros}
 \newlistentry{quadro}{loq}{0}
@@ -46,17 +45,21 @@
 \renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
 \setlength{\cftquadronumwidth}{\cftfigurenumwidth}
 \providecommand{\quadroautorefname}{Quadro}
-% uma lista por tipo: "Lista de figuras" (a abntex2 a chama de ilustrações)
-\AtBeginDocument{\renewcommand{\listfigurename}{Lista de figuras}}
-% O código usa a legenda do próprio listings, numerada sem o capítulo.
+\newfloat{codigo}{loc}{Código}
+\newlistof{listofcodigos}{loc}{Lista de códigos}
+\newlistentry{codigo}{loc}{0}
+\renewcommand{\cftcodigoname}{Código\space}
+\renewcommand*{\cftcodigoaftersnum}{\hfill\textendash\hfill}
+\setlength{\cftcodigonumwidth}{\cftfigurenumwidth}
+\providecommand{\codigoautorefname}{Código}
+% uma lista por tipo ("Lista de figuras"; a abntex2 diz "ilustrações") e
+% "Seção 2" no \autoref: a NBR 14724 organiza o trabalho em seções
+\AtBeginDocument{\renewcommand{\listfigurename}{Lista de figuras}%
+  \renewcommand{\chapterautorefname}{Seção}}
 \lstset{basicstyle=\ttfamily\small, columns=flexible, keepspaces=true,
   numbers=left, numberstyle=\tiny, frame=single, breaklines=true,
-  numberbychapter=false,
   literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
            {ã}{{\~a}}1 {õ}{{\~o}}1 {ç}{{\c c}}1 {ê}{{\^e}}1 {â}{{\^a}}1}
-\renewcommand{\lstlistingname}{Código}
-\providecommand{\lstlistingautorefname}{Código}
-\newlistof{listofcodigos}{lol}{Lista de códigos}  % \listofcodigos*
 %%END:modeloflutuantes
 
 %%BEGIN:modelosiglas

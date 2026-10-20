@@ -71,14 +71,19 @@ e, no corpo, a ordem da NBR 14724:
 - **Em que ordem vêm as listas?** Ilustrações (figuras, quadros, códigos...), tabelas, siglas e
   abreviaturas, símbolos e, por último, o sumário. Com uma lista por tipo, troque o título "Lista
   de ilustrações" por "Lista de figuras" (o modelo mostra como). O `*` em `\listoffigures*` deixa a
-  lista fora do sumário, como pede a norma.
+  lista fora do sumário, como pede a NBR 6027 (os elementos pré-textuais não
+  entram nele).
 - **O quadro não existe na `abntex2`.** Declare-o com `\newfloat`, `\newlistof` e `\newlistentry`
   (comandos do `memoir`). Sem o `\newlistentry`, a lista de quadros sai sem pontilhado e com o
-  número da página colado ao título.
-- **A lista de códigos aparece no sumário.** O `\lstlistoflistings` do `listings` se põe no
-  sumário na `abntex2`. O modelo usa `\newlistof{listofcodigos}{lol}{Lista de códigos}` e
-  `\listofcodigos*`, e `numberbychapter=false` para numerar os códigos como as figuras (1, 2, 3, e
-  não 3.1).
+  número da página colado ao título; as três linhas seguintes do modelo dão o formato que a
+  NBR 14724 pede para as listas de ilustrações ("Quadro 1 – Título ..... 5").
+- **Código como ilustração.** A legenda do próprio `listings` não serve: o `\lstlistoflistings`
+  se põe no sumário na `abntex2`, a lista sai sem "Código 1 –" e os números vêm por capítulo
+  (3.1). O modelo cria um flutuante `codigo`, como o quadro, e põe o `lstlisting` dentro dele, com
+  `\caption` acima e `\fonte` abaixo; a lista sai com `\listofcodigos*`.
+- **Capítulo ou seção?** A NBR 14724 organiza o trabalho em seções, e não em capítulos: o
+  `\chapter` da classe é a seção primária, que sai sem a palavra "Capítulo". O modelo faz o
+  `\autoref` escrever "Seção 2" (`\chapterautorefname`); no texto, diga "a Seção 2".
 - **A folha de rosto "engole" a linha seguinte.** O `\imprimirfolhaderosto` lê um argumento:
   deixe uma linha em branco depois dele.
 - **Apêndice ou anexo?** Apêndice é texto do próprio autor (`apendicesenv`); anexo é documento de
