@@ -1,5 +1,13 @@
 # Changes
 
+## 0.10.4 (2026-10-20)
+
+- `codigo/estilo-codigo.tex`: o trecho `estilo` foi dividido em três, para o livro mostrá-los
+  em separado: `estilopacotes` (pacotes e cores), `estilocodigo` (o estilo `codigo`, o `\lstset`
+  e os nomes) e `estilopb` (a versão em preto e branco, agora depois do `\lstset`, sem mudar o
+  resultado). O `literate` traduz também os travessões (`–`, `—`).
+- `codigo/estilo-minimo.tex`: docstring mais curta, que cabe numa linha na largura do livro.
+
 ## 0.10.3 (2026-10-20)
 
 - Comentário da linha da lista nos preâmbulos com `quadro` e `grafico`: `--` no lugar do

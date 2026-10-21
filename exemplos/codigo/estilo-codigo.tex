@@ -1,7 +1,9 @@
 % Estilo de listagens de código (pacote listings), usado pelos exemplos desta pasta.
 % Não é um documento: é incluído com \input{estilo-codigo} no preâmbulo.
-% Testado com: listings, TeX Live 2024 ou mais recente. O trecho marcado com o id "estilo" é o que as receitas e o livro exibem.
-%%BEGIN:estilo
+% Testado com: listings, TeX Live 2024 ou mais recente. Três trechos marcados, que o livro mostra em
+% separado: pacotes e cores (estilopacotes), o estilo codigo (estilocodigo) e a versão em preto e
+% branco (estilopb).
+%%BEGIN:estilopacotes
 % largura fixa legível (0/O, 1/l/I e & distintos)
 \usepackage[varqu,varl,scaled=0.95]{inconsolata}
 \usepackage{xcolor}
@@ -12,6 +14,8 @@
 \definecolor{cod-com}{RGB}{0,110,50}    % comentários
 \definecolor{cod-str}{RGB}{163,21,21}   % cadeias de caracteres
 \definecolor{cod-foco}{RGB}{190,70,0}   % palavras em destaque (opção emph)
+%%END:estilopacotes
+%%BEGIN:estilocodigo
 \lstdefinestyle{codigo}{
   basicstyle=\ttfamily\footnotesize, columns=fixed, basewidth=0.5em,
   keepspaces=true, tabsize=4,
@@ -41,14 +45,17 @@
            {Â}{{\^A}}1 {Ê}{{\^E}}1 {Ô}{{\^O}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1
            {ç}{{\c c}}1 {Ç}{{\c C}}1 {à}{{\`a}}1 {À}{{\`A}}1
            {ü}{{\"u}}1 {Ü}{{\"U}}1
-           {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1,
+           {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1
+           {–}{{\textendash}}1 {—}{{\textemdash}}1,
 }
+\lstset{style=codigo}
+\renewcommand{\lstlistingname}{Código}  % rótulo da legenda: "Código N"
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+%%END:estilocodigo
+%%BEGIN:estilopb
 % versão em preto e branco do mesmo estilo (para impressão sem cores)
 \lstdefinestyle{codigopb}{style=codigo, keywordstyle=\bfseries,
   texcsstyle=*\bfseries, emphstyle=\bfseries, commentstyle=\color{black!60},
   stringstyle=\relax, backgroundcolor=\color{white}, rulecolor=\color{black},
   numberstyle=\tiny}
-\lstset{style=codigo}
-\renewcommand{\lstlistingname}{Código}  % rótulo da legenda: "Código N"
-\renewcommand{\lstlistlistingname}{Lista de códigos}
-%%END:estilo
+%%END:estilopb
