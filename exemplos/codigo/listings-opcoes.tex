@@ -34,7 +34,13 @@
 
 \newpage
 %%BEGIN:palavraschave
-\begin{lstlisting}[language=Python, morekeywords={self, len},
+\begin{lstlisting}[language=Python]
+class Turma:
+    def media(self):
+        print(len(self.notas))
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, morekeywords={self},
                    deletekeywords={print}]
 class Turma:
     def media(self):

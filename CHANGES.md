@@ -1,5 +1,11 @@
 # Changes
 
+## 0.10.5 (2026-10-20)
+
+- `codigo/listings-opcoes.tex`, trecho `palavraschave`: o mesmo código aparece duas vezes, sem e
+  com `morekeywords`/`deletekeywords`, para o resultado mostrar a diferença. O `morekeywords`
+  acrescenta só `self` (o `len` já é palavra-chave do Python no `listings`).
+
 ## 0.10.4 (2026-10-20)
 
 - `codigo/estilo-codigo.tex`: o trecho `estilo` foi dividido em três, para o livro mostrá-los
